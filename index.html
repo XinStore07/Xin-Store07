@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -203,19 +204,125 @@ nav{position:sticky;top:0;z-index:100;background:rgba(8,8,0,0.95);backdrop-filte
 .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--gold);color:#000;padding:.65rem 1.3rem;border-radius:10px;font-weight:700;font-size:.85rem;z-index:600;transition:transform .3s;white-space:nowrap;}
 .toast.show{transform:translateX(-50%) translateY(0);}
 .toast.error{background:var(--danger);color:#fff;}
+body.rtl-arabic{direction:rtl;text-align:right;font-family:'Segoe UI',system-ui,sans-serif;}
+body.rtl-arabic .nav-logo{flex-direction:row-reverse;}
+body.rtl-arabic .nav-right{flex-direction:row-reverse;}
+body.rtl-arabic .search-wrap .s-icon{left:auto;right:1rem;}
+body.rtl-arabic .search-wrap input{padding:.65rem 2.8rem .65rem 1.3rem;}
+body.rtl-arabic .product-footer{flex-direction:row-reverse;}
+body.rtl-arabic .cats-scroll{direction:rtl;}
 footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border-top:1px solid var(--border);margin-top:2rem;}
+
+/* ANNOUNCEMENT BANNER */
+.announce-bar{background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));color:#000;text-align:center;padding:.55rem 3rem;font-size:.85rem;font-weight:700;position:relative;display:none;}
+.announce-bar.show{display:block;}
+.announce-close{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;font-weight:700;}
+
+/* WELCOME POPUP */
+.welcome-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:700;display:none;align-items:center;justify-content:center;padding:1rem;}
+.welcome-overlay.open{display:flex;}
+.welcome-box{background:var(--surface);border:2px solid var(--gold);border-radius:20px;padding:2rem;width:100%;max-width:380px;text-align:center;}
+.welcome-box .wb-logo{width:70px;height:70px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;margin-bottom:1rem;}
+.welcome-box h2{font-size:1.3rem;font-weight:800;color:var(--gold2);margin-bottom:.4rem;}
+.welcome-box p{font-size:.88rem;color:var(--muted);margin-bottom:1.1rem;line-height:1.6;}
+.welcome-code{background:rgba(201,168,76,0.15);border:2px dashed var(--gold);border-radius:12px;padding:.9rem;margin-bottom:1.1rem;}
+.welcome-code .wc-label{font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.4rem;}
+.welcome-code .wc-code{font-size:1.8rem;font-weight:900;color:var(--gold2);letter-spacing:4px;font-family:monospace;}
+.welcome-code .wc-hint{font-size:.75rem;color:var(--muted);margin-top:.3rem;}
+.welcome-shop-btn{width:100%;padding:.9rem;background:var(--gold);color:#000;border:none;border-radius:10px;font-weight:800;font-size:1rem;cursor:pointer;margin-bottom:.6rem;font-family:inherit;}
+.welcome-shop-btn:hover{background:var(--gold2);}
+.welcome-skip{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.82rem;font-family:inherit;}
+
+/* PRODUCT BADGES */
+.product-badge{position:absolute;top:.6rem;left:.6rem;padding:.25rem .6rem;border-radius:6px;font-size:.68rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;z-index:2;}
+.badge-sale{background:#ff4f4f;color:#fff;}
+.badge-new{background:var(--gold);color:#000;}
+.badge-hot{background:#ff8c00;color:#fff;}
+.badge-out{background:#555;color:#ccc;}
+.product-img{position:relative;}
+
+/* STOCK */
+.stock-bar{margin-top:.4rem;}
+.stock-label{font-size:.72rem;color:var(--muted);margin-bottom:.2rem;}
+.stock-track{background:var(--surface);border-radius:4px;height:5px;overflow:hidden;}
+.stock-fill{height:100%;border-radius:4px;background:var(--gold);transition:width .3s;}
+.stock-fill.low{background:var(--danger);}
+.stock-count{font-size:.72rem;font-weight:700;margin-top:.2rem;}
+.stock-count.low{color:var(--danger);}
+
+/* WISHLIST */
+.wishlist-btn{position:absolute;top:.6rem;right:.6rem;background:rgba(0,0,0,.6);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;}
+.wishlist-btn:hover{background:rgba(201,168,76,0.4);}
+.wishlist-btn.active{background:rgba(255,60,60,0.7);}
+
+/* STARS */
+.star-row{display:flex;align-items:center;gap:.3rem;margin-top:.25rem;}
+.stars{color:#888;font-size:.85rem;cursor:pointer;letter-spacing:1px;}
+.stars .filled{color:var(--gold2);}
+.rating-count{font-size:.72rem;color:var(--muted);}
+
+/* PRODUCT DETAIL MODAL */
+.detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:350;display:none;align-items:flex-end;justify-content:center;}
+.detail-overlay.open{display:flex;}
+@media(min-width:600px){.detail-overlay{align-items:center;}}
+.detail-modal{background:var(--surface);border:1px solid var(--border);border-radius:20px 20px 0 0;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;padding-bottom:1rem;}
+@media(min-width:600px){.detail-modal{border-radius:20px;}}
+.detail-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px 20px 0 0;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:5rem;}
+.detail-img img{width:100%;height:100%;object-fit:cover;border-radius:20px 20px 0 0;}
+.detail-body{padding:1.25rem;}
+.detail-close{float:right;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.5rem;}
+.detail-name{font-size:1.2rem;font-weight:800;margin-bottom:.3rem;}
+.detail-price{font-size:1.3rem;color:var(--gold2);font-weight:800;margin-bottom:.5rem;}
+.detail-desc{font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;}
+.detail-add{width:100%;padding:.9rem;background:var(--gold);color:#000;border:none;border-radius:10px;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;}
+.detail-add:hover{background:var(--gold2);}
+.share-btn{display:flex;align-items:center;gap:.4rem;background:transparent;border:1px solid var(--border);color:var(--muted);padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-size:.82rem;font-family:inherit;margin-top:.6rem;width:100%;justify-content:center;}
+.share-btn:hover{border-color:var(--gold);color:var(--gold2);}
+
+/* LANGUAGE TOGGLE */
+.lang-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.3rem .7rem;border-radius:6px;cursor:pointer;font-size:.78rem;font-family:inherit;}
+.lang-btn:hover{border-color:var(--gold);color:var(--gold);}
+
+/* BANNER SLIDER */
+.banner-slider{max-width:1200px;margin:0 auto 0;padding:0 1.5rem;}
+.banner-slide{border-radius:14px;overflow:hidden;position:relative;display:none;aspect-ratio:3/1;min-height:120px;background:var(--card);}
+.banner-slide.active{display:flex;align-items:center;justify-content:center;}
+.banner-slide img{width:100%;height:100%;object-fit:cover;border-radius:14px;}
+.banner-slide .bs-text{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.7),transparent);display:flex;flex-direction:column;justify-content:center;padding:1.5rem;}
+.banner-slide .bs-title{font-size:clamp(1rem,3vw,1.5rem);font-weight:800;color:#fff;margin-bottom:.3rem;}
+.banner-slide .bs-sub{font-size:clamp(.75rem,2vw,1rem);color:rgba(255,255,255,.8);}
+.banner-dots{display:flex;justify-content:center;gap:.5rem;margin-top:.6rem;}
+.banner-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s;}
+.banner-dot.active{background:var(--gold);}
+
+/* DASHBOARD */
+.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem;}
+.dash-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.9rem;text-align:center;}
+.dash-card .dc-num{font-size:1.5rem;font-weight:800;color:var(--gold2);}
+.dash-card .dc-label{font-size:.72rem;color:var(--muted);margin-top:.2rem;}
+.low-stock-list{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem;}
+.low-stock-item{background:rgba(255,79,79,0.1);border:1px solid rgba(255,79,79,0.3);border-radius:8px;padding:.6rem .8rem;font-size:.82rem;display:flex;justify-content:space-between;align-items:center;}
+
+/* AMHARIC */
+body.amharic{font-family:'Noto Sans Ethiopic','Segoe UI',system-ui,sans-serif;}
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
 </style>
 </head>
 <body>
 
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar" id="announceBar">
+  <span id="announceText">🎉 Welcome to Xin Store 07 — Fast delivery in Addis Ababa!</span>
+  <button class="announce-close" onclick="document.getElementById('announceBar').classList.remove('show')">✕</button>
+</div>
 <nav>
   <div class="nav-logo">
     <img src="https://i.imgur.com/KBogTxg.jpg" alt="Xin Store 07 Logo"/>
     <span>XIN STORE <em>07</em></span>
   </div>
   <div class="nav-right">
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇪🇹 አማ</button>
     <button class="admin-btn" onclick="openAdmin()">⚙ Admin</button>
     <button class="cart-btn" onclick="openCart()">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
   </div>
@@ -235,6 +342,12 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
   <div class="cats-scroll" id="catsScroll"></div>
 </div>
 
+<!-- BANNER SLIDER -->
+<div class="banner-slider" id="bannerSlider" style="display:none;">
+  <div id="bannerSlides"></div>
+  <div class="banner-dots" id="bannerDots"></div>
+</div>
+
 <div class="section">
   <div class="section-title" id="sectionTitle">All Products</div>
   <div class="products-grid" id="productsGrid"></div>
@@ -249,6 +362,7 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
 <div class="drawer" id="drawer">
   <div class="drawer-header">
     <h2>🛒 Your Cart</h2>
+    <button onclick="openWishlist()" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:7px;padding:.3rem .7rem;font-size:.78rem;cursor:pointer;font-family:inherit;">❤️ Wishlist</button>
     <button class="close-btn" onclick="closeCart()">×</button>
   </div>
   <div class="drawer-body" id="cartBody"></div>
@@ -264,7 +378,7 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
     <h2>📦 Complete Your Order</h2>
     <div class="form-group"><label>Full Name</label><input type="text" id="orderName" placeholder="Your name"/></div>
     <div class="form-group"><label>Phone Number</label><input type="tel" id="orderPhone" placeholder="+251 91 234 5678"/></div>
-    <div class="form-group"><label>Delivery Address</label><textarea id="orderAddress" placeholder="Street, Kebele, Sub-city…"></textarea></div>
+    <div class="form-group"><label>Area / Notes</label><textarea id="orderAddress" placeholder="Your area or any notes for delivery…" style="min-height:50px;"></textarea></div>
     <div class="form-group"><label>Note (optional)</label><input type="text" id="orderNote" placeholder="Any special request?"/></div>
 
     <!-- FULFILLMENT METHOD -->
@@ -289,7 +403,7 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
       <div class="pi-title">📍 Store Location — Piassa</div>
       <div class="pi-address">Piassa, Addis Ababa</div>
       <div class="pi-hours">🕐 Open daily · Contact us to confirm availability before coming</div>
-      <a class="pickup-map-btn" href="https://maps.google.com/?q=9.0300,38.7469" target="_blank" rel="noopener">
+      <a class="pickup-map-btn" href="https://maps.google.com/?q=9.0358,38.7521" target="_blank" rel="noopener">
         🗺 Open in Google Maps
       </a>
     </div>
@@ -341,7 +455,7 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
     <!-- PAYMENT METHOD -->
     <div class="pay-section" id="paySection">
       <div class="pay-title">💳 Choose Payment Method</div>
-      <div class="pay-methods" style="grid-template-columns:1fr 1fr;">
+      <div class="pay-methods" style="grid-template-columns:1fr 1fr 1fr;">
         <button class="pay-method" onclick="selectPayMethod('cbe')" id="pm-cbe">
           <span class="pm-icon">🏦</span><span>CBE</span>
         </button>
@@ -350,6 +464,12 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
         </button>
         <button class="pay-method" onclick="selectPayMethod('mpesa')" id="pm-mpesa">
           <span class="pm-icon">💚</span><span>M-Pesa</span>
+        </button>
+        <button class="pay-method" onclick="selectPayMethod('awash')" id="pm-awash">
+          <span class="pm-icon">🏦</span><span>Awash</span>
+        </button>
+        <button class="pay-method" onclick="selectPayMethod('abyssinia')" id="pm-abyssinia">
+          <span class="pm-icon">🏦</span><span>Abyssinia</span>
         </button>
         <button class="pay-method" onclick="selectPayMethod('arrival')" id="pm-arrival">
           <span class="pm-icon">🤝</span><span>Pay on Arrival</span>
@@ -408,9 +528,11 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
       <button class="add-btn" onclick="checkPass()">Login →</button>
     </div>
     <div class="admin-section" id="adminDash">
-      <div class="admin-tabs">
+      <div class="admin-tabs" style="flex-wrap:wrap;">
         <button class="admin-tab active" onclick="switchTab('products',this)">📦 Products</button>
         <button class="admin-tab" onclick="switchTab('categories',this)">🗂 Categories</button>
+        <button class="admin-tab" onclick="switchTab('store',this)">🏪 Store</button>
+        <button class="admin-tab" onclick="switchTab('dashboard',this)">📊 Dashboard</button>
       </div>
       <div class="tab-content active" id="tab-products">
         <div class="form-group"><label>Category</label><select id="pCat"></select></div>
@@ -418,6 +540,8 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
         <div class="form-group"><label>Description</label><input type="text" id="pDesc" placeholder="Short description"/></div>
         <div class="form-group"><label>Price</label><input type="text" id="pPrice" placeholder="e.g. 45,000 ETB"/></div>
         <div class="form-group"><label>Emoji Icon</label><input type="text" id="pEmoji" placeholder="📱 👟 🍕 👕"/></div>
+        <div class="form-group"><label>Stock Quantity (optional)</label><input type="number" id="pStock" placeholder="e.g. 20 (leave empty if unlimited)"/></div>
+        <div class="form-group"><label>Badge</label><select id="pBadge"><option value="">None</option><option value="new">✨ NEW</option><option value="sale">🔥 SALE</option><option value="hot">🌶 HOT</option></select></div>
         <div class="form-group">
           <label>Product Image</label>
           <div class="img-picker">
@@ -458,6 +582,80 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
         <button class="add-btn" onclick="addCategory()">+ Add Category</button>
         <div class="admin-list" id="adminCatList"></div>
       </div>
+
+      <div class="tab-content" id="tab-store">
+        <div style="font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;">🏪 Store Settings</div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:.9rem;">
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;">📢 Announcement Banner</div>
+          <div class="form-group"><label>Message</label><input type="text" id="announceMsg" placeholder="e.g. Free delivery today!" value="🎉 Welcome to Xin Store 07 — Fast delivery in Addis Ababa!"/></div>
+          <div style="display:flex;gap:.5rem;">
+            <button class="add-btn" style="margin-top:0;" onclick="saveAnnounce()">Show Banner</button>
+            <button onclick="hideAnnounce()" style="flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;margin-top:0;">Hide</button>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:.9rem;">
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;">🎉 Welcome Popup</div>
+          <div class="form-group"><label>Popup Title</label><input type="text" id="welcomeTitle" placeholder="Welcome to Xin Store 07!"/></div>
+          <div class="form-group"><label>Message</label><input type="text" id="welcomeMessage" placeholder="Your welcome message…"/></div>
+          <div class="form-group"><label>Discount Code (optional)</label><input type="text" id="welcomeDiscount" placeholder="e.g. XIN10 for 10% off"/></div>
+          <div style="display:flex;gap:.5rem;">
+            <button class="add-btn" style="margin-top:0;" onclick="saveWelcomePopup()">Save & Enable</button>
+            <button onclick="disableWelcomePopup()" style="flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;">Disable</button>
+          </div>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:.9rem;">
+          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;">🖼️ Homepage Banners</div>
+          <div class="form-group"><label>Banner Title</label><input type="text" id="bannerTitle" placeholder="e.g. New Arrivals!"/></div>
+          <div class="form-group"><label>Subtitle</label><input type="text" id="bannerSub" placeholder="e.g. Shop the latest electronics"/></div>
+          <div class="form-group"><label>Image URL</label><input type="text" id="bannerImg" placeholder="https://…"/></div>
+          <button class="add-btn" onclick="addBanner()">+ Add Banner Slide</button>
+          <div class="admin-list" id="adminBannerList" style="margin-top:.8rem;"></div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-dashboard">
+        <div style="font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;">📊 Store Dashboard</div>
+        <div class="dash-grid" id="dashGrid"></div>
+        <div style="font-size:.85rem;font-weight:700;margin-bottom:.5rem;color:var(--gold2);">⚠️ Low Stock Alerts</div>
+        <div class="low-stock-list" id="lowStockList"></div>
+        <div style="font-size:.85rem;font-weight:700;margin:.9rem 0 .5rem;color:var(--gold2);">❤️ Most Wishlisted</div>
+        <div class="admin-list" id="wishlistStats"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- WELCOME POPUP -->
+<div class="welcome-overlay" id="welcomeOverlay">
+  <div class="welcome-box">
+    <img src="https://i.imgur.com/KBogTxg.jpg" class="wb-logo" alt="Xin Store 07"/>
+    <h2 id="wTitle">Welcome to Xin Store 07! 🎉</h2>
+    <p id="wMsg">Ethiopia's trusted online shop. Fast delivery, genuine products, easy payment.</p>
+    <div class="welcome-code" id="welcomeCodeBox" style="display:none;">
+      <div class="wc-label">🎁 Your Welcome Discount Code</div>
+      <div class="wc-code" id="welcomeCode"></div>
+      <div class="wc-hint">Use this code when placing your order</div>
+    </div>
+    <button class="welcome-shop-btn" onclick="closeWelcome()">🛍️ Start Shopping</button>
+    <button class="welcome-skip" onclick="closeWelcome()">Skip</button>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="detail-overlay" id="detailOverlay">
+  <div class="detail-modal">
+    <div class="detail-img" id="detailImg"></div>
+    <div class="detail-body">
+      <button class="detail-close" onclick="closeDetail()">×</button>
+      <div class="product-cat-badge" id="detailCat"></div>
+      <div class="detail-name" id="detailName"></div>
+      <div class="detail-price" id="detailPrice"></div>
+      <div class="star-row" id="detailStars"></div>
+      <div class="detail-desc" id="detailDesc"></div>
+      <div id="detailStock"></div>
+      <button class="detail-add" id="detailAddBtn">Add to Cart 🛒</button>
+      <button class="share-btn" id="detailShareBtn">📤 Share this product</button>
     </div>
   </div>
 </div>
@@ -489,56 +687,113 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
       <input type="text" id="eEmoji" disabled/>
       <button class="edit-lock" id="lock-emoji" onclick="toggleLock('emoji')" title="Unlock to edit">🔒</button>
     </div>
+    <!-- Picture edit -->
+    <div style="margin-bottom:.9rem;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;">
+        <label style="font-size:.78rem;color:var(--muted);">Image</label>
+        <button onclick="toggleEditImg()" id="editImgToggle" style="background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:7px;padding:.3rem .7rem;cursor:pointer;font-size:.75rem;font-family:inherit;">🔒 Locked — tap to change</button>
+      </div>
+      <div id="editImgSection" style="display:none;">
+        <!-- Current image preview -->
+        <div id="eCurrentImgWrap" style="margin-bottom:.6rem;border-radius:10px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3;background:var(--surface);display:none;">
+          <img id="eCurrentImg" src="" style="width:100%;height:100%;object-fit:cover;"/>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-bottom:.5rem;">
+          <button class="img-src-btn" onclick="editImgMode('gallery')">🖼 Gallery</button>
+          <button class="img-src-btn" onclick="editImgMode('camera')">📷 Camera</button>
+          <button class="img-src-btn" onclick="editImgMode('url')">🔗 URL</button>
+        </div>
+        <input type="file" id="eImgFile" accept="image/*" style="display:none" onchange="editImgFileChosen(this)"/>
+        <div class="cam-wrap" id="editCamWrap" style="display:none;">
+          <video id="editCamVideo" autoplay playsinline muted></video>
+          <canvas id="editCamCanvas"></canvas>
+          <div class="cam-actions">
+            <button class="cam-snap" onclick="editCamSnap()">📸 Snap Photo</button>
+            <button class="cam-cancel" onclick="editCamStop()">✕ Cancel</button>
+          </div>
+        </div>
+        <div class="img-url-row" id="editImgUrlRow" style="display:none;">
+          <input type="text" id="eImgUrl" placeholder="https://example.com/photo.jpg" oninput="editImgUrlPreview(this.value)"/>
+          <button onclick="editImgUrlPreview(document.getElementById('eImgUrl').value)">Preview</button>
+        </div>
+        <div class="img-preview-wrap" id="editImgPreviewWrap" style="display:none;">
+          <img id="editImgPreviewEl" src="" alt="New image"/>
+          <button class="img-preview-clear" onclick="clearEditImg()">✕</button>
+        </div>
+      </div>
+    </div>
     <div class="edit-actions">
       <button class="edit-cancel" onclick="closeEditModal()">Cancel</button>
       <button class="edit-save" onclick="saveEdit()">Save Changes ✅</button>
     </div>
   </div>
 </div>
+<!-- ABOUT SECTION -->
+<div style="max-width:1200px;margin:0 auto 2rem;padding:0 1.5rem;">
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2rem;text-align:center;">
+    <img src="https://i.imgur.com/KBogTxg.jpg" alt="Xin Store 07" style="width:90px;height:90px;border-radius:50%;border:2px solid var(--gold);margin-bottom:1.25rem;object-fit:cover;"/>
+    <h2 style="font-size:1.4rem;font-weight:800;color:var(--gold2);margin-bottom:.4rem;">Xin Store 07</h2>
+    <p style="font-size:.82rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.25rem;">Trust · Quality · Value · You</p>
+    <p style="font-size:.92rem;color:var(--muted);max-width:520px;margin:0 auto 1.5rem;line-height:1.7;">
+      Xin Store 07 is your trusted online shop based in <strong style="color:var(--text);">Addis Ababa, Ethiopia</strong>. 
+      We offer a wide range of products — from food and electronics to clothing, beauty, and more — 
+      all delivered straight to your door with fast, reliable service.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;max-width:500px;margin:0 auto 1.5rem;">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
+        <div style="font-size:1.5rem;margin-bottom:.3rem;">🚀</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">Fast Delivery</div>
+        <div style="font-size:.75rem;color:var(--muted);">Same day in Addis</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
+        <div style="font-size:1.5rem;margin-bottom:.3rem;">✅</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">Trusted Quality</div>
+        <div style="font-size:.75rem;color:var(--muted);">100% genuine products</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
+        <div style="font-size:1.5rem;margin-bottom:.3rem;">💳</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">Easy Payment</div>
+        <div style="font-size:.75rem;color:var(--muted);">CBE, TeleBirr & more</div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
+        <div style="font-size:1.5rem;margin-bottom:.3rem;">🎧</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">24/7 Support</div>
+        <div style="font-size:.75rem;color:var(--muted);">Always here to help</div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:1.25rem;display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;">
+      <a href="https://t.me/xinstore07" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,0.12);border:1px solid var(--gold);color:var(--gold2);padding:.55rem 1.1rem;border-radius:50px;text-decoration:none;font-size:.85rem;font-weight:700;">
+        ✈️ Telegram
+      </a>
+      <a href="tel:+251945199496" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,0.12);border:1px solid var(--gold);color:var(--gold2);padding:.55rem 1.1rem;border-radius:50px;text-decoration:none;font-size:.85rem;font-weight:700;">
+        📞 Call Us
+      </a>
+      <a href="https://wa.me/251945199496" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,0.12);border:1px solid var(--gold);color:var(--gold2);padding:.55rem 1.1rem;border-radius:50px;text-decoration:none;font-size:.85rem;font-weight:700;">
+        💬 WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
 <footer>© 2025 Xin Store 07 · Trust · Quality · Value · You</footer>
 
 <script>
-// ─── SECURITY ────────────────────────────────────────────────────────────────
-// The Telegram BOT_TOKEN is NOT stored in this page.
-// Orders are sent via Claude API proxy — the token lives in the server-side
-// system prompt and is never exposed to the browser or dev tools.
-// Admin login uses SHA-256 hashing — the plaintext password is never in source.
-// ─────────────────────────────────────────────────────────────────────────────
-
-// SHA-256 of "xinstore2024" — replace with hash of your password to change it
-const PASS_HASH = "852c822a4a605114c9c10bacb9ab22071051878c3ae5b10b54976753c1f28667";
-const CHAT_ID   = "7984414010";  // Not secret — it's just your Telegram chat ID
+const BOT_TOKEN = atob("ODYzODA5MTQ0NDpBQUYxbFppTWFpQlVDdENuUHFkQ3RMajJqMUo1bUdtWDJqUQ==");
+const CHAT_ID   = "7984414010";
+const ADMIN_PASSWORD = atob("eGluc3RvcmUyMDI0");
 
 async function sha256(str) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
   return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
 }
 
-// Sends order to Telegram via Claude API proxy.
-// The BOT_TOKEN is injected by Anthropic's infrastructure in the system prompt
-// and never appears in browser-visible source.
 async function sendTelegramViaProxy(text) {
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-6",
-      max_tokens: 256,
-      messages: [{
-        role: "user",
-        content: `SEND_TELEGRAM:${JSON.stringify({ chat_id: CHAT_ID, text })}`
-      }]
-    })
+  const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'Markdown' })
   });
-  const data = await res.json();
-  // The proxy returns Telegram's response; if it confirms "ok" we treat as success
-  const reply = (data.content || []).map(b => b.text || "").join("");
-  const match = reply.match(/\{[\s\S]*\}/);
-  if (match) {
-    try { return JSON.parse(match[0]); } catch(_) {}
-  }
-  // If proxy handled it without returning JSON, treat as success
-  return { ok: true };
+  return await res.json();
 }
 
 const DEFAULT_CATS = [
@@ -588,8 +843,9 @@ async function save(){
 function searchProducts(q){ searchQuery=q.toLowerCase(); renderProducts(); }
 
 function renderCatsBar(){
+  const t=TRANSLATIONS[LANGS[currentLangIdx]||'en'];
   const bar=document.getElementById('catsScroll');
-  bar.innerHTML=`<div class="cat-pill ${activeFilter==='all'?'active':''}" onclick="filterCat('all')">✨ All</div>`;
+  bar.innerHTML=`<div class="cat-pill ${activeFilter==='all'?'active':''}" onclick="filterCat('all')">${t.all}</div>`;
   categories.forEach(c=>{
     bar.innerHTML+=`<div class="cat-pill ${activeFilter===c.id?'active':''}" onclick="filterCat('${c.id}')">${c.emoji} ${c.name}</div>`;
   });
@@ -604,6 +860,7 @@ function filterCat(id){
 }
 
 function renderProducts(){
+  const t=TRANSLATIONS[LANGS[currentLangIdx]||'en'];
   const grid=document.getElementById('productsGrid');
   const empty=document.getElementById('emptyState');
   let filtered=activeFilter==='all'?products:products.filter(p=>p.cat===activeFilter);
@@ -616,15 +873,30 @@ function renderProducts(){
     const cat=categories.find(c=>c.id===p.cat);
     const div=document.createElement('div');
     div.className='product-card';
+    const isWished=wishlist.includes(realIdx);
+    const badge=p.badge?`<div class="product-badge badge-${p.badge}">${p.badge==='sale'?'🔥 SALE':p.badge==='new'?'✨ NEW':p.badge==='hot'?'🌶 HOT':'OUT'}</div>`:'';
+    const stockOut=p.stock!==undefined&&p.stock<=0;
+    const stockLow=p.stock!==undefined&&p.stock>0&&p.stock<=5;
+    const stockBar=p.stock!==undefined?`<div class="stock-bar"><div class="stock-label">Stock</div><div class="stock-track"><div class="stock-fill ${stockLow?'low':''}" style="width:${Math.min(100,p.stock/20*100)}%"></div></div><div class="stock-count ${stockLow||stockOut?'low':''}">${stockOut?'Out of stock':stockLow?'Only '+p.stock+' left!':p.stock+' in stock'}</div></div>`:'';
+    const avg=p.ratings&&p.ratings.length?p.ratings.reduce((a,b)=>a+b,0)/p.ratings.length:0;
+    const stars=avg?'★'.repeat(Math.round(avg))+'☆'.repeat(5-Math.round(avg)):'☆☆☆☆☆';
     div.innerHTML=`
-      <div class="product-img">${p.img?`<img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='${p.emoji||'📦'}'"/>`:(p.emoji||'📦')}</div>
+      <div class="product-img" onclick="openDetail(${realIdx})" style="cursor:pointer;">
+        ${badge}
+        <button class="wishlist-btn ${isWished?'active':''}" onclick="event.stopPropagation();toggleWishlist(${realIdx})" title="Wishlist">${isWished?'❤️':'🤍'}</button>
+        ${p.img?`<img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='${p.emoji||'📦'}'"/>`:(p.emoji||'📦')}
+      </div>
       <div class="product-info">
         ${cat?`<div class="product-cat-badge">${cat.emoji} ${cat.name}</div>`:''}
-        <div class="product-name">${p.name}</div>
+        <div class="product-name" onclick="openDetail(${realIdx})" style="cursor:pointer;">${p.name}</div>
+        ${avg?`<div class="star-row"><span class="stars">${stars}</span><span class="rating-count">(${p.ratings.length})</span></div>`:''}
         <div class="product-desc">${p.desc||''}</div>
+        ${stockBar}
         <div class="product-footer">
           <div class="product-price">${p.price}</div>
-          <button class="add-cart" onclick="addToCart(${realIdx})">Add to Cart</button>
+          <button class="add-cart" onclick="addToCart(${realIdx})" ${stockOut?'disabled style="opacity:.5;cursor:not-allowed;"':''}>
+            ${stockOut?t.out_stock:t.add_cart}
+          </button>
         </div>
       </div>`;
     grid.appendChild(div);
@@ -712,7 +984,7 @@ function openOrderForm(){
   currentOrderCode='';
   fulfillmentMode='';
   const sb=document.getElementById('submitBtn');
-  sb.disabled=true;sb.style.opacity='.5';sb.style.cursor='not-allowed';sb.textContent='Detect location first';
+  sb.disabled=true;sb.style.opacity='.5';sb.style.cursor='not-allowed';sb.textContent='Choose delivery or pickup';
   orderDeliveryKm=0;orderDeliveryFee=0;customerLat=null;customerLng=null;
 }
 function closeOrderForm(){document.getElementById('orderModal').classList.remove('open');}
@@ -787,17 +1059,16 @@ async function submitOrder(){
   const note=document.getElementById('orderNote').value.trim();
   if(!name||!phone||!address){showToast('⚠️ Fill name, phone & address',true);return;}
   if(!fulfillmentMode){showToast('⚠️ Please choose delivery or pickup',true);return;}
-  if(fulfillmentMode==='delivery'&&!customerLat){showToast('⚠️ Please detect your location first',true);return;}
   if(!selectedPayMethod){showToast('⚠️ Please choose a payment method',true);return;}
   if(selectedPayMethod!=='arrival'&&!receiptDataUrl){showToast('⚠️ Please upload your payment receipt',true);return;}
   const grandTotal=orderItemsTotal>0?(orderItemsTotal+orderDeliveryFee).toLocaleString()+' birr':'items + '+orderDeliveryFee.toLocaleString()+' birr delivery';
   const itemsText=cart.map((p,i)=>`  ${i+1}. ${p.emoji||'📦'} ${p.name} x${p.qty} — ${p.price}`).join('\n');
-  const PAY_LABELS={cbe:'🏦 CBE Bank',telebirr:'📱 TeleBirr',mpesa:'💚 M-Pesa',arrival:'🤝 Pay on Arrival (Cash)'};
+  const PAY_LABELS={cbe:'🏦 CBE Bank',telebirr:'📱 TeleBirr',mpesa:'💚 M-Pesa',awash:'🏦 Awash Bank',abyssinia:'🏦 Abyssinia Bank',arrival:'🤝 Pay on Arrival (Cash)'};
   const orderCode = currentOrderCode || 'N/A';
-  const PAY_ACCOUNTS={cbe:'1000643819671 (Dagmawi Tadesse)',telebirr:'0945199496 (M)',mpesa:'0717384931',arrival:'—'};
+  const PAY_ACCOUNTS={cbe:'1000643819671 (Dagmawi Tadesse)',telebirr:'0945199496 (Dagmawi Tadesse)',mpesa:'0717384931 (Dagmawi Tadesse)',awash:'013351115721702 (Dagmawi Tadesse)',abyssinia:'219570667 (Dagmawi Tadesse)',arrival:'—'};
   const fulfillLabel = fulfillmentMode==='pickup' ? '🏪 Pickup at Piassa (no delivery fee)' : '🛵 Delivery to customer';
   const payNote = selectedPayMethod==='arrival' ? '\n💵 *Payment:* Cash on arrival — collect from customer' : `\n💳 *Payment Method:* ${PAY_LABELS[selectedPayMethod]}\n🔢 *Account:* ${PAY_ACCOUNTS[selectedPayMethod]}\n🔖 *Verify receipt note says:* \`${orderCode}\`\n🧾 *Receipt:* Attached below`;
-  const msg=`🛍️ *NEW ORDER — XIN STORE 07*\n\n🔖 *Order Code:* \`${orderCode}\`\n📦 *Fulfillment:* ${fulfillLabel}\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${address}\n${note?`📝 *Note:* ${note}\n`:''}\n📦 *Order Items:*\n${itemsText}\n\n━━━━━━━━━━━━━━\n${orderItemsTotal>0?`🛍 *Items Total:* ${orderItemsTotal.toLocaleString()} birr\n`:''}${fulfillmentMode==='pickup'?'🏪 *Pickup:* Customer will collect from Piassa\n':'🚚 *Distance from Piassa:* '+orderDeliveryKm+' km\n💰 *Delivery Fee:* '+orderDeliveryFee.toLocaleString()+' birr ('+orderDeliveryKm+' km × 30)\n'}━━━━━━━━━━━━━━\n✅ *TOTAL TO COLLECT:* ${grandTotal}\n━━━━━━━━━━━━━━${payNote}\n━━━━━━━━━━━━━━\n🗺 *Customer Location:* https://maps.google.com/?q=${customerLat},${customerLng}\n\n⏰ ${new Date().toLocaleString()}`;
+  const msg=`🛍️ *NEW ORDER — XIN STORE 07*\n\n🔖 *Order Code:* \`${orderCode}\`\n📦 *Fulfillment:* ${fulfillLabel}\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${address}\n${note?`📝 *Note:* ${note}\n`:''}\n📦 *Order Items:*\n${itemsText}\n\n━━━━━━━━━━━━━━\n${orderItemsTotal>0?`🛍 *Items Total:* ${orderItemsTotal.toLocaleString()} birr\n`:''}${fulfillmentMode==='pickup'?'🏪 *Pickup:* Customer will collect from Piassa\n':'🚚 *Distance from Piassa:* '+orderDeliveryKm+' km\n💰 *Delivery Fee:* '+orderDeliveryFee.toLocaleString()+' birr ('+orderDeliveryKm+' km × 30)\n'}━━━━━━━━━━━━━━\n✅ *TOTAL TO COLLECT:* ${grandTotal}\n━━━━━━━━━━━━━━${payNote}\n━━━━━━━━━━━━━━\n\n⏰ ${new Date().toLocaleString()}`;
   const sb=document.getElementById('submitBtn');
   sb.disabled=true;sb.textContent='Sending…';
   try{
@@ -832,7 +1103,7 @@ async function getProxyBotToken() {
   // The token is injected server-side; we retrieve it via a lightweight API call
   // For standalone deployment: replace this with your actual token in a .env / backend
   // In this artifact context, the proxy handles auth transparently
-  return atob("ODYzODA5MTQ0NDpBQUYxbFppTWFpQlVDdENuUHFkQ3RMajJqMUo1bUdtWDJqUQ==");
+  return BOT_TOKEN;
 }
 
 // ── FULFILLMENT ──────────────────────────────────────────────────────────────
@@ -902,10 +1173,12 @@ function copyOrderCode() {
 }
 // ── PAYMENT ──────────────────────────────────────────────────────────────────
 const PAY_INFO = {
-  cbe:      { label:'🏦 CBE Bank Transfer', account:'1000643819671', name:'Dagmawi Tadesse' },
-  telebirr: { label:'📱 TeleBirr',          account:'0945199496',    name:'Dagmawi Tadesse' },
-  mpesa:    { label:'💚 M-Pesa',            account:'0717384931',    name:'Dagmawi Tadesse' },
-  arrival:  { label:'🤝 Pay on Arrival',    account:'',              name:'' }
+  cbe:      { label:'🏦 CBE Bank Transfer', account:'1000643819671',   name:'Dagmawi Tadesse' },
+  telebirr: { label:'📱 TeleBirr',          account:'0945199496',      name:'Dagmawi Tadesse' },
+  mpesa:    { label:'💚 M-Pesa',            account:'0717384931',      name:'Dagmawi Tadesse' },
+  awash:    { label:'🏦 Awash Bank',        account:'013351115721702', name:'Dagmawi Tadesse' },
+  abyssinia:{ label:'🏦 Abyssinia Bank',    account:'219570667',       name:'Dagmawi Tadesse' },
+  arrival:  { label:'🤝 Pay on Arrival',    account:'',                name:'' }
 };
 let selectedPayMethod = '';
 let receiptDataUrl    = '';
@@ -966,8 +1239,6 @@ function checkSubmitReady() {
   const sb = document.getElementById('submitBtn');
   if (!fulfillmentMode) {
     sb.disabled=true; sb.style.opacity='.5'; sb.style.cursor='not-allowed'; sb.textContent='Choose delivery or pickup';
-  } else if (fulfillmentMode==='delivery' && !customerLat) {
-    sb.disabled=true; sb.style.opacity='.5'; sb.style.cursor='not-allowed'; sb.textContent='Detect location first';
   } else if (!selectedPayMethod) {
     sb.disabled=true; sb.style.opacity='.5'; sb.style.cursor='not-allowed'; sb.textContent='Choose payment method';
   } else if (selectedPayMethod !== 'arrival' && !receiptDataUrl) {
@@ -983,8 +1254,7 @@ function openAdmin(){document.getElementById('adminOverlay').classList.add('open
 function closeAdmin(){document.getElementById('adminOverlay').classList.remove('open');}
 async function checkPass(){
   const entered = document.getElementById('adminPass').value;
-  const hash = await sha256(entered);
-  if(hash === PASS_HASH){
+  if(entered === ADMIN_PASSWORD){
     document.getElementById('adminLogin').classList.remove('active');
     document.getElementById('adminDash').classList.add('active');
     renderAdminCatSelect();renderAdminProducts();renderAdminCats();
@@ -995,6 +1265,8 @@ function switchTab(t,btn){
   document.querySelectorAll('.admin-tab').forEach(el=>el.classList.remove('active'));
   document.getElementById('tab-'+t).classList.add('active');
   btn.classList.add('active');
+  if(t==='dashboard') renderDashboard();
+  if(t==='store') renderAdminBanners();
 }
 function renderAdminCatSelect(){
   document.getElementById('pCat').innerHTML=categories.map(c=>`<option value="${c.id}">${c.emoji} ${c.name}</option>`).join('');
@@ -1089,10 +1361,15 @@ function addProduct(){
   const price=document.getElementById('pPrice').value.trim();
   const emoji=document.getElementById('pEmoji').value.trim();
   const img=_pickedImgData || (document.getElementById('pImg') ? document.getElementById('pImg').value.trim() : '');
+  const stockVal=document.getElementById('pStock')?.value;
+  const badge=document.getElementById('pBadge')?.value||'';
+  const stock=stockVal!==''&&stockVal!==undefined?parseInt(stockVal):undefined;
   if(!name||!price){showToast('⚠️ Name & price required',true);return;}
-  products.push({cat,name,desc,price,emoji:emoji||'📦',img});
+  products.push({cat,name,desc,price,emoji:emoji||'📦',img,stock,badge});
   save();renderProducts();renderAdminProducts();
   ['pName','pDesc','pPrice','pEmoji'].forEach(id=>document.getElementById(id).value='');
+  if(document.getElementById('pStock'))document.getElementById('pStock').value='';
+  if(document.getElementById('pBadge'))document.getElementById('pBadge').value='';
   clearImgPicker();
   showToast(`✅ "${name}" added!`);
 }
@@ -1137,11 +1414,19 @@ function openEditModal(i) {
     lock.textContent = '🔒'; lock.classList.remove('unlocked');
   });
   document.getElementById('editModal').classList.add('open');
+  _editImgData = '';
+  // Show current image
+  const imgWrap = document.getElementById('eCurrentImgWrap');
+  const imgEl = document.getElementById('eCurrentImg');
+  if(p.img){ imgEl.src=p.img; imgWrap.style.display='block'; } else { imgWrap.style.display='none'; }
 }
 
 function closeEditModal() {
   document.getElementById('editModal').classList.remove('open');
-  _editIdx = -1;
+  _editIdx = -1; _editImgData = '';
+  editCamStop();
+  document.getElementById('editImgSection').style.display = 'none';
+  document.getElementById('editImgToggle').textContent = '🔒 Locked — tap to change';
 }
 
 function toggleLock(field) {
@@ -1156,16 +1441,87 @@ function toggleLock(field) {
 
 function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
 
+// ── EDIT IMAGE ───────────────────────────────────────────────────────────────
+let _editImgData = '';
+let _editCamStream = null;
+
+function toggleEditImg() {
+  const section = document.getElementById('editImgSection');
+  const btn = document.getElementById('editImgToggle');
+  const isOpen = section.style.display !== 'none';
+  section.style.display = isOpen ? 'none' : 'block';
+  btn.textContent = isOpen ? '🔒 Locked — tap to change' : '🔓 Unlocked — choose image';
+  btn.style.color = isOpen ? 'var(--muted)' : 'var(--gold2)';
+  btn.style.borderColor = isOpen ? 'var(--border)' : 'var(--gold)';
+  if (!isOpen) { _editImgData = ''; clearEditImg(); }
+}
+
+function editImgMode(mode) {
+  document.getElementById('editCamWrap').style.display = 'none';
+  document.getElementById('editImgUrlRow').style.display = 'none';
+  editCamStop();
+  if (mode === 'gallery') { document.getElementById('eImgFile').click(); }
+  else if (mode === 'camera') { document.getElementById('editCamWrap').style.display = 'flex'; editCamStart(); }
+  else { document.getElementById('editImgUrlRow').style.display = 'flex'; document.getElementById('eImgUrl').focus(); }
+}
+
+function editImgFileChosen(input) {
+  const file = input.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => { _editImgData = e.target.result; showEditImgPreview(_editImgData); };
+  reader.readAsDataURL(file); input.value = '';
+}
+
+function editImgUrlPreview(url) {
+  if (!url) return; _editImgData = url.trim(); showEditImgPreview(_editImgData);
+}
+
+function showEditImgPreview(src) {
+  document.getElementById('editImgPreviewEl').src = src;
+  document.getElementById('editImgPreviewWrap').style.display = 'block';
+}
+
+function clearEditImg() {
+  _editImgData = '';
+  document.getElementById('editImgPreviewWrap').style.display = 'none';
+  document.getElementById('editImgPreviewEl').src = '';
+  if (document.getElementById('eImgUrl')) document.getElementById('eImgUrl').value = '';
+}
+
+async function editCamStart() {
+  try {
+    _editCamStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+    document.getElementById('editCamVideo').srcObject = _editCamStream;
+  } catch(e) { showToast('❌ Camera access denied', true); document.getElementById('editCamWrap').style.display = 'none'; }
+}
+
+function editCamStop() {
+  if (_editCamStream) { _editCamStream.getTracks().forEach(t => t.stop()); _editCamStream = null; }
+  document.getElementById('editCamWrap').style.display = 'none';
+}
+
+function editCamSnap() {
+  const video = document.getElementById('editCamVideo');
+  const canvas = document.getElementById('editCamCanvas');
+  canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  _editImgData = canvas.toDataURL('image/jpeg', 0.85);
+  showEditImgPreview(_editImgData); editCamStop();
+}
+// ── END EDIT IMAGE ────────────────────────────────────────────────────────────
+
 function saveEdit() {
   if(_editIdx < 0) return;
   const p = products[_editIdx];
   EDIT_FIELDS.forEach(f => {
     const input = document.getElementById('e'+cap(f));
-    if(!input.disabled) { // only save unlocked fields
+    if(!input.disabled) {
       const val = input.value.trim();
       if(val) p[f] = val;
     }
   });
+  // Save new image if one was picked
+  if(_editImgData) { p.img = _editImgData; }
   save(); renderProducts(); renderAdminProducts();
   closeEditModal();
   showToast('✅ Product updated!');
@@ -1215,6 +1571,309 @@ function showToast(msg,isError=false){
   t.textContent=msg;t.className='toast'+(isError?' error':'');t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3000);
 }
+
+// ════════════════════════════════════════════════════════════════════
+// NEW FEATURES JS
+// ════════════════════════════════════════════════════════════════════
+
+// ── WISHLIST ─────────────────────────────────────────────────────────
+let wishlist = JSON.parse(localStorage.getItem('xin_wishlist')||'[]');
+function toggleWishlist(i){
+  const idx=wishlist.indexOf(i);
+  if(idx>-1){wishlist.splice(idx,1);showToast('💔 Removed from wishlist');}
+  else{wishlist.push(i);showToast('❤️ Added to wishlist!');}
+  localStorage.setItem('xin_wishlist',JSON.stringify(wishlist));
+  renderProducts();
+}
+function openWishlist(){
+  if(!wishlist.length){showToast('Your wishlist is empty',true);return;}
+  const items=wishlist.map(i=>products[i]).filter(Boolean);
+  const body=document.getElementById('cartBody');
+  const footer=document.getElementById('drawerFooter');
+  body.innerHTML='<div style="font-size:.82rem;color:var(--gold);font-weight:700;margin-bottom:.8rem;text-align:center;">❤️ YOUR WISHLIST</div>';
+  items.forEach((p,n)=>{
+    const d=document.createElement('div');d.className='cart-item';
+    d.innerHTML=`<div class="cart-item-emoji">${p.emoji||'📦'}</div>
+      <div class="cart-item-info"><div class="cart-item-name">${p.name}</div><div class="cart-item-price">${p.price}</div></div>
+      <button onclick="addToCart(wishlist[${n}]);renderCart();" style="background:var(--gold);border:none;color:#000;border-radius:7px;padding:.35rem .7rem;cursor:pointer;font-size:.75rem;font-weight:700;">Add</button>`;
+    body.appendChild(d);
+  });
+  footer.style.display='none';
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+}
+
+// ── PRODUCT DETAIL ────────────────────────────────────────────────────
+function openDetail(i){
+  const p=products[i];
+  const cat=categories.find(c=>c.id===p.cat);
+  const overlay=document.getElementById('detailOverlay');
+  const imgEl=document.getElementById('detailImg');
+  imgEl.innerHTML=p.img?`<img src="${p.img}" alt="${p.name}"/>`:(p.emoji||'📦');
+  document.getElementById('detailCat').textContent=cat?cat.emoji+' '+cat.name:'';
+  document.getElementById('detailName').textContent=p.name;
+  document.getElementById('detailPrice').textContent=p.price;
+  document.getElementById('detailDesc').textContent=p.desc||'No description available.';
+  // Stars
+  const avg=p.ratings&&p.ratings.length?p.ratings.reduce((a,b)=>a+b,0)/p.ratings.length:0;
+  const starsEl=document.getElementById('detailStars');
+  starsEl.innerHTML='';
+  for(let s=1;s<=5;s++){
+    const btn=document.createElement('button');
+    btn.style.cssText='background:none;border:none;cursor:pointer;font-size:1.2rem;padding:0;';
+    btn.textContent=s<=Math.round(avg)?'★':'☆';
+    btn.style.color=s<=Math.round(avg)?'var(--gold2)':'#555';
+    btn.onclick=()=>rateProduct(i,s);
+    starsEl.appendChild(btn);
+  }
+  if(p.ratings&&p.ratings.length){
+    const c=document.createElement('span');c.className='rating-count';c.textContent=`${avg.toFixed(1)} (${p.ratings.length} reviews)`;
+    starsEl.appendChild(c);
+  }
+  // Stock
+  const stockEl=document.getElementById('detailStock');
+  if(p.stock!==undefined){
+    const stockOut=p.stock<=0;
+    stockEl.innerHTML=`<div style="font-size:.82rem;color:${stockOut?'var(--danger)':p.stock<=5?'var(--danger)':'var(--gold)'};font-weight:700;margin-bottom:.6rem;">${stockOut?'❌ Out of Stock':p.stock<=5?'⚠️ Only '+p.stock+' left!':'✅ In Stock ('+p.stock+')'}</div>`;
+  } else { stockEl.innerHTML=''; }
+  // Add button
+  const addBtn=document.getElementById('detailAddBtn');
+  addBtn.onclick=()=>{addToCart(i);closeDetail();};
+  // Share button
+  document.getElementById('detailShareBtn').onclick=()=>{
+    const url=window.location.href;
+    const text=`Check out ${p.name} at Xin Store 07! ${p.price} — ${url}`;
+    if(navigator.share){navigator.share({title:p.name,text,url});}
+    else if(navigator.clipboard){navigator.clipboard.writeText(text);showToast('📋 Link copied!');}
+    else{showToast('📋 Share: '+url);}
+  };
+  overlay.classList.add('open');
+}
+function closeDetail(){document.getElementById('detailOverlay').classList.remove('open');}
+function rateProduct(i,stars){
+  if(!products[i].ratings)products[i].ratings=[];
+  products[i].ratings.push(stars);
+  save();openDetail(i);showToast('⭐ Thanks for rating!');
+}
+
+// ── LANGUAGE TOGGLE ───────────────────────────────────────────────────
+const TRANSLATIONS = {
+  en: {
+    hero_tag:'XIN STORE 07 · ONLINE SHOP',
+    hero_h1:'Shop <em>Everything</em><br/>In One Place',
+    hero_p:'Food, electronics, shoes, clothing & more — browse, add to cart, and we’ll deliver to you.',
+    search:'Search products…',
+    all:'✨ All',
+    add_cart:'Add to Cart',
+    out_stock:'Out of Stock',
+    empty:'No products in this category yet.',
+    toast_lang:'🇬🇧 English selected',
+  },
+  am: {
+    hero_tag:'ዢን ስቶር 07 · የኦንላይን ሱቅ',
+    hero_h1:'<em>ሁሉንም</em> በአንድ ቦታ<br/>ይግዙ',
+    hero_p:'ምግብ፣ ኤሌክትሮኒክስ፣ ጫማ፣ ልብስ — ያስሱ፣ ወደ ጋሪ ጨምሩ፣ እናደርሳለን።',
+    search:'ምርቶችን ይፈልጉ…',
+    all:'✨ ሁሉም',
+    add_cart:'ወደ ጋሪ ጨምር',
+    out_stock:'አልቋል',
+    empty:'በዚህ ምድብ ምርቶች የሉም።',
+    toast_lang:'🇪🇹 አማርኛ ተመረጠ',
+  },
+  fr: {
+    hero_tag:'XIN STORE 07 · BOUTIQUE EN LIGNE',
+    hero_h1:'Achetez <em>Tout</em><br/>En Un Seul Endroit',
+    hero_p:'Nourriture, électronique, chaussures, vêtements & plus — parcourez et commandez, on vous livre.',
+    search:'Rechercher des produits…',
+    all:'✨ Tout',
+    add_cart:'Ajouter au panier',
+    out_stock:'Rupture de stock',
+    empty:'Aucun produit dans cette catégorie.',
+    toast_lang:'🇫🇷 Français sélectionné',
+  },
+  ar: {
+    hero_tag:'زين ستور 07 · متجر إلكتروني',
+    hero_h1:'تسوّق <em>كل شيء</em><br/>في مكان واحد',
+    hero_p:'طعام، إلكترونيات، أحذية، ملابس والمزيد — تصفّح، أضف للسلة، وسنوصّل إليك.',
+    search:'ابحث عن منتجات…',
+    all:'✨ الكل',
+    add_cart:'أضف للسلة',
+    out_stock:'نفد المخزون',
+    empty:'لا توجد منتجات في هذه الفئة بعد.',
+    toast_lang:'🇸🇦 تم اختيار العربية',
+  }
+};
+
+const LANGS = ['en','am','fr','ar'];
+const LANG_BTNS = ['🇬🇧 EN','🇪🇹 አማ','🇫🇷 FR','🇸🇦 عر'];
+let currentLangIdx = 0;
+
+function toggleLang(){
+  currentLangIdx = (currentLangIdx + 1) % LANGS.length;
+  const lang = LANGS[currentLangIdx];
+  const t = TRANSLATIONS[lang];
+  const btn = document.getElementById('langBtn');
+  btn.textContent = LANG_BTNS[currentLangIdx];
+  document.body.classList.toggle('amharic', lang==='am');
+  document.body.classList.toggle('rtl-arabic', lang==='ar');
+  document.documentElement.setAttribute('dir', lang==='ar' ? 'rtl' : 'ltr');
+  document.querySelector('.hero-tag').textContent = t.hero_tag;
+  document.querySelector('.hero h1').innerHTML = t.hero_h1;
+  document.querySelector('.hero p').textContent = t.hero_p;
+  document.getElementById('searchInput').placeholder = t.search;
+  showToast(t.toast_lang);
+  renderCatsBar();
+  renderProducts();
+}
+
+// ── WELCOME POPUP ─────────────────────────────────────────────────────
+let welcomeSettings=JSON.parse(localStorage.getItem('xin_welcome')||'{}');
+function initWelcome(){
+  if(!welcomeSettings.enabled)return;
+  const seen=sessionStorage.getItem('xin_welcome_seen');
+  if(seen)return;
+  sessionStorage.setItem('xin_welcome_seen','1');
+  document.getElementById('wTitle').textContent=welcomeSettings.title||'Welcome to Xin Store 07! 🎉';
+  document.getElementById('wMsg').textContent=welcomeSettings.msg||'Ethiopia’s trusted online shop.';
+  if(welcomeSettings.code){
+    document.getElementById('welcomeCode').textContent=welcomeSettings.code;
+    document.getElementById('welcomeCodeBox').style.display='block';
+  } else {
+    document.getElementById('welcomeCodeBox').style.display='none';
+  }
+  setTimeout(()=>document.getElementById('welcomeOverlay').classList.add('open'),1200);
+}
+function closeWelcome(){document.getElementById('welcomeOverlay').classList.remove('open');}
+function saveWelcomePopup(){
+  welcomeSettings={
+    enabled:true,
+    title:document.getElementById('welcomeTitle').value||'Welcome to Xin Store 07! 🎉',
+    msg:document.getElementById('welcomeMessage').value||'Ethiopia’s trusted online shop.',
+    code:document.getElementById('welcomeDiscount').value||''
+  };
+  localStorage.setItem('xin_welcome',JSON.stringify(welcomeSettings));
+  showToast('✅ Welcome popup saved & enabled!');
+}
+function disableWelcomePopup(){
+  welcomeSettings.enabled=false;
+  localStorage.setItem('xin_welcome',JSON.stringify(welcomeSettings));
+  showToast('Welcome popup disabled');
+}
+
+// ── ANNOUNCEMENT BAR ──────────────────────────────────────────────────
+let announceSettings=JSON.parse(localStorage.getItem('xin_announce')||'{}');
+function initAnnounce(){
+  if(!announceSettings.enabled)return;
+  document.getElementById('announceText').textContent=announceSettings.msg||'🎉 Welcome to Xin Store 07!';
+  document.getElementById('announceBar').classList.add('show');
+}
+function saveAnnounce(){
+  const msg=document.getElementById('announceMsg').value||'🎉 Welcome to Xin Store 07!';
+  announceSettings={enabled:true,msg};
+  localStorage.setItem('xin_announce',JSON.stringify(announceSettings));
+  document.getElementById('announceText').textContent=msg;
+  document.getElementById('announceBar').classList.add('show');
+  showToast('✅ Banner shown!');
+}
+function hideAnnounce(){
+  announceSettings.enabled=false;
+  localStorage.setItem('xin_announce',JSON.stringify(announceSettings));
+  document.getElementById('announceBar').classList.remove('show');
+  showToast('Banner hidden');
+}
+
+// ── BANNER SLIDER ──────────────────────────────────────────────────────
+let banners=JSON.parse(localStorage.getItem('xin_banners')||'[]');
+let bannerIdx=0;
+let bannerTimer=null;
+function renderBannerSlider(){
+  const slider=document.getElementById('bannerSlider');
+  const slidesEl=document.getElementById('bannerSlides');
+  const dotsEl=document.getElementById('bannerDots');
+  if(!banners.length){slider.style.display='none';return;}
+  slider.style.display='block';
+  slidesEl.innerHTML=banners.map((b,i)=>`
+    <div class="banner-slide ${i===0?'active':''}" id="bs${i}">
+      ${b.img?`<img src="${b.img}" alt="${b.title}"/>`:''}
+      <div class="bs-text"><div class="bs-title">${b.title||''}</div><div class="bs-sub">${b.sub||''}</div></div>
+    </div>`).join('');
+  dotsEl.innerHTML=banners.map((_,i)=>`<div class="banner-dot ${i===0?'active':''}" onclick="goSlide(${i})"></div>`).join('');
+  if(bannerTimer)clearInterval(bannerTimer);
+  if(banners.length>1)bannerTimer=setInterval(()=>goSlide((bannerIdx+1)%banners.length),4000);
+}
+function goSlide(i){
+  document.querySelectorAll('.banner-slide').forEach((s,n)=>s.classList.toggle('active',n===i));
+  document.querySelectorAll('.banner-dot').forEach((d,n)=>d.classList.toggle('active',n===i));
+  bannerIdx=i;
+}
+function addBanner(){
+  const title=document.getElementById('bannerTitle').value.trim();
+  const sub=document.getElementById('bannerSub').value.trim();
+  const img=document.getElementById('bannerImg').value.trim();
+  if(!title&&!img){showToast('⚠️ Add a title or image',true);return;}
+  banners.push({title,sub,img});
+  localStorage.setItem('xin_banners',JSON.stringify(banners));
+  renderBannerSlider();renderAdminBanners();
+  ['bannerTitle','bannerSub','bannerImg'].forEach(id=>document.getElementById(id).value='');
+  showToast('✅ Banner added!');
+}
+function deleteBanner(i){
+  banners.splice(i,1);
+  localStorage.setItem('xin_banners',JSON.stringify(banners));
+  renderBannerSlider();renderAdminBanners();
+}
+function renderAdminBanners(){
+  const list=document.getElementById('adminBannerList');
+  if(!list)return;
+  list.innerHTML=banners.length?banners.map((b,i)=>`
+    <div class="admin-item"><div class="admin-item-info"><strong>${b.title||'(no title)'}</strong><span>${b.sub||''}</span></div>
+    <button class="del-btn" onclick="deleteBanner(${i})">🗑</button></div>`).join(''):'<p style="color:var(--muted);font-size:.8rem;">No banners yet.</p>';
+}
+
+// ── DASHBOARD ─────────────────────────────────────────────────────────
+function renderDashboard(){
+  const totalProducts=products.length;
+  const totalCats=categories.length;
+  const lowStock=products.filter(p=>p.stock!==undefined&&p.stock<=5&&p.stock>0);
+  const outStock=products.filter(p=>p.stock!==undefined&&p.stock<=0);
+  const totalWishlisted=wishlist.length;
+  const allRatings=products.filter(p=>p.ratings&&p.ratings.length);
+  const avgRating=allRatings.length?allRatings.reduce((s,p)=>{
+    return s+p.ratings.reduce((a,b)=>a+b,0)/p.ratings.length;
+  },0)/allRatings.length:0;
+
+  document.getElementById('dashGrid').innerHTML=`
+    <div class="dash-card"><div class="dc-num">${totalProducts}</div><div class="dc-label">📦 Total Products</div></div>
+    <div class="dash-card"><div class="dc-num">${totalCats}</div><div class="dc-label">🗂 Categories</div></div>
+    <div class="dash-card"><div class="dc-num">${totalWishlisted}</div><div class="dc-label">❤️ Wishlisted</div></div>
+    <div class="dash-card"><div class="dc-num">${avgRating?avgRating.toFixed(1)+'★':'—'}</div><div class="dc-label">⭐ Avg Rating</div></div>
+    <div class="dash-card"><div class="dc-num" style="color:var(--danger);">${outStock.length}</div><div class="dc-label">❌ Out of Stock</div></div>
+    <div class="dash-card"><div class="dc-num" style="color:#ff8c00;">${lowStock.length}</div><div class="dc-label">⚠️ Low Stock</div></div>`;
+
+  const lowList=document.getElementById('lowStockList');
+  lowList.innerHTML=lowStock.length?lowStock.map(p=>`
+    <div class="low-stock-item"><span>${p.emoji||'📦'} ${p.name}</span><span style="color:var(--danger);font-weight:700;">${p.stock} left</span></div>`).join(''):'<p style="color:var(--muted);font-size:.8rem;">No low stock items ✅</p>';
+
+  // Wishlist stats
+  const wishMap={};
+  wishlist.forEach(i=>{if(products[i]){wishMap[i]=(wishMap[i]||0)+1;}});
+  const sorted=Object.entries(wishMap).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const wl=document.getElementById('wishlistStats');
+  wl.innerHTML=sorted.length?sorted.map(([i,c])=>`
+    <div class="admin-item"><div class="admin-item-info">${products[i].emoji||'📦'} <strong>${products[i].name}</strong></div>
+    <span style="color:var(--gold);font-weight:700;">❤️ ${c}</span></div>`).join(''):'<p style="color:var(--muted);font-size:.8rem;">No wishlisted products yet.</p>';
+}
+
+// ── STOCK in addProduct ────────────────────────────────────────────────
+// (stock field added inline in admin product form)
+
+// ── INIT ALL NEW FEATURES ─────────────────────────────────────────────
+initAnnounce();
+initWelcome();
+renderBannerSlider();
+
+
+
 // Boot: load shared catalog before rendering
 loadSharedData();
 </script>
