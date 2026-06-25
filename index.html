@@ -279,6 +279,20 @@ footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border
 .share-btn{display:flex;align-items:center;gap:.4rem;background:transparent;border:1px solid var(--border);color:var(--muted);padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-size:.82rem;font-family:inherit;margin-top:.6rem;width:100%;justify-content:center;}
 .share-btn:hover{border-color:var(--gold);color:var(--gold2);}
 
+/* MULTI IMAGE GALLERY */
+.img-gallery-thumbs{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem;}
+.img-thumb{width:60px;height:60px;object-fit:cover;border-radius:7px;border:2px solid var(--border);cursor:pointer;transition:border-color .2s;}
+.img-thumb:hover{border-color:var(--gold);}
+.img-thumb.active{border-color:var(--gold2);}
+.img-thumb-del{position:relative;display:inline-block;}
+.img-thumb-del .del-x{position:absolute;top:-5px;right:-5px;width:16px;height:16px;background:var(--danger);border:none;border-radius:50%;color:#fff;font-size:.6rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;}
+.detail-gallery{display:flex;flex-direction:column;gap:.5rem;}
+.detail-main-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px 20px 0 0;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:5rem;overflow:hidden;}
+.detail-main-img img{width:100%;height:100%;object-fit:cover;border-radius:20px 20px 0 0;}
+.detail-thumbs{display:flex;gap:.4rem;padding:.5rem 1.25rem;overflow-x:auto;scrollbar-width:none;}
+.detail-thumbs::-webkit-scrollbar{display:none;}
+.detail-thumb{width:56px;height:56px;object-fit:cover;border-radius:7px;border:2px solid var(--border);cursor:pointer;flex-shrink:0;transition:border-color .2s;}
+.detail-thumb.active{border-color:var(--gold2);}
 /* LANGUAGE TOGGLE */
 .lang-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.3rem .7rem;border-radius:6px;cursor:pointer;font-size:.78rem;font-family:inherit;}
 .lang-btn:hover{border-color:var(--gold);color:var(--gold);}
@@ -523,7 +537,10 @@ body.amharic{font-family:'Noto Sans Ethiopic','Segoe UI',system-ui,sans-serif;}
     <div class="admin-section active" id="adminLogin">
       <div class="form-group">
         <label>Password</label>
-        <input type="password" id="adminPass" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')checkPass()"/>
+        <div style="position:relative;">
+          <input type="password" id="adminPass" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')checkPass()" style="padding-right:2.8rem;"/>
+          <button onclick="var i=document.getElementById('adminPass');i.type=i.type==='password'?'text':'password';this.textContent=i.type==='password'?'👁':'🙈'" type="button" style="position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;line-height:1;">👁</button>
+        </div>
       </div>
       <button class="add-btn" onclick="checkPass()">Login →</button>
     </div>
@@ -543,7 +560,7 @@ body.amharic{font-family:'Noto Sans Ethiopic','Segoe UI',system-ui,sans-serif;}
         <div class="form-group"><label>Stock Quantity (optional)</label><input type="number" id="pStock" placeholder="e.g. 20 (leave empty if unlimited)"/></div>
         <div class="form-group"><label>Badge</label><select id="pBadge"><option value="">None</option><option value="new">✨ NEW</option><option value="sale">🔥 SALE</option><option value="hot">🌶 HOT</option></select></div>
         <div class="form-group">
-          <label>Product Image</label>
+          <label>Product Images <span style="color:var(--muted);font-weight:400;">(up to 5 photos)</span></label>
           <div class="img-picker">
             <div class="img-source-btns">
               <button class="img-src-btn" onclick="imgPickerMode('gallery')">🖼 Gallery</button>
@@ -551,7 +568,7 @@ body.amharic{font-family:'Noto Sans Ethiopic','Segoe UI',system-ui,sans-serif;}
               <button class="img-src-btn" onclick="imgPickerMode('url')">🔗 URL</button>
             </div>
             <!-- Gallery -->
-            <input type="file" id="pImgFile" accept="image/*" style="display:none" onchange="imgFileChosen(this)"/>
+            <input type="file" id="pImgFile" accept="image/*" multiple style="display:none" onchange="imgFileChosen(this)"/>
             <!-- Camera -->
             <div class="cam-wrap" id="camWrap">
               <video id="camVideo" autoplay playsinline muted></video>
@@ -563,13 +580,15 @@ body.amharic{font-family:'Noto Sans Ethiopic','Segoe UI',system-ui,sans-serif;}
             </div>
             <!-- URL -->
             <div class="img-url-row" id="imgUrlRow" style="display:none">
-              <input type="text" id="pImg" placeholder="https://example.com/photo.jpg" oninput="imgUrlPreview(this.value)"/>
-              <button onclick="imgUrlPreview(document.getElementById('pImg').value)">Preview</button>
+              <input type="text" id="pImg" placeholder="https://example.com/photo.jpg"/>
+              <button onclick="imgUrlPreview(document.getElementById('pImg').value)">Add</button>
             </div>
-            <!-- Preview -->
-            <div class="img-preview-wrap" id="imgPreviewWrap">
+            <!-- Thumbnails of added images -->
+            <div class="img-gallery-thumbs" id="imgGalleryThumbs"></div>
+            <!-- Main Preview -->
+            <div class="img-preview-wrap" id="imgPreviewWrap" style="display:none;">
               <img id="imgPreviewEl" src="" alt="Preview"/>
-              <button class="img-preview-clear" onclick="clearImgPicker()" title="Remove image">✕</button>
+              <button class="img-preview-clear" onclick="clearImgPicker()" title="Remove all">✕ Clear all</button>
             </div>
           </div>
         </div>
@@ -884,7 +903,7 @@ function renderProducts(){
       <div class="product-img" onclick="openDetail(${realIdx})" style="cursor:pointer;">
         ${badge}
         <button class="wishlist-btn ${isWished?'active':''}" onclick="event.stopPropagation();toggleWishlist(${realIdx})" title="Wishlist">${isWished?'❤️':'🤍'}</button>
-        ${p.img?`<img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='${p.emoji||'📦'}'"/>`:(p.emoji||'📦')}
+        ${(p.imgs&&p.imgs.length?p.imgs[0]:p.img)?`<img src="${p.imgs&&p.imgs.length?p.imgs[0]:p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='${p.emoji||'📦'}'"/>`:(p.emoji||'📦')}
       </div>
       <div class="product-info">
         ${cat?`<div class="product-cat-badge">${cat.emoji} ${cat.name}</div>`:''}
@@ -1272,15 +1291,15 @@ function renderAdminCatSelect(){
   document.getElementById('pCat').innerHTML=categories.map(c=>`<option value="${c.id}">${c.emoji} ${c.name}</option>`).join('');
 }
 // ── IMAGE PICKER ────────────────────────────────────────────────────────────
-let _pickedImgData = ''; // base64 data URL or http URL
+let _pickedImgs = []; // array of up to 5 image URLs or base64
+let _pickedImgData = ''; // legacy compat
 let _camStream = null;
+const MAX_IMGS = 5;
 
 function imgPickerMode(mode) {
-  // reset UI
   document.getElementById('camWrap').style.display = 'none';
   document.getElementById('imgUrlRow').style.display = 'none';
   document.querySelectorAll('.img-src-btn').forEach(b => b.classList.remove('active'));
-  // find clicked button index: gallery=0 camera=1 url=2
   const btns = document.querySelectorAll('.img-src-btn');
   const idx = mode === 'gallery' ? 0 : mode === 'camera' ? 1 : 2;
   btns[idx].classList.add('active');
@@ -1297,18 +1316,64 @@ function imgPickerMode(mode) {
 }
 
 function imgFileChosen(input) {
-  const file = input.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => { _pickedImgData = e.target.result; showImgPreview(_pickedImgData); };
-  reader.readAsDataURL(file);
+  const files = Array.from(input.files);
+  if (!files.length) return;
+  const remaining = MAX_IMGS - _pickedImgs.length;
+  if (remaining <= 0) { showToast('⚠️ Max 5 images reached', true); return; }
+  let loaded = 0;
+  files.slice(0, remaining).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      addPickedImg(e.target.result);
+      loaded++;
+      if (loaded === Math.min(files.length, remaining)) renderImgThumbs();
+    };
+    reader.readAsDataURL(file);
+  });
   input.value = '';
 }
 
 function imgUrlPreview(url) {
+  url = url ? url.trim() : '';
   if (!url) return;
-  _pickedImgData = url.trim();
-  showImgPreview(_pickedImgData);
+  if (_pickedImgs.length >= MAX_IMGS) { showToast('⚠️ Max 5 images reached', true); return; }
+  addPickedImg(url);
+  renderImgThumbs();
+  if (document.getElementById('pImg')) document.getElementById('pImg').value = '';
+}
+
+function addPickedImg(src) {
+  if (_pickedImgs.length >= MAX_IMGS) return;
+  _pickedImgs.push(src);
+  _pickedImgData = _pickedImgs[0];
+}
+
+function renderImgThumbs() {
+  const thumbs = document.getElementById('imgGalleryThumbs');
+  const wrap = document.getElementById('imgPreviewWrap');
+  const el = document.getElementById('imgPreviewEl');
+  if (!_pickedImgs.length) { thumbs.innerHTML=''; wrap.style.display='none'; return; }
+  thumbs.innerHTML = _pickedImgs.map((src,i) => `
+    <div class="img-thumb-del">
+      <img src="${src}" class="img-thumb${i===0?' active':''}" onclick="previewThumb('${src}',this)" alt="img ${i+1}"/>
+      <button class="del-x" onclick="removePickedImg(${i})">✕</button>
+    </div>`).join('');
+  el.src = _pickedImgs[0];
+  wrap.style.display = 'block';
+  const count = document.getElementById('imgGalleryThumbs');
+  showToast(`✅ ${_pickedImgs.length}/${MAX_IMGS} photo${_pickedImgs.length>1?'s':''} added`);
+}
+
+function previewThumb(src, el) {
+  document.getElementById('imgPreviewEl').src = src;
+  document.querySelectorAll('.img-thumb').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function removePickedImg(i) {
+  _pickedImgs.splice(i, 1);
+  _pickedImgData = _pickedImgs[0] || '';
+  renderImgThumbs();
 }
 
 function showImgPreview(src) {
@@ -1319,9 +1384,11 @@ function showImgPreview(src) {
 }
 
 function clearImgPicker() {
+  _pickedImgs = [];
   _pickedImgData = '';
   document.getElementById('imgPreviewWrap').style.display = 'none';
   document.getElementById('imgPreviewEl').src = '';
+  document.getElementById('imgGalleryThumbs').innerHTML = '';
   if (document.getElementById('pImg')) document.getElementById('pImg').value = '';
   document.querySelectorAll('.img-src-btn').forEach(b => b.classList.remove('active'));
   camStop();
@@ -1360,12 +1427,13 @@ function addProduct(){
   const desc=document.getElementById('pDesc').value.trim();
   const price=document.getElementById('pPrice').value.trim();
   const emoji=document.getElementById('pEmoji').value.trim();
-  const img=_pickedImgData || (document.getElementById('pImg') ? document.getElementById('pImg').value.trim() : '');
   const stockVal=document.getElementById('pStock')?.value;
   const badge=document.getElementById('pBadge')?.value||'';
   const stock=stockVal!==''&&stockVal!==undefined?parseInt(stockVal):undefined;
   if(!name||!price){showToast('⚠️ Name & price required',true);return;}
-  products.push({cat,name,desc,price,emoji:emoji||'📦',img,stock,badge});
+  const imgs = [..._pickedImgs];
+  const img = imgs[0] || '';
+  products.push({cat,name,desc,price,emoji:emoji||'📦',img,imgs,stock,badge});
   save();renderProducts();renderAdminProducts();
   ['pName','pDesc','pPrice','pEmoji'].forEach(id=>document.getElementById(id).value='');
   if(document.getElementById('pStock'))document.getElementById('pStock').value='';
@@ -1609,7 +1677,21 @@ function openDetail(i){
   const cat=categories.find(c=>c.id===p.cat);
   const overlay=document.getElementById('detailOverlay');
   const imgEl=document.getElementById('detailImg');
-  imgEl.innerHTML=p.img?`<img src="${p.img}" alt="${p.name}"/>`:(p.emoji||'📦');
+  const imgs = p.imgs && p.imgs.length ? p.imgs : (p.img ? [p.img] : []);
+  if(imgs.length > 1){
+    imgEl.innerHTML=`<div class="detail-main-img" id="detailMainImg"><img src="${imgs[0]}" alt="${p.name}" id="detailMainImgEl"/></div>`;
+    // append thumbs row after detailImg
+    let thumbsRow = document.getElementById('detailThumbsRow');
+    if(!thumbsRow){ thumbsRow=document.createElement('div'); thumbsRow.id='detailThumbsRow'; thumbsRow.className='detail-thumbs'; imgEl.parentElement.insertBefore(thumbsRow, imgEl.nextSibling); }
+    thumbsRow.innerHTML = imgs.map((src,i)=>`<img src="${src}" class="detail-thumb${i===0?' active':''}" onclick="switchDetailImg('${src}',this)" alt="photo ${i+1}"/>`).join('');
+    thumbsRow.style.display='flex';
+  } else if(imgs.length===1){
+    imgEl.innerHTML=`<img src="${imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;border-radius:20px 20px 0 0;"/>`;
+    const old=document.getElementById('detailThumbsRow'); if(old) old.style.display='none';
+  } else {
+    imgEl.innerHTML=p.emoji||'📦';
+    const old=document.getElementById('detailThumbsRow'); if(old) old.style.display='none';
+  }
   document.getElementById('detailCat').textContent=cat?cat.emoji+' '+cat.name:'';
   document.getElementById('detailName').textContent=p.name;
   document.getElementById('detailPrice').textContent=p.price;
@@ -1650,6 +1732,11 @@ function openDetail(i){
   overlay.classList.add('open');
 }
 function closeDetail(){document.getElementById('detailOverlay').classList.remove('open');}
+function switchDetailImg(src, el) {
+  document.getElementById('detailMainImgEl').src = src;
+  document.querySelectorAll('.detail-thumb').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
 function rateProduct(i,stars){
   if(!products[i].ratings)products[i].ratings=[];
   products[i].ratings.push(stars);
