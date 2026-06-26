@@ -1,1424 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Xin Store 07 – Shop Food, Electronics, Shoes, Clothing & More</title>
-<meta name="description" content="Xin Store 07 — Ethiopia's online shop for food, electronics, shoes, clothing, beauty and more."/>
-<meta name="keywords" content="Xin Store 07, xin store, xinstore07, xin store ethiopia, online shop ethiopia, xinstore 07"/>
-<meta name="robots" content="index, follow"/>
-<meta name="google-site-verification" content="M0LiD88RzeBsH-5vOOIuMS-8yOu6HhLhv8GAm_eQ5_s"/>
-<meta property="og:title" content="Xin Store 07"/>
-<meta property="og:description" content="Shop food, electronics, shoes, clothing & more online."/>
-<meta property="og:type" content="website"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"Xin Store 07","alternateName":["xinstore07","XIN STORE 07"],"description":"Online shop for food, electronics, shoes, clothing, beauty and more.","address":{"@type":"PostalAddress","addressCountry":"ET"}}</script>
-<style>
-:root{--bg:#080800;--surface:#111100;--card:#1c1900;--border:#3a3000;--gold:#c9a84c;--gold2:#f5d078;--gold3:#ffe9a0;--danger:#ff4f4f;--text:#f5ecd7;--muted:#8a7a50;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;}
-nav{position:sticky;top:0;z-index:100;background:rgba(8,8,0,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:64px;}
-.nav-logo{display:flex;align-items:center;gap:.6rem;}
-.nav-logo img{height:42px;width:42px;object-fit:cover;border-radius:50%;border:1.5px solid var(--gold);}
-.nav-logo span{font-size:1.2rem;font-weight:800;letter-spacing:2px;color:var(--gold2);}
-.nav-logo span em{font-style:normal;color:var(--gold);font-size:.8rem;opacity:.7;}
-.nav-right{display:flex;gap:.6rem;align-items:center;}
-.cart-btn{background:var(--gold);color:#000;border:none;cursor:pointer;padding:.5rem 1.1rem;border-radius:8px;font-weight:700;font-size:.88rem;display:flex;align-items:center;gap:.4rem;}
-.cart-btn:hover{background:var(--gold2);}
-.cart-count{background:#000;color:var(--gold2);border:1px solid var(--gold);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;}
-.admin-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.45rem .9rem;border-radius:8px;cursor:pointer;font-size:.82rem;}
-.admin-btn:hover{border-color:var(--gold);color:var(--gold);}
-.hero{padding:3.5rem 1.5rem 2rem;text-align:center;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,168,76,0.13) 0%,transparent 70%);}
-.hero-tag{font-size:.72rem;color:var(--gold);letter-spacing:4px;margin-bottom:.6rem;text-transform:uppercase;}
-.hero h1{font-size:clamp(1.8rem,5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:.6rem;}
-.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold3),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero p{color:var(--muted);font-size:.95rem;max-width:460px;margin:0 auto;}
-.search-wrap{max-width:500px;margin:1.25rem auto 0;position:relative;}
-.search-wrap input{width:100%;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.65rem 1.3rem .65rem 2.8rem;color:var(--text);font-size:.92rem;outline:none;font-family:inherit;}
-.search-wrap input:focus{border-color:var(--gold);}
-.search-wrap .s-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--muted);}
-.cats-bar{padding:1.25rem 1.5rem;max-width:1200px;margin:0 auto;}
-.cats-scroll{display:flex;gap:.6rem;overflow-x:auto;padding-bottom:.4rem;scrollbar-width:none;}
-.cats-scroll::-webkit-scrollbar{display:none;}
-.cat-pill{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:.45rem 1.1rem;border-radius:50px;cursor:pointer;white-space:nowrap;font-size:.82rem;font-weight:600;transition:all .2s;flex-shrink:0;}
-.cat-pill:hover,.cat-pill.active{background:var(--gold);color:#000;border-color:var(--gold);}
-.section{padding:1rem 1.5rem 3rem;max-width:1200px;margin:0 auto;}
-.section-title{font-size:1.2rem;font-weight:700;margin-bottom:1.25rem;display:flex;align-items:center;gap:.6rem;color:var(--gold2);}
-.section-title::after{content:'';flex:1;height:1px;background:var(--border);}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.1rem;}
-.product-card{background:var(--card);border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:transform .25s,border-color .25s;display:flex;flex-direction:column;}
-.product-card:hover{transform:translateY(-4px);border-color:var(--gold);}
-.product-img{width:100%;aspect-ratio:4/3;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:3rem;border-bottom:1px solid var(--border);overflow:hidden;}
-.product-img img{width:100%;height:100%;object-fit:cover;}
-.product-info{padding:1rem;flex:1;display:flex;flex-direction:column;gap:.35rem;}
-.product-cat-badge{font-size:.68rem;color:var(--gold);background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);padding:.18rem .55rem;border-radius:50px;width:fit-content;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
-.product-name{font-weight:700;font-size:.92rem;}
-.product-desc{font-size:.8rem;color:var(--muted);flex:1;}
-.product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.65rem;}
-.product-price{font-size:1rem;color:var(--gold2);font-weight:700;}
-.add-cart{background:var(--gold);color:#000;border:none;cursor:pointer;padding:.4rem .85rem;border-radius:7px;font-weight:700;font-size:.8rem;}
-.add-cart:hover{background:var(--gold2);}
-.empty-state{text-align:center;padding:4rem 2rem;color:var(--muted);}
-.empty-state .icon{font-size:3rem;margin-bottom:1rem;}
-/* OVERLAY & DRAWER */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;display:none;}
-.overlay.open{display:block;}
-.drawer{position:fixed;right:0;top:0;bottom:0;width:min(380px,100vw);background:var(--surface);border-left:1px solid var(--border);z-index:201;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;}
-.drawer.open{transform:translateX(0);}
-.drawer-header{padding:1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
-.drawer-header h2{font-size:1.05rem;font-weight:700;color:var(--gold2);}
-.close-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.4rem;line-height:1;}
-.drawer-body{flex:1;overflow-y:auto;padding:1.1rem;display:flex;flex-direction:column;gap:.9rem;}
-.cart-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem;display:flex;gap:.85rem;align-items:center;}
-.cart-item-emoji{font-size:1.8rem;}
-.cart-item-info{flex:1;}
-.cart-item-name{font-weight:600;font-size:.85rem;}
-.cart-item-price{font-size:.8rem;color:var(--gold);}
-.cart-item-remove{background:none;border:none;color:var(--danger);cursor:pointer;font-size:1rem;}
-.drawer-footer{padding:1.1rem;border-top:1px solid var(--border);}
-.cart-total{display:flex;justify-content:space-between;margin-bottom:.9rem;font-weight:700;}
-.cart-total span:last-child{color:var(--gold2);}
-.checkout-btn{width:100%;padding:.95rem;background:var(--gold);color:#000;border:none;border-radius:10px;font-weight:800;font-size:.95rem;cursor:pointer;}
-.checkout-btn:hover{background:var(--gold2);}
-.empty-cart{text-align:center;padding:3rem 1rem;color:var(--muted);}
-/* MODALS */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:300;display:none;align-items:center;justify-content:center;padding:1rem;}
-.modal-overlay.open{display:flex;}
-.modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem;width:100%;max-width:420px;max-height:90vh;overflow-y:auto;}
-.modal h2{font-size:1.1rem;margin-bottom:1.1rem;color:var(--gold2);}
-.form-group{margin-bottom:.85rem;}
-.form-group label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.3rem;}
-.form-group input,.form-group textarea,.form-group select{width:100%;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.65rem .85rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);}
-.form-group textarea{resize:vertical;min-height:65px;}
-.modal-actions{display:flex;gap:.65rem;margin-top:1.1rem;}
-.modal-cancel{flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;}
-.modal-submit{flex:2;padding:.7rem;background:var(--gold);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:800;font-size:.92rem;font-family:inherit;}
-/* ADMIN */
-.admin-overlay{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:400;display:none;align-items:center;justify-content:center;padding:1rem;}
-.admin-overlay.open{display:flex;}
-.admin-panel{background:var(--surface);border:1px solid var(--gold);border-radius:18px;padding:1.75rem;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;}
-.admin-panel h2{font-size:1.15rem;margin-bottom:.35rem;color:var(--gold2);}
-.admin-panel>p{color:var(--muted);font-size:.8rem;margin-bottom:1.25rem;}
-.admin-close{float:right;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.4rem;}
-.admin-section{display:none;}
-.admin-section.active{display:block;}
-.admin-tabs{display:flex;gap:.45rem;margin-bottom:1.25rem;}
-.admin-tab{flex:1;padding:.55rem;background:var(--card);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:.82rem;font-weight:600;color:var(--muted);font-family:inherit;}
-.admin-tab.active{background:var(--gold);color:#000;border-color:var(--gold);}
-.tab-content{display:none;}
-.tab-content.active{display:block;}
-.add-btn{width:100%;padding:.7rem;background:var(--gold);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:800;font-size:.9rem;margin-top:.4rem;font-family:inherit;}
-.add-btn:hover{background:var(--gold2);}
-.admin-list{display:flex;flex-direction:column;gap:.55rem;margin-top:.9rem;}
-.admin-item{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:.65rem .9rem;display:flex;align-items:center;justify-content:space-between;}
-.admin-item-info{font-size:.85rem;}
-.admin-item-info span{color:var(--muted);font-size:.75rem;display:block;}
-.del-btn{background:none;border:none;color:var(--danger);cursor:pointer;font-size:.95rem;}
-.edit-btn{background:none;border:none;color:var(--gold);cursor:pointer;font-size:.95rem;margin-right:.3rem;}
-.cat-hint{font-size:.72rem;color:var(--muted);margin-top:.35rem;font-style:italic;}
-/* EDIT PRODUCT MODAL */
-.edit-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:500;display:none;align-items:center;justify-content:center;padding:1rem;}
-.edit-modal-overlay.open{display:flex;}
-.edit-modal{background:var(--surface);border:2px solid var(--gold);border-radius:16px;padding:1.6rem;width:100%;max-width:420px;max-height:92vh;overflow-y:auto;}
-.edit-modal h2{font-size:1rem;margin-bottom:.2rem;color:var(--gold2);}
-.edit-modal .edit-sub{font-size:.75rem;color:var(--muted);margin-bottom:1rem;}
-.edit-field-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.7rem;}
-.edit-field-row label{font-size:.78rem;color:var(--muted);width:60px;flex-shrink:0;}
-.edit-field-row input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.55rem .75rem;color:var(--text);font-size:.88rem;outline:none;font-family:inherit;}
-.edit-field-row input:focus{border-color:var(--gold);}
-.edit-field-row input[disabled]{opacity:.4;cursor:not-allowed;}
-.edit-lock{background:none;border:none;font-size:1rem;cursor:pointer;padding:.2rem;color:var(--muted);flex-shrink:0;}
-.edit-lock.unlocked{color:var(--gold2);}
-.edit-actions{display:flex;gap:.6rem;margin-top:1.1rem;}
-.edit-cancel{flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;}
-.edit-save{flex:2;padding:.7rem;background:var(--gold);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:800;font-size:.9rem;font-family:inherit;}
-/* FULFILLMENT TOGGLE */
-.fulfill-toggle{display:flex;gap:.45rem;margin-bottom:.75rem;}
-.fulfill-opt{flex:1;padding:.65rem .4rem;background:var(--card);border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:.78rem;font-weight:700;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:.25rem;color:var(--muted);transition:all .2s;text-align:center;}
-.fulfill-opt:hover{border-color:var(--gold);color:var(--gold2);}
-.fulfill-opt.selected{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold2);}
-.fulfill-opt .fo-icon{font-size:1.5rem;}
-.pickup-info{display:none;background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:.9rem 1rem;margin-bottom:.75rem;}
-.pickup-info.show{display:block;}
-.pickup-info .pi-title{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.5rem;}
-.pickup-info .pi-address{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.25rem;}
-.pickup-info .pi-hours{font-size:.78rem;color:var(--muted);margin-bottom:.6rem;}
-.pickup-map-btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--gold);color:#000;border:none;border-radius:7px;padding:.4rem .85rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;}
-.pickup-map-btn:hover{background:var(--gold2);}
-/* ORDER CODE */
-.order-code-box{background:linear-gradient(135deg,rgba(201,168,76,0.18),rgba(201,168,76,0.06));border:2px solid var(--gold);border-radius:14px;padding:1rem 1.1rem;margin-bottom:.85rem;display:none;}
-.order-code-box.show{display:block;}
-.ocb-label{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.35rem;}
-.ocb-code{font-size:1.6rem;font-weight:900;color:var(--gold2);letter-spacing:4px;font-family:monospace;margin-bottom:.4rem;}
-.ocb-copy{background:rgba(201,168,76,0.2);border:1px solid var(--gold);color:var(--gold2);padding:.3rem .8rem;border-radius:6px;cursor:pointer;font-size:.75rem;font-weight:700;font-family:inherit;margin-bottom:.55rem;}
-.ocb-copy:hover{background:rgba(201,168,76,0.35);}
-.ocb-hint{font-size:.75rem;color:var(--muted);line-height:1.5;border-top:1px solid var(--border);padding-top:.5rem;margin-top:.1rem;}
-.ocb-hint strong{color:var(--gold2);}
-/* PAYMENT */
-.pay-section{display:none;margin-bottom:.85rem;}
-.pay-section.visible{display:block;}
-.pay-title{font-size:.8rem;color:var(--muted);margin-bottom:.55rem;font-weight:600;}
-.pay-methods{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-bottom:.75rem;}
-.pay-method{padding:.6rem .3rem;background:var(--card);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:.75rem;font-weight:700;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:.25rem;color:var(--muted);transition:all .2s;}
-.pay-method:hover{border-color:var(--gold);color:var(--gold2);}
-.pay-method.selected{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold2);}
-.pay-method .pm-icon{font-size:1.4rem;}
-.pay-details{background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:.9rem 1rem;margin-bottom:.75rem;display:none;}
-.pay-details.show{display:block;}
-.pay-account{font-size:1rem;font-weight:800;color:var(--gold2);letter-spacing:.5px;margin:.25rem 0 .1rem;}
-.pay-name{font-size:.78rem;color:var(--muted);margin-bottom:.5rem;}
-.pay-amount-row{display:flex;align-items:center;justify-content:space-between;background:rgba(201,168,76,0.1);border-radius:8px;padding:.5rem .7rem;}
-.pay-amount-label{font-size:.78rem;color:var(--muted);}
-.pay-amount-val{font-size:1.05rem;font-weight:800;color:var(--gold2);}
-.receipt-upload{margin-top:.75rem;}
-.receipt-upload label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.4rem;}
-.receipt-drop{border:2px dashed var(--border);border-radius:10px;padding:1.1rem;text-align:center;cursor:pointer;transition:border-color .2s;position:relative;}
-.receipt-drop:hover{border-color:var(--gold);}
-.receipt-drop input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-.receipt-drop .rd-icon{font-size:1.6rem;margin-bottom:.3rem;}
-.receipt-drop .rd-text{font-size:.8rem;color:var(--muted);}
-.receipt-preview{display:none;margin-top:.6rem;border-radius:10px;overflow:hidden;border:1px solid var(--gold);position:relative;}
-.receipt-preview img{width:100%;display:block;max-height:200px;object-fit:cover;}
-.receipt-preview .rp-clear{position:absolute;top:.35rem;right:.35rem;background:rgba(0,0,0,.75);border:none;color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;}
-.receipt-ok{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#4caf50;margin-top:.5rem;display:none;}
-/* IMAGE PICKER */
-.img-picker{display:flex;flex-direction:column;gap:.55rem;}
-.img-source-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;}
-.img-src-btn{padding:.55rem .3rem;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--muted);cursor:pointer;font-size:.78rem;font-weight:600;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:.3rem;transition:all .2s;}
-.img-src-btn:hover,.img-src-btn.active{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold2);}
-.img-url-row{display:flex;gap:.4rem;}
-.img-url-row input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.55rem .75rem;color:var(--text);font-size:.85rem;outline:none;font-family:inherit;}
-.img-url-row input:focus{border-color:var(--gold);}
-.img-url-row button{padding:.55rem .7rem;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--muted);cursor:pointer;font-size:.82rem;font-family:inherit;}
-.img-url-row button:hover{border-color:var(--gold);color:var(--gold);}
-.img-preview-wrap{display:none;position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--gold);aspect-ratio:4/3;background:var(--surface);}
-.img-preview-wrap img{width:100%;height:100%;object-fit:cover;}
-.img-preview-clear{position:absolute;top:.4rem;right:.4rem;background:rgba(0,0,0,.75);border:none;color:#fff;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;}
-.cam-wrap{display:none;flex-direction:column;gap:.45rem;}
-.cam-wrap video{width:100%;border-radius:10px;border:1px solid var(--border);background:#000;aspect-ratio:4/3;object-fit:cover;}
-.cam-actions{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;}
-.cam-snap{padding:.6rem;background:var(--gold);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:800;font-size:.85rem;font-family:inherit;}
-.cam-cancel{padding:.6rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-size:.85rem;font-family:inherit;}
-/* TOAST */
-.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--gold);color:#000;padding:.65rem 1.3rem;border-radius:10px;font-weight:700;font-size:.85rem;z-index:600;transition:transform .3s;white-space:nowrap;}
-.toast.show{transform:translateX(-50%) translateY(0);}
-.toast.error{background:var(--danger);color:#fff;}
-body.rtl-arabic{direction:rtl;text-align:right;font-family:'Segoe UI',system-ui,sans-serif;}
-body.rtl-arabic .nav-logo{flex-direction:row-reverse;}
-body.rtl-arabic .nav-right{flex-direction:row-reverse;}
-body.rtl-arabic .search-wrap .s-icon{left:auto;right:1rem;}
-body.rtl-arabic .search-wrap input{padding:.65rem 2.8rem .65rem 1.3rem;}
-body.rtl-arabic .product-footer{flex-direction:row-reverse;}
-body.rtl-arabic .cats-scroll{direction:rtl;}
-footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border-top:1px solid var(--border);margin-top:2rem;}
-
-/* ANNOUNCEMENT BANNER */
-.announce-bar{background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));color:#000;text-align:center;padding:.55rem 3rem;font-size:.85rem;font-weight:700;position:relative;display:none;}
-.announce-bar.show{display:block;}
-.announce-close{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;font-weight:700;}
-
-/* WELCOME POPUP */
-.welcome-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:700;display:none;align-items:center;justify-content:center;padding:1rem;}
-.welcome-overlay.open{display:flex;}
-.welcome-box{background:var(--surface);border:2px solid var(--gold);border-radius:20px;padding:2rem;width:100%;max-width:380px;text-align:center;}
-.welcome-box .wb-logo{width:70px;height:70px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;margin-bottom:1rem;}
-.welcome-box h2{font-size:1.3rem;font-weight:800;color:var(--gold2);margin-bottom:.4rem;}
-.welcome-box p{font-size:.88rem;color:var(--muted);margin-bottom:1.1rem;line-height:1.6;}
-.welcome-code{background:rgba(201,168,76,0.15);border:2px dashed var(--gold);border-radius:12px;padding:.9rem;margin-bottom:1.1rem;}
-.welcome-code .wc-label{font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.4rem;}
-.welcome-code .wc-code{font-size:1.8rem;font-weight:900;color:var(--gold2);letter-spacing:4px;font-family:monospace;}
-.welcome-code .wc-hint{font-size:.75rem;color:var(--muted);margin-top:.3rem;}
-.welcome-shop-btn{width:100%;padding:.9rem;background:var(--gold);color:#000;border:none;border-radius:10px;font-weight:800;font-size:1rem;cursor:pointer;margin-bottom:.6rem;font-family:inherit;}
-.welcome-shop-btn:hover{background:var(--gold2);}
-.welcome-skip{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.82rem;font-family:inherit;}
-
-/* PRODUCT BADGES */
-.product-badge{position:absolute;top:.6rem;left:.6rem;padding:.25rem .6rem;border-radius:6px;font-size:.68rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;z-index:2;}
-.badge-sale{background:#ff4f4f;color:#fff;}
-.badge-new{background:var(--gold);color:#000;}
-.badge-hot{background:#ff8c00;color:#fff;}
-.badge-out{background:#555;color:#ccc;}
-.product-img{position:relative;}
-
-/* STOCK */
-.stock-bar{margin-top:.4rem;}
-.stock-label{font-size:.72rem;color:var(--muted);margin-bottom:.2rem;}
-.stock-track{background:var(--surface);border-radius:4px;height:5px;overflow:hidden;}
-.stock-fill{height:100%;border-radius:4px;background:var(--gold);transition:width .3s;}
-.stock-fill.low{background:var(--danger);}
-.stock-count{font-size:.72rem;font-weight:700;margin-top:.2rem;}
-.stock-count.low{color:var(--danger);}
-
-/* WISHLIST */
-.wishlist-btn{position:absolute;top:.6rem;right:.6rem;background:rgba(0,0,0,.6);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;}
-.wishlist-btn:hover{background:rgba(201,168,76,0.4);}
-.wishlist-btn.active{background:rgba(255,60,60,0.7);}
-
-/* STARS */
-.star-row{display:flex;align-items:center;gap:.3rem;margin-top:.25rem;}
-.stars{color:#888;font-size:.85rem;cursor:pointer;letter-spacing:1px;}
-.stars .filled{color:var(--gold2);}
-.rating-count{font-size:.72rem;color:var(--muted);}
-
-/* PRODUCT DETAIL MODAL */
-.detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:350;display:none;align-items:flex-end;justify-content:center;}
-.detail-overlay.open{display:flex;}
-@media(min-width:600px){.detail-overlay{align-items:center;}}
-.detail-modal{background:var(--surface);border:1px solid var(--border);border-radius:20px 20px 0 0;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;padding-bottom:1rem;}
-@media(min-width:600px){.detail-modal{border-radius:20px;}}
-.detail-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px 20px 0 0;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:5rem;}
-.detail-img img{width:100%;height:100%;object-fit:cover;border-radius:20px 20px 0 0;}
-.detail-body{padding:1.25rem;}
-.detail-close{float:right;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.5rem;}
-.detail-name{font-size:1.2rem;font-weight:800;margin-bottom:.3rem;}
-.detail-price{font-size:1.3rem;color:var(--gold2);font-weight:800;margin-bottom:.5rem;}
-.detail-desc{font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;}
-.detail-add{width:100%;padding:.9rem;background:var(--gold);color:#000;border:none;border-radius:10px;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;}
-.detail-add:hover{background:var(--gold2);}
-.share-btn{display:flex;align-items:center;gap:.4rem;background:transparent;border:1px solid var(--border);color:var(--muted);padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-size:.82rem;font-family:inherit;margin-top:.6rem;width:100%;justify-content:center;}
-.share-btn:hover{border-color:var(--gold);color:var(--gold2);}
-
-/* MULTI IMAGE GALLERY */
-.img-gallery-thumbs{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem;}
-.img-thumb{width:60px;height:60px;object-fit:cover;border-radius:7px;border:2px solid var(--border);cursor:pointer;transition:border-color .2s;}
-.img-thumb:hover{border-color:var(--gold);}
-.img-thumb.active{border-color:var(--gold2);}
-.img-thumb-del{position:relative;display:inline-block;}
-.img-thumb-del .del-x{position:absolute;top:-5px;right:-5px;width:16px;height:16px;background:var(--danger);border:none;border-radius:50%;color:#fff;font-size:.6rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;}
-.detail-gallery{display:flex;flex-direction:column;gap:.5rem;}
-.detail-main-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px 20px 0 0;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:5rem;overflow:hidden;}
-.detail-main-img img{width:100%;height:100%;object-fit:cover;border-radius:20px 20px 0 0;}
-.detail-thumbs{display:flex;gap:.4rem;padding:.5rem 1.25rem;overflow-x:auto;scrollbar-width:none;}
-.detail-thumbs::-webkit-scrollbar{display:none;}
-.detail-thumb{width:56px;height:56px;object-fit:cover;border-radius:7px;border:2px solid var(--border);cursor:pointer;flex-shrink:0;transition:border-color .2s;}
-.detail-thumb.active{border-color:var(--gold2);}
-/* LANGUAGE TOGGLE */
-.lang-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.3rem .7rem;border-radius:6px;cursor:pointer;font-size:.78rem;font-family:inherit;}
-.lang-btn:hover{border-color:var(--gold);color:var(--gold);}
-
-/* BANNER SLIDER */
-.banner-slider{max-width:1200px;margin:0 auto 0;padding:0 1.5rem;}
-.banner-slide{border-radius:14px;overflow:hidden;position:relative;display:none;aspect-ratio:3/1;min-height:120px;background:var(--card);}
-.banner-slide.active{display:flex;align-items:center;justify-content:center;}
-.banner-slide img{width:100%;height:100%;object-fit:cover;border-radius:14px;}
-.banner-slide .bs-text{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.7),transparent);display:flex;flex-direction:column;justify-content:center;padding:1.5rem;}
-.banner-slide .bs-title{font-size:clamp(1rem,3vw,1.5rem);font-weight:800;color:#fff;margin-bottom:.3rem;}
-.banner-slide .bs-sub{font-size:clamp(.75rem,2vw,1rem);color:rgba(255,255,255,.8);}
-.banner-dots{display:flex;justify-content:center;gap:.5rem;margin-top:.6rem;}
-.banner-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s;}
-.banner-dot.active{background:var(--gold);}
-
-/* DASHBOARD */
-.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem;}
-.dash-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.9rem;text-align:center;}
-.dash-card .dc-num{font-size:1.5rem;font-weight:800;color:var(--gold2);}
-.dash-card .dc-label{font-size:.72rem;color:var(--muted);margin-top:.2rem;}
-.low-stock-list{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem;}
-.low-stock-item{background:rgba(255,79,79,0.1);border:1px solid rgba(255,79,79,0.3);border-radius:8px;padding:.6rem .8rem;font-size:.82rem;display:flex;justify-content:space-between;align-items:center;}
-
-/* AMHARIC */
-body.amharic{font-family:'Noto Sans Ethiopic','Segoe UI',system-ui,sans-serif;}
-::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
-</style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xin Store 07 – Shop Food, Electronics, Shoes, Clothing & More</title>
+  <meta name="description" content="Xin Store 07 — Ethiopia's online shop for food, electronics, shoes, clothing, beauty and more."/>
+  <meta name="keywords" content="Xin Store 07, xin store, xinstore07, xin store ethiopia, online shop ethiopia, xinstore 07"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="google-site-verification" content="M0LiD88RzeBsH-5vOOIuMS-8yOu6HhLhv8GAm_eQ5_s"/>
+  <meta property="og:title" content="Xin Store 07"/>
+  <meta property="og:description" content="Shop food, electronics, shoes, clothing & more online."/>
+  <meta property="og:type" content="website"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Xin Store 07",
+    "alternateName": ["xinstore07","XIN STORE 07"],
+    "description": "Online shop for food, electronics, shoes, clothing, beauty and more.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ET"
+    }
+  }
+  </script>
+  <style>
+    :root{--bg:#080800;--surface:#111100;--card:#1c1900;--border:#3a3000;--gold:#c9a84c;--gold2:#f5d078;--gold3:#ffe9a0;--danger:#ff4f4f;--text:#f5ecd7;--muted:#8a7a50;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(8,8,0,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:64px;}
+    .nav-logo{display:flex;align-items:center;gap:.6rem;}
+    .nav-logo img{height:42px;width:42px;object-fit:cover;border-radius:50%;border:1.5px solid var(--gold);}
+    .nav-logo span{font-size:1.2rem;font-weight:800;letter-spacing:2px;color:var(--gold2);}
+    .nav-logo span em{font-style:normal;color:var(--gold);font-size:.8rem;opacity:.7;}
+    .nav-right{display:flex;gap:.6rem;align-items:center;}
+    .cart-btn{background:var(--gold);color:#000;border:none;cursor:pointer;padding:.5rem 1.1rem;border-radius:8px;font-weight:700;font-size:.88rem;display:flex;align-items:center;gap:.4rem;}
+    .cart-btn:hover{background:var(--gold2);}
+    .cart-count{background:#000;color:var(--gold2);border:1px solid var(--gold);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;}
+    .admin-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.45rem .9rem;border-radius:8px;cursor:pointer;font-size:.82rem;}
+    .admin-btn:hover{border-color:var(--gold);color:var(--gold);}
+    .hero{padding:3.5rem 1.5rem 2rem;text-align:center;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(201,168,76,0.13) 0%,transparent 70%);}
+    .hero-tag{font-size:.72rem;color:var(--gold);letter-spacing:4px;margin-bottom:.6rem;text-transform:uppercase;}
+    .hero h1{font-size:clamp(1.8rem,5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:.6rem;}
+    .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--gold),var(--gold3),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero p{color:var(--muted);font-size:.95rem;max-width:460px;margin:0 auto;}
+    .search-wrap{max-width:500px;margin:1.25rem auto 0;position:relative;}
+    .search-wrap input{width:100%;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.65rem 1.3rem .65rem 2.8rem;color:var(--text);font-size:.92rem;outline:none;font-family:inherit;}
+    .search-wrap input:focus{border-color:var(--gold);}
+    .search-wrap .s-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--muted);}
+    .cats-bar{padding:1.25rem 1.5rem;max-width:1200px;margin:0 auto;}
+    .cats-scroll{display:flex;gap:.6rem;overflow-x:auto;padding-bottom:.4rem;scrollbar-width:none;}
+    .cats-scroll::-webkit-scrollbar{display:none;}
+    .cat-pill{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:.45rem 1.1rem;border-radius:50px;cursor:pointer;white-space:nowrap;font-size:.82rem;font-weight:600;transition:all .2s;flex-shrink:0;}
+    .cat-pill:hover,.cat-pill.active{background:var(--gold);color:#000;border-color:var(--gold);}
+    .section{padding:1rem 1.5rem 3rem;max-width:1200px;margin:0 auto;}
+    .section-title{font-size:1.2rem;font-weight:700;margin-bottom:1.25rem;display:flex;align-items:center;gap:.6rem;color:var(--gold2);}
+    .section-title::after{content:'';flex:1;height:1px;background:var(--border);}
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.1rem;}
+    .product-card{background:var(--card);border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:transform .25s,border-color .25s;display:flex;flex-direction:column;position:relative;}
+    .product-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+    .product-img{width:100%;aspect-ratio:4/3;background:var(--surface);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);overflow:hidden;position:relative;}
+    .product-img img{width:100%;height:100%;object-fit:cover;}
+    .product-info{padding:1rem;flex:1;display:flex;flex-direction:column;gap:.35rem;}
+    .product-cat-badge{font-size:.68rem;color:var(--gold);background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);padding:.18rem .55rem;border-radius:50px;width:fit-content;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+    .product-name{font-weight:700;font-size:.92rem;}
+    .product-desc{font-size:.8rem;color:var(--muted);flex:1;}
+    .product-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.65rem;}
+    .product-price{font-size:1rem;color:var(--gold2);font-weight:700;}
+    .add-cart{background:var(--gold);color:#000;border:none;cursor:pointer;padding:.4rem .85rem;border-radius:7px;font-weight:700;font-size:.8rem;}
+    .add-cart:hover{background:var(--gold2);}
+    .empty-state{text-align:center;padding:4rem 2rem;color:var(--muted);}
+    .empty-state .icon{font-size:3rem;margin-bottom:1rem;}
+    
+    /* OVERLAY & DRAWER */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;display:none;}
+    .overlay.open{display:block;}
+    .drawer{position:fixed;right:0;top:0;bottom:0;width:min(380px,100vw);background:var(--surface);border-left:1px solid var(--border);z-index:201;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;}
+    .drawer.open{transform:translateX(0);}
+    .drawer-header{padding:1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+    .drawer-header h2{font-size:1.05rem;font-weight:700;color:var(--gold2);}
+    .close-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.4rem;line-height:1;}
+    .drawer-body{flex:1;overflow-y:auto;padding:1.1rem;display:flex;flex-direction:column;gap:.9rem;}
+    
+    .cart-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.85rem;display:flex;gap:.85rem;align-items:center;}
+    .cart-item-img{width:50px;height:50px;border-radius:6px;object-fit:cover;border:1px solid var(--border);}
+    .cart-item-info{flex:1;}
+    .cart-item-name{font-weight:600;font-size:.85rem;}
+    .cart-item-price{font-size:.8rem;color:var(--gold);}
+    .cart-item-remove{background:none;border:none;color:var(--danger);cursor:pointer;font-size:1rem;}
+    
+    .drawer-footer{padding:1.1rem;border-top:1px solid var(--border);}
+    .cart-total{display:flex;justify-content:space-between;margin-bottom:.9rem;font-weight:700;}
+    .cart-total span:last-child{color:var(--gold2);}
+    .checkout-btn{width:100%;padding:.95rem;background:var(--gold);color:#000;border:none;border-radius:10px;font-weight:800;font-size:.95rem;cursor:pointer;}
+    .checkout-btn:hover{background:var(--gold2);}
+    .empty-cart{text-align:center;padding:3rem 1rem;color:var(--muted);}
+    
+    /* MODALS */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:300;display:none;align-items:center;justify-content:center;padding:1rem;}
+    .modal-overlay.open{display:flex;}
+    .modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem;width:100%;max-width:420px;max-height:90vh;overflow-y:auto;}
+    .modal h2{font-size:1.1rem;margin-bottom:1.1rem;color:var(--gold2);}
+    .form-group{margin-bottom:.85rem;}
+    .form-group label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.3rem;}
+    .form-group input,.form-group textarea,.form-group select{width:100%;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.65rem .85rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);}
+    .form-group textarea{resize:vertical;min-height:65px;}
+    .modal-actions{display:flex;gap:.65rem;margin-top:1.1rem;}
+    .modal-cancel{flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;}
+    .modal-submit{flex:2;padding:.7rem;background:var(--gold);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:800;font-size:.92rem;font-family:inherit;}
+    
+    /* TOAST */
+    .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--gold);color:#000;padding:.65rem 1.3rem;border-radius:10px;font-weight:700;font-size:.85rem;z-index:600;transition:transform .3s;white-space:nowrap;}
+    .toast.show{transform:translateX(-50%) translateY(0);}
+    .toast.error{background:var(--danger);color:#fff;}
+    
+    footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border-top:1px solid var(--border);margin-top:2rem;}
+    .announce-bar{background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));color:#000;text-align:center;padding:.55rem 3rem;font-size:.85rem;font-weight:700;position:relative;display:none;}
+    .announce-bar.show{display:block;}
+    .announce-close{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;font-weight:700;}
+  </style>
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announce-bar" id="announceBar">
-  <span id="announceText">🎉 Welcome to Xin Store 07 — Fast delivery in Addis Ababa!</span>
-  <button class="announce-close" onclick="document.getElementById('announceBar').classList.remove('show')">✕</button>
-</div>
-<nav>
-  <div class="nav-logo">
-    <img src="https://i.imgur.com/KBogTxg.jpg" alt="Xin Store 07 Logo"/>
-    <span>XIN STORE <em>07</em></span>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar show" id="announceBar">
+    <span id="announceText">🎉 Welcome to Xin Store 07 — Fast delivery in Addis Ababa!</span>
+    <button class="announce-close" onclick="document.getElementById('announceBar').classList.remove('show')">✕</button>
   </div>
-  <div class="nav-right">
-    <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇪🇹 አማ</button>
-    <button class="admin-btn" onclick="openAdmin()">⚙ Admin</button>
-    <button class="cart-btn" onclick="openCart()">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
+
+  <nav>
+    <div class="nav-logo">
+      <img src="https://i.imgur.com/KBogTxg.jpg" alt="Xin Store 07 Logo"/>
+      <span>XIN STORE <em>07</em></span>
+    </div>
+    <div class="nav-right">
+      <button class="cart-btn" onclick="openCart()">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-tag">XIN STORE 07 · ONLINE SHOP</div>
+    <h1>Shop <em>Everything</em><br/>In One Place</h1>
+    <p>Food staples, electronics, sneakers, and authentic clothing — delivered quickly directly to you.</p>
+    <div class="search-wrap">
+      <span class="s-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search products…" oninput="searchProducts(this.value)"/>
+    </div>
   </div>
-</nav>
 
-<div class="hero">
-  <div class="hero-tag">XIN STORE 07 · ONLINE SHOP</div>
-  <h1>Shop <em>Everything</em><br/>In One Place</h1>
-  <p>Food, electronics, shoes, clothing & more — browse, add to cart, and we'll deliver to you.</p>
-  <div class="search-wrap">
-    <span class="s-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Search products…" oninput="searchProducts(this.value)"/>
+  <div class="cats-bar">
+    <div class="cats-scroll" id="catsScroll"></div>
   </div>
-</div>
 
-<div class="cats-bar">
-  <div class="cats-scroll" id="catsScroll"></div>
-</div>
-
-<!-- BANNER SLIDER -->
-<div class="banner-slider" id="bannerSlider" style="display:none;">
-  <div id="bannerSlides"></div>
-  <div class="banner-dots" id="bannerDots"></div>
-</div>
-
-<div class="section">
-  <div class="section-title" id="sectionTitle">All Products</div>
-  <div class="products-grid" id="productsGrid"></div>
-  <div class="empty-state" id="emptyState" style="display:none;">
-    <div class="icon">📦</div>
-    <p>No products in this category yet.</p>
+  <div class="section">
+    <div class="section-title" id="sectionTitle">All Products</div>
+    <div class="products-grid" id="productsGrid"></div>
+    <div class="empty-state" id="emptyState" style="display:none;">
+      <div class="icon">📦</div>
+      <p>No products found matching your request.</p>
+    </div>
   </div>
-</div>
 
-<!-- CART -->
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
-<div class="drawer" id="drawer">
-  <div class="drawer-header">
-    <h2>🛒 Your Cart</h2>
-    <button onclick="openWishlist()" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:7px;padding:.3rem .7rem;font-size:.78rem;cursor:pointer;font-family:inherit;">❤️ Wishlist</button>
-    <button class="close-btn" onclick="closeCart()">×</button>
+  <!-- CART DRAWER -->
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+  <div class="drawer" id="drawer">
+    <div class="drawer-header">
+      <h2>🛒 Your Cart</h2>
+      <button class="close-btn" onclick="closeCart()">×</button>
+    </div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-footer" id="drawerFooter" style="display:none;">
+      <div class="cart-total"><span>Total</span><span id="cartTotal">0 ETB</span></div>
+      <button class="checkout-btn" onclick="openOrderForm()">Place Order →</button>
+    </div>
   </div>
-  <div class="drawer-body" id="cartBody"></div>
-  <div class="drawer-footer" id="drawerFooter" style="display:none;">
-    <div class="cart-total"><span>Total</span><span id="cartTotal"></span></div>
-    <button class="checkout-btn" onclick="openOrderForm()">Place Order →</button>
-  </div>
-</div>
 
-<!-- ORDER FORM -->
-<div class="modal-overlay" id="orderModal">
-  <div class="modal">
-    <h2>📦 Complete Your Order</h2>
-    <div class="form-group"><label>Full Name</label><input type="text" id="orderName" placeholder="Your name"/></div>
-    <div class="form-group"><label>Phone Number</label><input type="tel" id="orderPhone" placeholder="+251 91 234 5678"/></div>
-    <div class="form-group"><label>Area / Notes</label><textarea id="orderAddress" placeholder="Your area or any notes for delivery…" style="min-height:50px;"></textarea></div>
-    <div class="form-group"><label>Note (optional)</label><input type="text" id="orderNote" placeholder="Any special request?"/></div>
-
-    <!-- FULFILLMENT METHOD -->
-    <div style="margin-bottom:.75rem;">
-      <label style="display:block;font-size:.8rem;color:var(--muted);margin-bottom:.5rem;">🚚 How do you want to receive it?</label>
-      <div class="fulfill-toggle">
-        <button class="fulfill-opt" id="fo-delivery" onclick="setFulfillment('delivery')">
-          <span class="fo-icon">🛵</span>
-          <span>Delivery</span>
-          <span style="font-size:.65rem;opacity:.7;">We bring it to you</span>
-        </button>
-        <button class="fulfill-opt" id="fo-pickup" onclick="setFulfillment('pickup')">
-          <span class="fo-icon">🏪</span>
-          <span>Pickup</span>
-          <span style="font-size:.65rem;opacity:.7;">Come to Piassa · Free</span>
-        </button>
+  <!-- ORDER MODAL -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal">
+      <h2>📦 Complete Your Order</h2>
+      <div class="form-group"><label>Full Name</label><input type="text" id="orderName" placeholder="Your name"/></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" id="orderPhone" placeholder="+251 91 234 5678"/></div>
+      <div class="form-group"><label>Delivery Area / Special Notes</label><textarea id="orderNotes" placeholder="E.g., Bole, near Edna Mall"></textarea></div>
+      <div class="modal-actions">
+        <button class="modal-cancel" onclick="closeOrderForm()">Cancel</button>
+        <button class="modal-submit" onclick="submitOrder()">Confirm Order</button>
       </div>
     </div>
+  </div>
 
-    <!-- PICKUP INFO (shown when pickup selected) -->
-    <div class="pickup-info" id="pickupInfo">
-      <div class="pi-title">📍 Store Location — Piassa</div>
-      <div class="pi-address">Piassa, Addis Ababa</div>
-      <div class="pi-hours">🕐 Open daily · Contact us to confirm availability before coming</div>
-      <a class="pickup-map-btn" href="https://maps.google.com/?q=9.0358,38.7521" target="_blank" rel="noopener">
-        🗺 Open in Google Maps
-      </a>
-    </div>
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast"></div>
 
-    <!-- DELIVERY LOCATION (shown when delivery selected) -->
-    <div id="deliveryLocSection" style="display:none;margin-bottom:.85rem;">
-      <label style="display:block;font-size:.8rem;color:var(--muted);margin-bottom:.5rem;">📍 Detect Your Location for Delivery Fee</label>
-      <button id="locBtn" onclick="getLocation()" style="width:100%;padding:.7rem;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:.88rem;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:.5rem;">
-        <span>📡</span><span id="locBtnText">Detect My Location</span>
-      </button>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:.3rem;text-align:center;">30 birr per km · measured from Piassa</p>
-    </div>
+  <footer>
+    <p>&copy; 2026 Xin Store 07. All Rights Reserved.</p>
+  </footer>
 
-    <!-- LOCATION STATUS -->
-    <div id="locStatus" style="display:none;font-size:.8rem;color:var(--muted);text-align:center;padding:.4rem;margin-bottom:.6rem;"></div>
+  <script>
+    // REAL DATA STORE WITH AUTHENTIC PICTURE LINKS & PRICES (IN ETB)
+    const initialProducts = [
+      {
+        id: 1,
+        name: "Premium Enat Shiro",
+        category: "Food Staples",
+        price: 380,
+        desc: "Authentic, home-blended traditional Ethiopian powdered chickpea Shiro.",
+        img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 2,
+        name: "White Teff Flour (10kg)",
+        category: "Food Staples",
+        price: 1650,
+        desc: "Pure, stone-ground premium white teff flour, perfect for authentic soft Injera.",
+        img: "https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 3,
+        name: "Habesha Kemis (Modern Casual)",
+        category: "Clothing",
+        price: 4500,
+        desc: "Handwoven premium lightweight cotton dress featuring elegant modern hand-stitched Tilet borders.",
+        img: "https://i.imgur.com/vHq06oG.jpg"
+      },
+      {
+        id: 4,
+        name: "Nike Air Force 1",
+        category: "Footwear",
+        price: 4200,
+        desc: "Classic triple-white profile sneakers with premium leather craftsmanship.",
+        img: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 5,
+        name: "Nike Dunk Low",
+        category: "Footwear",
+        price: 4500,
+        desc: "Retro athletic color-blocked classic low tops constructed for durability.",
+        img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 6,
+        name: "Nike Air Max 270",
+        category: "Footwear",
+        price: 5200,
+        desc: "Advanced lifestyle athletic shoes integrating standard-setting large heel air cushioning.",
+        img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 7,
+        name: "iPhone 13 Pro (256GB)",
+        category: "Electronics",
+        price: 68000,
+        desc: "Super Retina XDR display with ProMotion and advanced Pro camera dynamic lenses.",
+        img: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 8,
+        name: "Samsung Galaxy A54 5G",
+        category: "Electronics",
+        price: 31500,
+        desc: "Super AMOLED display paired with a sharp 50MP main camera array and 5G networking.",
+        img: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 9,
+        name: "Redmi Note 13 Pro",
+        category: "Electronics",
+        price: 28000,
+        desc: "Ultra-clear 200MP camera system complete with high-frequency turbocharging mechanics.",
+        img: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 10,
+        name: "Tecno Spark 20",
+        category: "Electronics",
+        price: 14500,
+        desc: "Responsive modern octa-core processing standard matched with expansive native file storage capacity.",
+        img: "https://images.unsplash.com/photo-1565630916779-e303be97b6f5?auto=format&fit=crop&w=500&q=80"
+      }
+    ];
 
-    <!-- PRICE BREAKDOWN -->
-    <div id="priceBreakdown" style="display:none;background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:1rem;margin-bottom:.85rem;">
-      <div style="font-size:.75rem;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:.7rem;text-transform:uppercase;">💰 Price Summary</div>
-      <div id="pbItemsList" style="font-size:.8rem;color:var(--muted);margin-bottom:.6rem;line-height:1.7;"></div>
-      <div style="border-top:1px solid var(--border);padding-top:.6rem;margin-top:.2rem;">
-        <div style="display:flex;justify-content:space-between;margin-bottom:.35rem;font-size:.85rem;">
-          <span style="color:var(--muted);">🛍 Items total</span>
-          <span id="pbItems" style="font-weight:600;"></span>
-        </div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:.35rem;font-size:.85rem;">
-          <span style="color:var(--muted);">🚚 Delivery (<span id="pbKm"></span> km × 30 birr)</span>
-          <span id="pbDelivery" style="font-weight:600;color:var(--gold);"></span>
-        </div>
-        <div style="display:flex;justify-content:space-between;background:rgba(201,168,76,0.1);border-radius:8px;padding:.55rem .65rem;margin-top:.4rem;">
-          <span style="font-weight:800;color:var(--gold2);font-size:.95rem;">= Total to Pay</span>
-          <span id="pbTotal" style="font-weight:800;color:var(--gold2);font-size:.95rem;"></span>
-        </div>
-      </div>
-    </div>
+    let cart = [];
+    let currentCategory = "All";
+    let searchQuery = "";
 
-    <!-- ORDER CODE -->
-    <div class="order-code-box" id="orderCodeBox">
-      <div class="ocb-label">🔖 Your Order Code</div>
-      <div class="ocb-code" id="orderCodeDisplay">—</div>
-      <button class="ocb-copy" onclick="copyOrderCode()">📋 Copy Code</button>
-      <div class="ocb-hint">
-        ⚠️ <strong>Important:</strong> When making your payment, write this code in the
-        <strong>transfer note / reference / description</strong> field.<br/>
-        This is how we verify your receipt is genuine.
-      </div>
-    </div>
+    // INITIALIZATION
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCategoryPills();
+      renderProducts();
+    });
 
-    <!-- PAYMENT METHOD -->
-    <div class="pay-section" id="paySection">
-      <div class="pay-title">💳 Choose Payment Method</div>
-      <div class="pay-methods" style="grid-template-columns:1fr 1fr 1fr;">
-        <button class="pay-method" onclick="selectPayMethod('cbe')" id="pm-cbe">
-          <span class="pm-icon">🏦</span><span>CBE</span>
+    function renderCategoryPills() {
+      const categories = ["All", ...new Set(initialProducts.map(p => p.category))];
+      const container = document.getElementById('catsScroll');
+      container.innerHTML = categories.map(cat => `
+        <button class="cat-pill ${cat === currentCategory ? 'active' : ''}" onclick="filterCategory('${cat}')">
+          ${cat}
         </button>
-        <button class="pay-method" onclick="selectPayMethod('telebirr')" id="pm-telebirr">
-          <span class="pm-icon">📱</span><span>TeleBirr</span>
-        </button>
-        <button class="pay-method" onclick="selectPayMethod('mpesa')" id="pm-mpesa">
-          <span class="pm-icon">💚</span><span>M-Pesa</span>
-        </button>
-        <button class="pay-method" onclick="selectPayMethod('awash')" id="pm-awash">
-          <span class="pm-icon">🏦</span><span>Awash</span>
-        </button>
-        <button class="pay-method" onclick="selectPayMethod('abyssinia')" id="pm-abyssinia">
-          <span class="pm-icon">🏦</span><span>Abyssinia</span>
-        </button>
-        <button class="pay-method" onclick="selectPayMethod('arrival')" id="pm-arrival">
-          <span class="pm-icon">🤝</span><span>Pay on Arrival</span>
-        </button>
-      </div>
-      <!-- Account Details -->
-      <div class="pay-details" id="payDetails">
-        <div style="font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem;" id="payMethodLabel"></div>
-        <div class="pay-account" id="payAccount"></div>
-        <div class="pay-name" id="payAccountName"></div>
-        <div class="pay-amount-row">
-          <span class="pay-amount-label">Amount to send</span>
-          <span class="pay-amount-val" id="payAmountVal">—</span>
-        </div>
-        <!-- Receipt Upload -->
-        <div class="receipt-upload">
-          <label>📎 Upload Payment Receipt</label>
-          <div class="receipt-drop" id="receiptDrop">
-            <input type="file" id="receiptFile" accept="image/*" onchange="receiptChosen(this)"/>
-            <div class="rd-icon">🧾</div>
-            <div class="rd-text">Tap to upload receipt screenshot<br/><span style="font-size:.7rem;opacity:.6;">Make sure the order code is visible or included in transfer note</span></div>
+      `).join('');
+    }
+
+    function filterCategory(cat) {
+      currentCategory = cat;
+      document.getElementById('sectionTitle').innerText = cat === "All" ? "All Products" : cat;
+      renderCategoryPills();
+      renderProducts();
+    }
+
+    function searchProducts(val) {
+      searchQuery = val.toLowerCase().trim();
+      renderProducts();
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const emptyState = document.getElementById('emptyState');
+      
+      const filtered = initialProducts.filter(p => {
+        const matchesCat = currentCategory === "All" || p.category === currentCategory;
+        const matchesSearch = p.name.toLowerCase().includes(searchQuery) || p.desc.toLowerCase().includes(searchQuery);
+        return matchesCat && matchesSearch;
+      });
+
+      if(filtered.length === 0) {
+        grid.style.display = 'none';
+        emptyState.style.display = 'block';
+        return;
+      }
+
+      grid.style.display = 'grid';
+      emptyState.style.display = 'none';
+
+      grid.innerHTML = filtered.map(p => `
+        <div class="product-card">
+          <div class="product-img">
+            <img src="${p.img}" alt="${p.name}" loading="lazy"/>
           </div>
-          <div class="receipt-preview" id="receiptPreview">
-            <img id="receiptPreviewImg" src="" alt="Receipt"/>
-            <button class="rp-clear" onclick="clearReceipt()">✕</button>
-          </div>
-          <div class="receipt-ok" id="receiptOk">✅ Receipt uploaded — ready to confirm order</div>
-        </div>
-      </div>
-      <!-- Pay on Arrival notice -->
-      <div class="pay-details" id="payArrivalInfo" style="display:none;">
-        <div style="font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem;">🤝 Pay on Arrival</div>
-        <div style="font-size:.88rem;color:var(--text);font-weight:700;margin-bottom:.35rem;">No advance payment needed</div>
-        <div style="font-size:.8rem;color:var(--muted);line-height:1.6;">Pay the full amount <strong style="color:var(--gold2);">in cash when your order arrives</strong> (for delivery) or when you pick up at the store.<br/><br/>Our team will confirm your order and contact you shortly.</div>
-      </div>
-    </div>
-
-    <div class="modal-actions">
-      <button class="modal-cancel" onclick="closeOrderForm()">Cancel</button>
-      <button class="modal-submit" id="submitBtn" onclick="submitOrder()" disabled style="opacity:.5;cursor:not-allowed;">Detect location first</button>
-    </div>
-  </div>
-</div>
-
-<!-- ADMIN PANEL -->
-<div class="admin-overlay" id="adminOverlay">
-  <div class="admin-panel">
-    <button class="admin-close" onclick="closeAdmin()">×</button>
-    <h2>⚙ Admin Panel</h2>
-    <p>Manage products and categories for Xin Store 07.</p>
-    <div class="admin-section active" id="adminLogin">
-      <div class="form-group">
-        <label>Password</label>
-        <div style="position:relative;">
-          <input type="password" id="adminPass" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')checkPass()" style="padding-right:2.8rem;"/>
-          <button onclick="var i=document.getElementById('adminPass');i.type=i.type==='password'?'text':'password';this.textContent=i.type==='password'?'👁':'🙈'" type="button" style="position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;line-height:1;">👁</button>
-        </div>
-      </div>
-      <button class="add-btn" onclick="checkPass()">Login →</button>
-    </div>
-    <div class="admin-section" id="adminDash">
-      <div class="admin-tabs" style="flex-wrap:wrap;">
-        <button class="admin-tab active" onclick="switchTab('products',this)">📦 Products</button>
-        <button class="admin-tab" onclick="switchTab('categories',this)">🗂 Categories</button>
-        <button class="admin-tab" onclick="switchTab('store',this)">🏪 Store</button>
-        <button class="admin-tab" onclick="switchTab('dashboard',this)">📊 Dashboard</button>
-      </div>
-      <div class="tab-content active" id="tab-products">
-        <div class="form-group"><label>Category</label><select id="pCat"></select></div>
-        <div class="form-group"><label>Product Name</label><input type="text" id="pName" placeholder="e.g. Samsung Galaxy S24"/></div>
-        <div class="form-group"><label>Description</label><input type="text" id="pDesc" placeholder="Short description"/></div>
-        <div class="form-group"><label>Price</label><input type="text" id="pPrice" placeholder="e.g. 45,000 ETB"/></div>
-        <div class="form-group"><label>Emoji Icon</label><input type="text" id="pEmoji" placeholder="📱 👟 🍕 👕"/></div>
-        <div class="form-group"><label>Stock Quantity (optional)</label><input type="number" id="pStock" placeholder="e.g. 20 (leave empty if unlimited)"/></div>
-        <div class="form-group"><label>Badge</label><select id="pBadge"><option value="">None</option><option value="new">✨ NEW</option><option value="sale">🔥 SALE</option><option value="hot">🌶 HOT</option></select></div>
-        <div class="form-group">
-          <label>Product Images <span style="color:var(--muted);font-weight:400;">(up to 5 photos)</span></label>
-          <div class="img-picker">
-            <div class="img-source-btns">
-              <button class="img-src-btn" onclick="imgPickerMode('gallery')">🖼 Gallery</button>
-              <button class="img-src-btn" onclick="imgPickerMode('camera')">📷 Camera</button>
-              <button class="img-src-btn" onclick="imgPickerMode('url')">🔗 URL</button>
-            </div>
-            <!-- Gallery -->
-            <input type="file" id="pImgFile" accept="image/*" multiple style="display:none" onchange="imgFileChosen(this)"/>
-            <!-- Camera -->
-            <div class="cam-wrap" id="camWrap">
-              <video id="camVideo" autoplay playsinline muted></video>
-              <canvas id="camCanvas"></canvas>
-              <div class="cam-actions">
-                <button class="cam-snap" onclick="camSnap()">📸 Snap Photo</button>
-                <button class="cam-cancel" onclick="camStop()">✕ Cancel</button>
-              </div>
-            </div>
-            <!-- URL -->
-            <div class="img-url-row" id="imgUrlRow" style="display:none">
-              <input type="text" id="pImg" placeholder="https://example.com/photo.jpg"/>
-              <button onclick="imgUrlPreview(document.getElementById('pImg').value)">Add</button>
-            </div>
-            <!-- Thumbnails of added images -->
-            <div class="img-gallery-thumbs" id="imgGalleryThumbs"></div>
-            <!-- Main Preview -->
-            <div class="img-preview-wrap" id="imgPreviewWrap" style="display:none;">
-              <img id="imgPreviewEl" src="" alt="Preview"/>
-              <button class="img-preview-clear" onclick="clearImgPicker()" title="Remove all">✕ Clear all</button>
+          <div class="product-info">
+            <span class="product-cat-badge">${p.category}</span>
+            <div class="product-name">${p.name}</div>
+            <div class="product-desc">${p.desc}</div>
+            <div class="product-footer">
+              <div class="product-price">${p.price.toLocaleString()} ETB</div>
+              <button class="add-cart" onclick="addToCart(${p.id})">Add to Cart</button>
             </div>
           </div>
         </div>
-        <button class="add-btn" onclick="addProduct()">+ Add Product</button>
-        <div class="admin-list" id="adminProductList"></div>
-      </div>
-      <div class="tab-content" id="tab-categories">
-        <div class="form-group"><label>Category Name</label><input type="text" id="catName" placeholder="e.g. Sports, Beauty, Books…"/></div>
-        <div class="form-group"><label>Category Emoji</label><input type="text" id="catEmoji" placeholder="⚽ 💄 📚"/><p class="cat-hint">One emoji that represents the category.</p></div>
-        <button class="add-btn" onclick="addCategory()">+ Add Category</button>
-        <div class="admin-list" id="adminCatList"></div>
-      </div>
+      `).join('');
+    }
 
-      <div class="tab-content" id="tab-store">
-        <div style="font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;">🏪 Store Settings</div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:.9rem;">
-          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;">📢 Announcement Banner</div>
-          <div class="form-group"><label>Message</label><input type="text" id="announceMsg" placeholder="e.g. Free delivery today!" value="🎉 Welcome to Xin Store 07 — Fast delivery in Addis Ababa!"/></div>
-          <div style="display:flex;gap:.5rem;">
-            <button class="add-btn" style="margin-top:0;" onclick="saveAnnounce()">Show Banner</button>
-            <button onclick="hideAnnounce()" style="flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;margin-top:0;">Hide</button>
+    // CART FUNCTIONALITIES
+    function addToCart(id) {
+      const item = initialProducts.find(p => p.id === id);
+      if(item) {
+        cart.push(item);
+        updateCartUI();
+        showToast(`Added ${item.name} to cart!`);
+      }
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      document.getElementById('cartCount').innerText = cart.length;
+      const body = document.getElementById('cartBody');
+      const footer = document.getElementById('drawerFooter');
+
+      if(cart.length === 0) {
+        body.innerHTML = `
+          <div class="empty-cart">
+            <div style="font-size:2.5rem; margin-bottom:0.5rem;">🛒</div>
+            <p>Your cart is empty.</p>
+          </div>`;
+        footer.style.display = 'none';
+        return;
+      }
+
+      body.innerHTML = cart.map((item, idx) => `
+        <div class="cart-item">
+          <img src="${item.img}" class="cart-item-img" alt="${item.name}"/>
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">${item.price.toLocaleString()} ETB</div>
           </div>
+          <button class="cart-item-remove" onclick="removeFromCart(${idx})">✕</button>
         </div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:.9rem;">
-          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;">🎉 Welcome Popup</div>
-          <div class="form-group"><label>Popup Title</label><input type="text" id="welcomeTitle" placeholder="Welcome to Xin Store 07!"/></div>
-          <div class="form-group"><label>Message</label><input type="text" id="welcomeMessage" placeholder="Your welcome message…"/></div>
-          <div class="form-group"><label>Discount Code (optional)</label><input type="text" id="welcomeDiscount" placeholder="e.g. XIN10 for 10% off"/></div>
-          <div style="display:flex;gap:.5rem;">
-            <button class="add-btn" style="margin-top:0;" onclick="saveWelcomePopup()">Save & Enable</button>
-            <button onclick="disableWelcomePopup()" style="flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;">Disable</button>
-          </div>
-        </div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:.9rem;">
-          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;">🖼️ Homepage Banners</div>
-          <div class="form-group"><label>Banner Title</label><input type="text" id="bannerTitle" placeholder="e.g. New Arrivals!"/></div>
-          <div class="form-group"><label>Subtitle</label><input type="text" id="bannerSub" placeholder="e.g. Shop the latest electronics"/></div>
-          <div class="form-group"><label>Image URL</label><input type="text" id="bannerImg" placeholder="https://…"/></div>
-          <button class="add-btn" onclick="addBanner()">+ Add Banner Slide</button>
-          <div class="admin-list" id="adminBannerList" style="margin-top:.8rem;"></div>
-        </div>
-      </div>
+      `).join('');
 
-      <div class="tab-content" id="tab-dashboard">
-        <div style="font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;">📊 Store Dashboard</div>
-        <div class="dash-grid" id="dashGrid"></div>
-        <div style="font-size:.85rem;font-weight:700;margin-bottom:.5rem;color:var(--gold2);">⚠️ Low Stock Alerts</div>
-        <div class="low-stock-list" id="lowStockList"></div>
-        <div style="font-size:.85rem;font-weight:700;margin:.9rem 0 .5rem;color:var(--gold2);">❤️ Most Wishlisted</div>
-        <div class="admin-list" id="wishlistStats"></div>
-      </div>
+      const total = cart.reduce((sum, p) => sum + p.price, 0);
+      document.getElementById('cartTotal').innerText = `${total.toLocaleString()} ETB`;
+      footer.style.display = 'block';
+    }
 
-    </div>
-  </div>
-</div>
+    function openCart() {
+      document.getElementById('drawer').classList.add('open');
+      document.getElementById('overlay').classList.add('open');
+    }
 
-<!-- WELCOME POPUP -->
-<div class="welcome-overlay" id="welcomeOverlay">
-  <div class="welcome-box">
-    <img src="https://i.imgur.com/KBogTxg.jpg" class="wb-logo" alt="Xin Store 07"/>
-    <h2 id="wTitle">Welcome to Xin Store 07! 🎉</h2>
-    <p id="wMsg">Ethiopia's trusted online shop. Fast delivery, genuine products, easy payment.</p>
-    <div class="welcome-code" id="welcomeCodeBox" style="display:none;">
-      <div class="wc-label">🎁 Your Welcome Discount Code</div>
-      <div class="wc-code" id="welcomeCode"></div>
-      <div class="wc-hint">Use this code when placing your order</div>
-    </div>
-    <button class="welcome-shop-btn" onclick="closeWelcome()">🛍️ Start Shopping</button>
-    <button class="welcome-skip" onclick="closeWelcome()">Skip</button>
-  </div>
-</div>
+    function closeCart() {
+      document.getElementById('drawer').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+    }
 
-<!-- PRODUCT DETAIL MODAL -->
-<div class="detail-overlay" id="detailOverlay">
-  <div class="detail-modal">
-    <div class="detail-img" id="detailImg"></div>
-    <div class="detail-body">
-      <button class="detail-close" onclick="closeDetail()">×</button>
-      <div class="product-cat-badge" id="detailCat"></div>
-      <div class="detail-name" id="detailName"></div>
-      <div class="detail-price" id="detailPrice"></div>
-      <div class="star-row" id="detailStars"></div>
-      <div class="detail-desc" id="detailDesc"></div>
-      <div id="detailStock"></div>
-      <button class="detail-add" id="detailAddBtn">Add to Cart 🛒</button>
-      <button class="share-btn" id="detailShareBtn">📤 Share this product</button>
-    </div>
-  </div>
-</div>
+    // ORDER INTERACTIONS
+    function openOrderForm() {
+      closeCart();
+      document.getElementById('orderModal').classList.add('open');
+    }
 
-<div class="toast" id="toast"></div>
+    function closeOrderForm() {
+      document.getElementById('orderModal').classList.remove('open');
+    }
 
-<!-- EDIT PRODUCT MODAL -->
-<div class="edit-modal-overlay" id="editModal">
-  <div class="edit-modal">
-    <h2>✏️ Edit Product</h2>
-    <p class="edit-sub">🔒 Locked fields stay unchanged. Tap the lock to unlock a field.</p>
-    <div class="edit-field-row">
-      <label>Name</label>
-      <input type="text" id="eName" disabled/>
-      <button class="edit-lock" id="lock-name" onclick="toggleLock('name')" title="Unlock to edit">🔒</button>
-    </div>
-    <div class="edit-field-row">
-      <label>Price</label>
-      <input type="text" id="ePrice" disabled/>
-      <button class="edit-lock" id="lock-price" onclick="toggleLock('price')" title="Unlock to edit">🔒</button>
-    </div>
-    <div class="edit-field-row">
-      <label>Desc</label>
-      <input type="text" id="eDesc" disabled/>
-      <button class="edit-lock" id="lock-desc" onclick="toggleLock('desc')" title="Unlock to edit">🔒</button>
-    </div>
-    <div class="edit-field-row">
-      <label>Emoji</label>
-      <input type="text" id="eEmoji" disabled/>
-      <button class="edit-lock" id="lock-emoji" onclick="toggleLock('emoji')" title="Unlock to edit">🔒</button>
-    </div>
-    <!-- Picture edit -->
-    <div style="margin-bottom:.9rem;">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;">
-        <label style="font-size:.78rem;color:var(--muted);">Image</label>
-        <button onclick="toggleEditImg()" id="editImgToggle" style="background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:7px;padding:.3rem .7rem;cursor:pointer;font-size:.75rem;font-family:inherit;">🔒 Locked — tap to change</button>
-      </div>
-      <div id="editImgSection" style="display:none;">
-        <!-- Current image preview -->
-        <div id="eCurrentImgWrap" style="margin-bottom:.6rem;border-radius:10px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3;background:var(--surface);display:none;">
-          <img id="eCurrentImg" src="" style="width:100%;height:100%;object-fit:cover;"/>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-bottom:.5rem;">
-          <button class="img-src-btn" onclick="editImgMode('gallery')">🖼 Gallery</button>
-          <button class="img-src-btn" onclick="editImgMode('camera')">📷 Camera</button>
-          <button class="img-src-btn" onclick="editImgMode('url')">🔗 URL</button>
-        </div>
-        <input type="file" id="eImgFile" accept="image/*" style="display:none" onchange="editImgFileChosen(this)"/>
-        <div class="cam-wrap" id="editCamWrap" style="display:none;">
-          <video id="editCamVideo" autoplay playsinline muted></video>
-          <canvas id="editCamCanvas"></canvas>
-          <div class="cam-actions">
-            <button class="cam-snap" onclick="editCamSnap()">📸 Snap Photo</button>
-            <button class="cam-cancel" onclick="editCamStop()">✕ Cancel</button>
-          </div>
-        </div>
-        <div class="img-url-row" id="editImgUrlRow" style="display:none;">
-          <input type="text" id="eImgUrl" placeholder="https://example.com/photo.jpg" oninput="editImgUrlPreview(this.value)"/>
-          <button onclick="editImgUrlPreview(document.getElementById('eImgUrl').value)">Preview</button>
-        </div>
-        <div class="img-preview-wrap" id="editImgPreviewWrap" style="display:none;">
-          <img id="editImgPreviewEl" src="" alt="New image"/>
-          <button class="img-preview-clear" onclick="clearEditImg()">✕</button>
-        </div>
-      </div>
-    </div>
-    <div class="edit-actions">
-      <button class="edit-cancel" onclick="closeEditModal()">Cancel</button>
-      <button class="edit-save" onclick="saveEdit()">Save Changes ✅</button>
-    </div>
-  </div>
-</div>
-<!-- ABOUT SECTION -->
-<div style="max-width:1200px;margin:0 auto 2rem;padding:0 1.5rem;">
-  <div style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2rem;text-align:center;">
-    <img src="https://i.imgur.com/KBogTxg.jpg" alt="Xin Store 07" style="width:90px;height:90px;border-radius:50%;border:2px solid var(--gold);margin-bottom:1.25rem;object-fit:cover;"/>
-    <h2 style="font-size:1.4rem;font-weight:800;color:var(--gold2);margin-bottom:.4rem;">Xin Store 07</h2>
-    <p style="font-size:.82rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.25rem;">Trust · Quality · Value · You</p>
-    <p style="font-size:.92rem;color:var(--muted);max-width:520px;margin:0 auto 1.5rem;line-height:1.7;">
-      Xin Store 07 is your trusted online shop based in <strong style="color:var(--text);">Addis Ababa, Ethiopia</strong>. 
-      We offer a wide range of products — from food and electronics to clothing, beauty, and more — 
-      all delivered straight to your door with fast, reliable service.
-    </p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;max-width:500px;margin:0 auto 1.5rem;">
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
-        <div style="font-size:1.5rem;margin-bottom:.3rem;">🚀</div>
-        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">Fast Delivery</div>
-        <div style="font-size:.75rem;color:var(--muted);">Same day in Addis</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
-        <div style="font-size:1.5rem;margin-bottom:.3rem;">✅</div>
-        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">Trusted Quality</div>
-        <div style="font-size:.75rem;color:var(--muted);">100% genuine products</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
-        <div style="font-size:1.5rem;margin-bottom:.3rem;">💳</div>
-        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">Easy Payment</div>
-        <div style="font-size:.75rem;color:var(--muted);">CBE, TeleBirr & more</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
-        <div style="font-size:1.5rem;margin-bottom:.3rem;">🎧</div>
-        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">24/7 Support</div>
-        <div style="font-size:.75rem;color:var(--muted);">Always here to help</div>
-      </div>
-    </div>
-    <div style="border-top:1px solid var(--border);padding-top:1.25rem;display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;">
-      <a href="https://t.me/xinstore07" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,0.12);border:1px solid var(--gold);color:var(--gold2);padding:.55rem 1.1rem;border-radius:50px;text-decoration:none;font-size:.85rem;font-weight:700;">
-        ✈️ Telegram
-      </a>
-      <a href="tel:+251945199496" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,0.12);border:1px solid var(--gold);color:var(--gold2);padding:.55rem 1.1rem;border-radius:50px;text-decoration:none;font-size:.85rem;font-weight:700;">
-        📞 Call Us
-      </a>
-      <a href="https://wa.me/251945199496" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,0.12);border:1px solid var(--gold);color:var(--gold2);padding:.55rem 1.1rem;border-radius:50px;text-decoration:none;font-size:.85rem;font-weight:700;">
-        💬 WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
+    function submitOrder() {
+      const name = document.getElementById('orderName').value.trim();
+      const phone = document.getElementById('orderPhone').value.trim();
+      
+      if(!name || !phone) {
+        showToast("Please enter your name and phone number.", true);
+        return;
+      }
 
-<footer>© 2025 Xin Store 07 · Trust · Quality · Value · You</footer>
+      showToast("Order submitted successfully via system processing!");
+      cart = [];
+      updateCartUI();
+      closeOrderForm();
+      document.getElementById('orderName').value = "";
+      document.getElementById('orderPhone').value = "";
+      document.getElementById('orderNotes').value = "";
+    }
 
-<script>
-const BOT_TOKEN = atob("ODYzODA5MTQ0NDpBQUYxbFppTWFpQlVDdENuUHFkQ3RMajJqMUo1bUdtWDJqUQ==");
-const CHAT_ID   = "7984414010";
-const ADMIN_PASSWORD = atob("eGluc3RvcmUyMDI0");
-
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
-
-async function sendTelegramViaProxy(text) {
-  const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'Markdown' })
-  });
-  return await res.json();
-}
-
-const DEFAULT_CATS = [
-  {id:'food',        name:'Food',         emoji:'🍕'},
-  {id:'electronics', name:'Electronics',  emoji:'📱'},
-  {id:'shoes',       name:'Shoes',        emoji:'👟'},
-  {id:'clothing',    name:'Clothing',     emoji:'👕'},
-  {id:'accessories', name:'Accessories',  emoji:'⌚'},
-  {id:'beauty',      name:'Beauty',       emoji:'💄'},
-  {id:'home',        name:'Home & Living',emoji:'🏠'},
-  {id:'sports',      name:'Sports',       emoji:'⚽'},
-  {id:'books',       name:'Books',        emoji:'📚'},
-  {id:'toys',        name:'Toys & Kids',  emoji:'🧸'},
-];
-
-// ─── SHARED STORAGE & PREPOPULATED INVENTORY ──────────────────────────────────
-let categories   = [...DEFAULT_CATS];
-let products     = [
-  // FOOD
-  {cat:'food', name:'Shiro (Premium Enat 1kg)', desc:'Pure premium blended Enat Shiro', price:'207 ETB', emoji:'🍕'},
-  {cat:'food', name:'Berbere (Spiced 1kg)', desc:'Traditional rich spiced Ethiopian pepper mix', price:'402.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Mitin Shiro (500g)', desc:'High quality mixed organic Shiro powder', price:'138 ETB', emoji:'🍕'},
-  {cat:'food', name:'Ethiopian Honey (Pure Amber 1kg)', desc:'100% pure organic wild amber honey', price:'690 ETB', emoji:'🍕'},
-  {cat:'food', name:'Teff Flour (White, 5kg)', desc:'Premium selected white Teff flour sifted', price:'747.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Kolo (Roasted Barley Mix 1kg)', desc:'Crunchy traditional Ethiopian roasted snack mix', price:'253 ETB', emoji:'🍕'},
-  {cat:'food', name:'Bulla (Premium 1kg)', desc:'High grade pure traditional Bulla powder', price:'368 ETB', emoji:'🍕'},
-  {cat:'food', name:'Niter Kibbeh (Spiced Butter 500g)', desc:'Aromatic traditional clarified spiced butter', price:'517.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Coffee Beans (Yirgacheffe 1kg roasted)', desc:'World class fruity & aromatic medium roasted beans', price:'920 ETB', emoji:'🍕'},
-  {cat:'food', name:'Coffee Beans (Sidamo 1kg roasted)', desc:'Rich full-bodied premium roasted Sidamo coffee', price:'862.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Local Olive Oil (500ml)', desc:'100% natural cold pressed local olive oil', price:'552 ETB', emoji:'🍕'},
-  {cat:'food', name:'Black Cumin Oil (Tikur Azmud 250ml)', desc:'Pure cold-pressed therapeutic black seed oil', price:'345 ETB', emoji:'🍕'},
-  {cat:'food', name:'Linseed / Telba Powder (500g)', desc:'Finely ground highly nutritious roasted flaxseed', price:'161 ETB', emoji:'🍕'},
-  {cat:'food', name:'Sunflower Seed / Suf Powder (500g)', desc:'Rich ground sunflower juice mix powder', price:'184 ETB', emoji:'🍕'},
-  {cat:'food', name:'Dry Injera (Chiko Chips 500g)', desc:'Crispy traditional dried Injera snack chips', price:'149.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Local Peanut Butter (500g)', desc:'Creamy 100% natural roasted peanut paste', price:'218.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Pasta (Zara Brand 500g x 5 pack)', desc:'Premium quality long-strand imported durum pasta', price:'287.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Macaroni (Local 500g x 5 pack)', desc:'Family-sized pack durable cooking local macaroni', price:'276 ETB', emoji:'🍕'},
-  {cat:'food', name:'Rice (Basmati 5kg)', desc:'Extra long premium grain fragrant Basmati rice', price:'805 ETB', emoji:'🍕'},
-  {cat:'food', name:'Oats (Quick Cooking 1kg)', desc:'Hearty organic whole grain quick cooking oats', price:'322 ETB', emoji:'🍕'},
-  {cat:'food', name:'Teas (Local Spiced 50 Bags)', desc:'Traditional blended black tea with warm spices', price:'126.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Green Tea (Imported 25 Bags)', desc:'Antioxidant rich refreshing imported green tea leaves', price:'207 ETB', emoji:'🍕'},
-  {cat:'food', name:'Table Salt (Iodized 1kg)', desc:'Finely refined essential iodized kitchen salt', price:'51.75 ETB', emoji:'🍕'},
-  {cat:'food', name:'Sugar (White local 5kg)', desc:'Pure fine grain local white sugarcane sugar', price:'632.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Tomato Paste (400g canned)', desc:'Thick rich concentrated double-purée tomato paste', price:'109.25 ETB', emoji:'🍕'},
-  {cat:'food', name:'Tuna in Vegetable Oil (160g canned)', desc:'Premium light meat tuna chunks in vegetable oil', price:'149.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Milk Powder (Dano 400g)', desc:'Instant full cream fortified milk powder pack', price:'517.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Corn Flakes (Cereal 500g)', desc:'Crispy golden toasted classic breakfast cereal flakes', price:'299 ETB', emoji:'🍕'},
-  {cat:'food', name:'Biscuits (Tigo Multi-pack)', desc:'Delicious crunchy sweet family favorite snack multi-pack', price:'172.50 ETB', emoji:'🍕'},
-  {cat:'food', name:'Mixed Spices (Korarima/Mekelesha 250g)', desc:'Premium custom-blended traditional finishing spices', price:'241.50 ETB', emoji:'🍕'},
-
-  // ELECTRONICS
-  {cat:'electronics', name:'iPhone 13 Pro (128GB, Gently Used)', desc:'90%+ Battery health, flawless condition flagship phone', price:'82,800 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Samsung Galaxy A14 (64GB/4GB)', desc:'Reliable large screen display smartphone with triple camera', price:'17,248.85 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Redmi Note 13 Pro', desc:'Ultra clear high megapixel camera phone with fast charging', price:'32,200 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Tecno Spark 20', desc:'Trendy design massive storage affordable dynamic device', price:'15,525 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Infinix Hot 40 Pro', desc:'Excellent high refresh rate display mobile optimized for gaming', price:'18,975 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Samsung Galaxy A54 5G', desc:'Premium water-resistant body gorgeous crisp AMOLED screen', price:'37,950 ETB', emoji:'📱'},
-  {cat:'electronics', name:'HP EliteBook 840 G8 (Core i7)', desc:'Sleek metal business laptop with 16GB RAM and fast SSD', price:'94,300 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Fox 43\" Smart TV (2026 Model)', desc:'Crystal clear 4K resolution dynamic sound smart ecosystem', price:'52,325 ETB', emoji:'📱'},
-  {cat:'electronics', name:'AirPods Pro 2 (Clone/A+ Quality)', desc:'Superb active spatial sound feel and accurate pop-up touch animations', price:'2,875 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Oraimo FreePods 4', desc:'Genuine original deep bass noise cancellation wireless buds', price:'3,680 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Anker PowerCore 20,000mAh Power Bank', desc:'Ultra safe high-capacity multi-device simultaneous quick charger', price:'5,175 ETB', emoji:'📱'},
-  {cat:'electronics', name:'JBL Flip 6 Bluetooth Speaker', desc:'Powerful waterproof loud rugged portable outdoor speaker', price:'12,650 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Beecaro 160W Bluetooth Speaker', desc:'Massive boombox bass karaoke support home entertainment system', price:'18,975 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Sony MDR-7506 Studio Headphones', desc:'Industry-standard professional closed flat monitoring sound clarity', price:'19,377.50 ETB', emoji:'📱'},
-  {cat:'electronics', name:'TP-Link Wi-Fi Extender', desc:'Quick wall-plug network signal dead-zone booster device', price:'2,300 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Logitech Wireless Mouse M170', desc:'Long battery life ergonomic dependable desktop accessory', price:'1,092.50 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Wired Gaming Headset (Misde H7)', desc:'Immersive sound comfort ear-cups multi-color breathing LEDs', price:'7,475 ETB', emoji:'📱'},
-  {cat:'electronics', name:'USB 8-in-1 Type C Hub', desc:'Multi-port aluminum converter station with HDMI, SD, and USB-3.0', price:'2,298.85 ETB', emoji:'📱'},
-  {cat:'electronics', name:'HD 720p Auto-Focus Webcam', desc:'Sharp low-light correction stream/meeting computer web camera', price:'3,795 ETB', emoji:'📱'},
-  {cat:'electronics', name:'CK RGB Gaming Keyboard', desc:'Responsive click mechanical-feel customizable backlit board', price:'3,277.50 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Smart TV Remote Universal (2026 Build)', desc:'Pre-programmed multi-brand immediate pairing smart remote control', price:'2,070 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Sandisk 128GB USB 3.0 Flash Drive', desc:'High speed durable compact metallic file transfer stick', price:'1,380 ETB', emoji:'📱'},
-  {cat:'electronics', name:'External Hard Drive 1TB (WD Elements)', desc:'Massive secure backup reliable USB 3.0 mobile storage bank', price:'6,325 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Ring Light 14\" with Tripod Stand', desc:'Multi-color beauty temperature phone content creator lighting kit', price:'4,025 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Boya BY-M1 Lavalier Microphone', desc:'Crystal clear multi-device omnidirectional clip lapel mic', price:'1,610 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Wireless Microphone for Vloggers/Phones', desc:'Immediate automatic pairing noise reduction long range recording', price:'1,552.50 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Canon EOS 4000D DSLR Camera (Body)', desc:'Excellent entry-level sharp optics digital photography base', price:'43,700 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Apple Watch Series 8 (Used/Clean)', desc:'Fully verified health track seamless dynamic touch wrist wearable', price:'27,600 ETB', emoji:'📱'},
-  {cat:'electronics', name:'Mi Smart Band 8', desc:'Amoled crisp vital metrics tracking long battery life wristband', price:'3,910 ETB', emoji:'📱'},
-  {cat:'electronics', name:'HDMI Cable High-Speed 5 Meters', desc:'Heavy-duty gold-plated lag-free 4K video projector feed line', price:'690 ETB', emoji:'📱'},
-
-  // SHOES
-  {cat:'shoes', name:'Nike Air Force 1 (Standard)', desc:'Classic all-white urban style street sneakers', price:'4,025 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Adidas Samba Classic', desc:'Low-profile sleek vintage design retro casual wear', price:'4,370 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Jordan 4 Retro', desc:'High top premium multi-tone iconic basketball kicks', price:'6,325 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Nike Dunk Low', desc:'Popular stylish streetwear low casual athletic shoes', price:'4,140 ETB', emoji:'👟'},
-  {cat:'shoes', name:'New Balance 530', desc:'Extremely comfortable breathable aesthetic running dad shoes', price:'4,830 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Adidas UltraBoost', desc:'Premium responsive high-tier cushion sports trainer build', price:'5,520 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Converse Chuck Taylor All Star', desc:'Timeless high-top canvas lightweight athletic lifestyle wear', price:'2,530 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Vans Old Skool Classic', desc:'Durable low-profile skate classic side-stripe sneaker canvas', price:'2,760 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Puma Suede Classic', desc:'Vintage premium soft real suede lifestyle icon profile', price:'3,220 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Nike Air Max 270', desc:'Stunning transparent high heel air-unit lifestyle runner pack', price:'5,175 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Crocs Classic Clogs', desc:'Ultra comfortable slip-on waterproof house & street flexible clogs', price:'1,840 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Men\'s Leather Loafers (Local Premium)', desc:'Beautiful Ethiopian premium genuine soft leather dress shoes', price:'3,680 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Men\'s Formal Oxford Shoes', desc:'Polished elegant stitched traditional corporate business footwear', price:'4,025 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Women\'s Block Heels', desc:'Chic comfortable sturdy support formal office lifestyle sandals', price:'2,875 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Women\'s Casual Flat Sandals', desc:'Easy breezy lightweight open toe hot summer casual walks', price:'1,610 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Women\'s White Canvas Sneakers', desc:'Minimalist clean everyday match universal comfy canvas pairs', price:'2,070 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Chelsea Boots (Suede)', desc:'Sleek high ankle comfortable slip-on classic style leather boots', price:'4,600 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Leather Combat Boots', desc:'Heavy-duty lace-up rugged winter style tactical daily footwear', price:'5,175 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Slides (Yeezy Style Comfort)', desc:'Thick cloud cushion indoor/outdoor contemporary simple slides', price:'1,380 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Running Shoes (Asics Gel-Kayano)', desc:'Premium elite impact absorption orthotic joint defense trainers', price:'5,750 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Hiking Boots (Waterproof)', desc:'Heavy grip anti-slip high-terrain wilderness outdoor boot gear', price:'6,670 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Football Boots (Nike Mercurial Turf)', desc:'High agility speed grip multi-ground professional player cleats', price:'3,910 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Gym Training Shoes (Reebok Nano)', desc:'Flat base heavy-lift athletic CrossFit sturdy training shoe', price:'4,485 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Children\'s Light-Up Sneakers', desc:'Fun animated color glowing sole cozy small step footwear', price:'1,725 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Children\'s School Shoes (Black Leather)', desc:'Durable scuff-resistant dark formal neat school smart dress uniform', price:'2,070 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Espadrilles Casual Summer', desc:'Lightweight woven rope sole casual slip-on cruise walk softs', price:'1,897.50 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Slip-On Mesh Loafers', desc:'Ultra breathable flexible featherweight indoor athletic comfort slippers', price:'2,185 ETB', emoji:'👟'},
-  {cat:'shoes', name:'High-Top Platform Sneakers', desc:'Trendy elevated platform heel vulcanized stylish street canvas', price:'3,680 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Winter Leather Fur Boots', desc:'Cozy fleece insulated internal warm dense protective ankle gear', price:'5,635 ETB', emoji:'👟'},
-  {cat:'shoes', name:'Safety Steel Toe Work Boots', desc:'Industrial crushproof electrical hazard puncture defense work gear', price:'4,370 ETB', emoji:'👟'},
-
-  // CLOTHING
-  {cat:'clothing', name:'Oversized Graphic T-Shirt', desc:'Trendy high density print streetwear loose cotton tee', price:'862.50 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Plain Cotton T-Shirt (Premium)', desc:'Heavyweight ultra-soft pure combed cotton basic t-shirt', price:'517.50 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Slim Fit Denim Jeans (Men\'s)', desc:'Classic stretch durable wash daily casual rugged denim pants', price:'1,840 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Mom Jeans (Women\'s High Waste)', desc:'Retro comfortable baggy fit high rise stylish denim outfit', price:'1,725 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Cargo Pants (Multi-pocket)', desc:'Functional aesthetic side pockets utility technical wear pants', price:'2,070 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Hoodie (Heavyweight Fleece)', desc:'Thick cozy drop-shoulder street hoodie with warm inner layer', price:'2,070 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Sweatshirt (Minimalist Crewneck)', desc:'Clean aesthetic solid color versatile casual smart pullover', price:'1,610 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Zip-Up Track Jacket', desc:'Athletic aesthetic full zipper active sports training outer garment', price:'1,897.50 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Sweatpants / Joggers', desc:'Tapered dynamic fit elastic waist lounge athletic running bottoms', price:'1,265 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Flannel Button-Up Shirt', desc:'Classic checked pattern soft autumn layered smart casual button shirt', price:'1,092.50 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Men\'s Casual Linen Shirt', desc:'Ultra breathable soft fabric summer holiday beach light top', price:'1,380 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Men\'s Formal Dress Shirt', desc:'Crisp anti-wrinkle luxury spread collar formal corporate uniform', price:'1,495 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Polo Shirt (Classic Cotton)', desc:'Timeless smart casual knit ribbed collar tennis style shirt', price:'977.50 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Women\'s Casual Summer Dress', desc:'Flowy aesthetic beautiful print comfortable soft dress gown', price:'1,840 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Women\'s Crop Top Blouse', desc:'Modern fit stylish cropped dynamic modern chic ladies apparel', price:'690 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Pleated Midi Skirt', desc:'Elegant high waist multi-season elegant fluid motion fancy skirt', price:'1,265 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Leggings (High Waist Gym)', desc:'Squat proof high compression elastic dynamic dry sport tights', price:'920 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Sports Bra (Medium Impact)', desc:'Comfortable racerback supportive quick dry exercise top undergarment', price:'747.50 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Men\'s Swim Trunks', desc:'Quick dry internal mesh pocket elastic beach holiday shorts', price:'805 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Windbreaker Jacket (Water Resistant)', desc:'Ultralight storm shield outdoors active weather zip shell hoodie', price:'2,185 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Denim Jacket (Classic Blue)', desc:'Timeless button-up dual pocket casual iconic jean overlay jacket', price:'2,530 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Leather Biker Jacket (Faux Leather)', desc:'Heavy metal hardware sleek aesthetic asymmetric zip streetwear rock coat', price:'4,025 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Men\'s Formal Blazer', desc:'Sharp tailored fit luxury aesthetic inner pocket elegant business jacket', price:'4,600 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Puffer Winter Jacket', desc:'Thick quilted warm insulation heavy cold shield puffer outerwear', price:'3,680 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Cotton Socks (5-Pack Bundle)', desc:'Ankle length breathable cushion everyday premium sock sets', price:'402.50 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Boxer Briefs (3-Pack Cotton)', desc:'Anti-chafing soft waistband breathable comfort men underwear elastic', price:'690 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Pyjama Set (Silky/Satin Satin)', desc:'Luxury soft night lounge button down comfort pajama sleepy clothes', price:'1,725 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Habesha Kemis (Modern Casual Cotton)', desc:'Beautiful locally inspired modern touch cultural elegant cotton dress', price:'5,175 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Knitted Sweater Vest', desc:'Preppy aesthetic vintage smart look layer uniform sleeveless pullover', price:'1,092.50 ETB', emoji:'👕'},
-  {cat:'clothing', name:'Unisex Beanie & Scarf Set', desc:'Cozy thick weave winter warmth head and neck matching accessory set', price:'805 ETB', emoji:'👕'},
-
-  // ACCESSORIES
-  {cat:'accessories', name:'Casio Vintage Digital Watch', desc:'Classic retro metallic steel unisex illuminating time piece', price:'2,530 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Men\'s Minimalist Quartz Watch', desc:'Ultra thin executive clean dial premium black leather wrist strap', price:'4,025 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Women\'s Rose Gold Dress Watch', desc:'Stunning luxury diamond accent slim metal band accessory watch', price:'4,370 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Leather Bi-Fold Wallet (Men\'s)', desc:'Genuine soft cowhide compact multi card storage currency wallet', price:'977.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Slim Card Holder (RFID Blocking)', desc:'Minimalist front pocket aluminum safety pop-up metallic card wallet', price:'575 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Leather Crossbody Bag (Women\'s)', desc:'Elegant gold hardware zipper multi compartment adjustable side handbag', price:'3,220 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Canvas Daily Backpack', desc:'Heavy-duty smart laptop compartment school travel tech pack bag', price:'2,185 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Classic Aviator Sunglasses', desc:'UV400 protection metallic teardrop frame iconic cool pilot eye shield', price:'1,035 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Y2K Style Oval Sunglasses', desc:'Trendy modern small rim street look hip-hop festival eyewear glasses', price:'747.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Stainless Steel Cuban Link Chain', desc:'High polished non-tarnish safe silver color masculine throat chain necklace', price:'862.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Silver Stud Earrings Set (6 pairs)', desc:'Hypoallergenic simple cubic zirconia brilliant cut tiny ear studs pack', price:'460 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Chunky Gold Plated Hoop Earrings', desc:'Bold aesthetic lightweight empty hollow design statement women circle loops', price:'632.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Minimalist Pendant Necklace', desc:'Delicate thin gold chain classic simple charm chic layer neck jewel', price:'552 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Beaded Bracelet Set', desc:'Handmade multi-layer stone spiritual natural wood elastic wrist bands', price:'287.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Genuine Leather Belt (Reversible)', desc:'Smart rotatable buckle black & brown two-in-one corporate waist belt', price:'1,035 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Baseball Cap (Plain Dad Hat)', desc:'Adjustable washed retro cotton profile sun shade street cap hat', price:'517.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Bucket Hat (Streetwear style)', desc:'Foldable double sided wide brim skate hip-hop unisex sun protection apparel', price:'632.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Silk Hair Scrunchies (3-pack)', desc:'Anti-breakage beautiful premium satin smooth texture hair bun ties', price:'207 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Claw Hair Clips (Matte finish 4-pack)', desc:'Sturdy heavy duty interlock modern grid color lady hair hold grip jaws', price:'402.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Totebag (Aesthetic Canvas Printed)', desc:'Thick eco-friendly grocery book storage shoulder drop bag cloth shopper', price:'460 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Travel Duffel Bag (Waterproof)', desc:'Large weekend luggage overnighter separate shoes pouch storage carrier', price:'2,875 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Key Organizer Leather Pouch', desc:'Smart anti-scratch silent snap metal ring car keychain pocket wrapper', price:'402.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Metal Framed Anti-Blue Light Glasses', desc:'Computer digital screen radiation defense clear eye safety specs strain relief', price:'977.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Sterling Silver Ring (Adjustable)', desc:'925 stamped open size wrap modern luxury finger band eternity jewelry', price:'690 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Anklet Chain (Boho Summer Style)', desc:'Delicate beach footwear barefoot chain star dangling foot wrist chain art', price:'345 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Brooch Pin (Traditional/Modern Hybrid)', desc:'Stunning coat suit lapel pin luxury traditional design safety breast jewelry', price:'460 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Umbrella (Compact Automatic Windproof)', desc:'One-click open close reinforced lightweight rainy weather pocket shield', price:'862.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Passport Holder & Luggage Tag Set', desc:'Luxury travel secure ticket pouch wallet matching identification travel card strip', price:'747.50 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Smart Key Finder (Bluetooth Tracker)', desc:'Anti-lost location tag app connect key chain wallet locator alarm ring', price:'1,265 ETB', emoji:'⌚'},
-  {cat:'accessories', name:'Silicon Watch Band (Apple/Samsung Compatible)', desc:'Soft sweatproof quick replacement smart watch fitness sports wrist buckle strap', price:'460 ETB', emoji:'⌚'},
-
-  // BEAUTY
-  {cat:'beauty', name:'CeraVe Hydrating Cleanser (236ml)', desc:'Moisture balance barrier defense dermatological facial wash lotion', price:'1,840 ETB', emoji:'💄'},
-  {cat:'beauty', name:'The Ordinary Niacinamide 10% (30ml)', desc:'High strength vitamin mineral blemish balance clarify serum oil control', price:'1,265 ETB', emoji:'💄'},
-  {cat:'beauty', name:'COSRX Advanced Snail Mucin Essence', desc:'96% advanced snail secretion glass skin glowing heavy glow glow treatment', price:'2,185 ETB', emoji:'💄'},
-  {cat:'beauty', name:'La Roche-Posay Anthelios Sunscreen SPF 50+', desc:'Ultra-light fluid invisible finish zero sticky high uv block fluid screen', price:'2,760 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Beauty of Joseon Relief Sunscreen', desc:'Organic rice probiotics skin calm hydration soft face sun lotion shield', price:'1,897.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Dr. Rashel Vitamin C Face Serum', desc:'Brightening anti-aging nutrient deep collagen glow booster facial drop', price:'632.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Maybelline Fit Me Matte Foundation', desc:'Poreless long-wear absolute blend tone match full coverage fluid base', price:'1,380 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Maybelline Instant Age Rewind Concealer', desc:'Dark circles eraser treatment smooth multi corrector focus sponge applicator tip', price:'1,092.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Fenty Beauty Gloss Bomb', desc:'Universal high-shine extreme wet look non-sticky luxury color lip gloss', price:'2,990 ETB', emoji:'💄'},
-  {cat:'beauty', name:'L\'Oreal Paris Lash Paradise Mascara', desc:'Voluptuous volume intense volume lengthening feather soft fringe brush black', price:'977.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'E.l.f. Power Grip Primer', desc:'Gel base gripping formula face pore smooth long lasting face cosmetics prep', price:'1,552.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Matte Liquid Lipstick (Classic Red/Nude)', desc:'Waterproof kissproof non transfer dry smooth absolute lip tint glaze', price:'517.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Eyeshadow Palette (16 Color Nude Mix)', desc:'High pigment glitter matte dynamic shimmer face cosmetics shadow kit tray', price:'977.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Micellar Cleansing Water (Garnier 400ml)', desc:'All in one rinse free magnetic clean lip eye skin mild makeup remover liquid', price:'920 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Hydrocolloid Acne Pimple Patches (24 count)', desc:'Invisible fluid absorption spot extraction pimple healing stickers shield fast', price:'402.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Jade Roller & Gua Sha Facial Set', desc:'Natural quartz cooling therapeutic vascular circulation swelling relief facial massager tool', price:'632.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Makeup Brush Set (12 Pieces Premium)', desc:'Ultra soft synthetic bristle powder concealer foundation cosmetics application tools wand', price:'1,265 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Scented Lip Oil (Hydrating)', desc:'Tinted heavy gloss intense plant oil gloss lip defense gloss balm glow', price:'345 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Shea Butter (Raw/Pure 500g)', desc:'Unrefined 100% organic heavy moisture split end skin heal body block butter', price:'402.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Rose Water Facial Mist (200ml)', desc:'Pure petal extract soothing balance tonic skin finish instant hydrator mist', price:'322 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Dr Teal\'s Pure Epsom Salt (1.36kg)', desc:'Muscle soak therapeutic recovery whole body ease body bath minerals crystal bag', price:'1,610 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Body Butter (Vanilla Scented 200g)', desc:'Whipped fluffy gourmet candy aroma deep dermal smooth lotion cream pot', price:'747.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Vaseline Cocoa Radiant Body Lotion (400ml)', desc:'Pure cocoa butter micro droplets skin restore non-greasy healthy skin food cream', price:'1,092.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Perfume (Zara Orchid/Gardenia 100ml)', desc:'Stunning floral fruity ladies signature luxury designer daily fragrance scent spray', price:'3,910 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Men\'s Cologne (Club De Nuit Intense)', desc:'Luxury luxury high appeal long projection masculine woody signature absolute spray', price:'5,520 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Organic Argan Hair Oil (100ml)', desc:'Moroccan liquid gold premium shine anti frizz hot heat damage hair guard serum', price:'862.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Castor Oil for Hair & Lashes (250ml)', desc:'Pure hexane free dense hair growth root stimulant eyebrow eyelash multiplier line', price:'345 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Satin Silk Sleep Nightcap', desc:'Anti damage elastic band sleeping head bonnet protection hair wrapper hat', price:'460 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Nail Polish Long Lasting (Set of 3 colors)', desc:'High gloss streak free quick solid dry beauty salon enamel coloring paint kit', price:'402.50 ETB', emoji:'💄'},
-  {cat:'beauty', name:'Electric Facial Cleansing Brush', desc:'Sonic silicone pulse vibration deep pore dynamic washing skin care machine', price:'1,035 ETB', emoji:'💄'},
-
-  // HOME & LIVING
-  {cat:'home', name:'LED Strip Lights (RGB 5 Meters with Remote)', desc:'Multi color adhesive back bedroom party wall ambient glow decoration cord', price:'1,035 ETB', emoji:'🏠'},
-  {cat:'home', name:'Digital Alarm Clock with Temperature', desc:'Sleek modern mirror face LED bedside brightness table smart clock display', price:'862.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Ceramic Coffee Mug Set (Traditional Print x6)', desc:'Beautiful locally inspired multi color family morning tea dining ceramic cups', price:'1,610 ETB', emoji:'🏠'},
-  {cat:'home', name:'Stainless Steel Water Flask (Vacuum 1L)', desc:'Double wall hot cold retention high insulation gym cycling leakage proof thermal bottle', price:'1,265 ETB', emoji:'🏠'},
-  {cat:'home', name:'Scented Soy Candle in Glass Jar', desc:'Natural slow burn aromatherapy calming relaxation home fragrance wax candle', price:'517.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Essential Oil Diffuser (Ultrasonic 300ml)', desc:'Cool mist humidifier changing colorful light waterless auto off office air filter', price:'2,127.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Microfiber Bed Sheet Set (Queen Size)', desc:'Silky soft fade resistant deep pocket mattress wrap include pillowcases sets', price:'2,875 ETB', emoji:'🏠'},
-  {cat:'home', name:'Orthopedic Memory Foam Pillow', desc:'Ergonomic neck pain support contour sleep align bed cushion pad', price:'1,840 ETB', emoji:'🏠'},
-  {cat:'home', name:'Fleece Throw Blanket (Soft Cozy)', desc:'Super fluffy light weight multi layer couch sofa nap warmth cover plush grid', price:'1,380 ETB', emoji:'🏠'},
-  {cat:'home', name:'Non-Slip Velvet Clothes Hangers (20-pack)', desc:'Space saving thin profile clothes dynamic anti sag hanging hooks pack rack', price:'1,092.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Desktop Organizer Basket (Plastic Mesh)', desc:'Stackable multi use office cosmetics sorting plastic divider storage box crate', price:'345 ETB', emoji:'🏠'},
-  {cat:'home', name:'Wall Mounted Key Holder Hooks', desc:'Sleek entry door entry adhesive wood coat key wallet sorting hang board bracket', price:'460 ETB', emoji:'🏠'},
-  {cat:'home', name:'Aesthetic Minimalist Flower Vase', desc:'Nordic abstract matte ceramic display modern art desk center ornament craft', price:'977.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Photo Hanging Clip String Lights', desc:'Warm glow clip photo peg layout memory room display hanging string cord', price:'517.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Kitchen Knife Set (6-Piece Stainless Steel)', desc:'Razor sharp block kitchen knife dynamic utility chef meat bread slicing tools pack', price:'2,185 ETB', emoji:'🏠'},
-  {cat:'home', name:'Manual Coffee Grinder (Stainless Steel)', desc:'Adjustable ceramic burr hand crank bean pulverizer travel coffee tool build', price:'1,380 ETB', emoji:'🏠'},
-  {cat:'home', name:'French Press Coffee/Tea Maker (800ml)', desc:'Heat resistant borosilicate glass triple mesh filtration plunger maker kettle', price:'1,092.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Non-Stick Frying Pan (28cm)', desc:'Heavy induction bottom stone coat non-burn egg steak skillet cooker utensil', price:'1,897.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Silicone Cooking Utensils Set (12-Piece)', desc:'Heat resistant non-scratch wood handle baking soup spatula turner kitchen tool set', price:'2,530 ETB', emoji:'🏠'},
-  {cat:'home', name:'Food Storage Containers Set (Plastic 6-pack)', desc:'Airtight snap locking clear lid leakproof kitchen meal grain box keeper bundle', price:'1,035 ETB', emoji:'🏠'},
-  {cat:'home', name:'Automatic Liquid Soap Dispenser', desc:'Smart motion sensor non-contact touchless kitchen bathroom washing foam engine', price:'977.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Bathroom Quick-Dry Diatomite Floor Mat', desc:'Super absorbent non-slip stone plate swift evaporation shower zone floor carpet', price:'747.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Shower Curtain (Waterproof Geometric Patterns)', desc:'Thick mold shield quick clean restroom bath privacy divider include hooks set', price:'690 ETB', emoji:'🏠'},
-  {cat:'home', name:'Handheld Fabric Garment Steamer', desc:'Rapid steam vertical dress iron travel friendly powerful wrinkle clear steamer machine', price:'3,220 ETB', emoji:'🏠'},
-  {cat:'home', name:'Lint Roller Pet Hair Remover', desc:'Super sticky tear sheet cat dog hair apparel carpet sofa clean roll sweeper', price:'287.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Foldable Laundry Clothes Basket', desc:'Space saving collapsible mesh linen closet dirty clothes storage bins basket stand', price:'632.50 ETB', emoji:'🏠'},
-  {cat:'home', name:'Shoe Rack Organizer (4-Tier Metal)', desc:'Sturdy space saving floor multi tier entryway closet slipper boots shelf grid holder', price:'1,725 ETB', emoji:'🏠'},
-  {cat:'home', name:'Indoor Potted Plant Artificial Monstera', desc:'Realistic thick green fake leaves floor decoration house office display faux tree', price:'1,610 ETB', emoji:'🏠'},
-  {cat:'home', name:'Door Draft Stopper Bottom Guard', desc:'Under door energy save sound insulation bugs wind defense block soft strip bumper', price:'345 ETB', emoji:'🏠'},
-  {cat:'home', name:'Under-bed Fabric Storage Boxes', desc:'Flat zip close clear window handle linen apparel comforter blanket sorting bin organizer', price:'747.50 ETB', emoji:'🏠'},
-
-  // SPORTS
-  {cat:'sports', name:'Premium Leather Football (Size 5 FIFA Standard)', desc:'Durable high retention training match soccer ball leather sphere', price:'2,530 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Basketball (Spalding Replica Size 7)', desc:'Heavy grip deep channel indoor outdoor game standard training basket sphere', price:'2,990 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Resistance Bands Loop Set (5 Levels)', desc:'Natural latex strength workout gym fitness elastic loop leg stretch loops pack', price:'747.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Non-Slip TPE Yoga Mat (6mm thick)', desc:'High density dual texture workout line balance floor gymnastics pad sheet', price:'1,610 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Adjustable Dumbbells Set (20kg total)', desc:'Solid iron plate spinlock collars home lifting weight gym body building bars set', price:'6,325 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Digital Jump Rope with Counter', desc:'Smart calory step count tracking adjustable rapid skip jump rope cord', price:'690 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Push-Up Bar Stands (Pair)', desc:'Ergonomic slip free handles wrist defense chest muscle exercise floor stands brace', price:'632.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Ab Roller Wheel for Core Workout', desc:'Dual wide track heavy duty core abs waist fitness workout roll machine engine', price:'805 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Sports Water Bottle with Time Marker (1L)', desc:'Motivational leakproof flip top quote scale tracking fitness tracking bottle jar', price:'575 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Gym Shaker Bottle with Powder Compartment', desc:'Anti lump wire mix ball fitness nutrition protein mix separator bottle cup', price:'517.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Gym Gloves with Wrist Support', desc:'Heavy anti-slip palm gel padding cross-training lift wrist guard gloves pair', price:'747.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Knee Support Compression Sleeve (Pair)', desc:'Elastic athletic joint protection run arthritic recovery knee wrapper band socks', price:'690 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Ankle Weights Strap (2kg Pair)', desc:'Adjustable solid sand filling run gymnastics strength heavy walking strap wraps', price:'977.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Quick-Dry Microfiber Sports Towel', desc:'Super absorbent compact lightweight yoga swimming gym sweat clean travel blanket cloth', price:'402.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Sports Running Waist Pouch Belt', desc:'Slim stretch safe money phone key case outdoor cycling sport belt strap bag', price:'460 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Badminton Rackets Pair Set with Birdies', desc:'Lightweight steel alloy dual frame grid string mesh shuttlecocks storage bag tool set', price:'2,070 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Table Tennis Paddle Set (2 bats + 3 balls)', desc:'Premium speed wood rubber track ping-pong match playing bats kit paddle pack', price:'1,380 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Agility Ladder Speed Training Kit', desc:'Adjustable nylon steps dynamic football speed acceleration jump coordination training line', price:'1,092.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Hand Gripper Strengthener Adjustable', desc:'10kg-60kg resistance range automatic counter wrist forearm finger training squeeze grip tool', price:'345 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Swimming Goggles Anti-Fog', desc:'UV protection clear vision leakproof silicone seal swimming pool diving mask specs', price:'632.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Silicone Swimming Cap', desc:'High elastic waterproof long hair defense swimming pool head dynamic ear wrap cap', price:'322 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Shin Guards for Football (Adults)', desc:'High impact hard protective outer shield soccer player lower leg guard shell shield', price:'517.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Goalkeeper Gloves Premium Grip', desc:'Thick latex shock defense soccer match player goalie wrist hook catch gloves pair', price:'1,725 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Captain Armband Elastane', desc:'High visible elastic multi color official soccer game tournament group captain strip band', price:'172.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Athletic Kinesiology Tape Roll', desc:'Elastic muscle pain relief joint therapeutic athletic bandage adhesive wrap tape', price:'402.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Cycling Gloves Gel Padded', desc:'Half finger breathable shock absorption mountain bike outdoor sports gloves pack', price:'862.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Running Armband Phone Holder', desc:'Touch screen compatible high reflection arm band outdoor jogging safe key case strip', price:'517.50 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Yoga Foam Roller Blocks Set', desc:'High density eva muscle trigger point deep tissue massage physical stretch block bricks pack', price:'1,035 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Reflective Safety Vest Running/Cycling', desc:'Ultra high visible neon color night road safety flash alert outdoor jog vest strap', price:'345 ETB', emoji:'⚽'},
-  {cat:'sports', name:'Ball Inflation Pump with Needles', desc:'Hand push quick air inflation cylinder basketball soccer volleyball pump adapter nozzle set', price:'402.50 ETB', emoji:'⚽'},
-
-  // BOOKS
-  {cat:'books', name:'Atomic Habits (James Clear)', desc:'Tiny changes remarkable results self transformation masterpiece global best seller book', price:'517.50 ETB', emoji:'📚'},
-  {cat:'books', name:'The Psychology of Money (Morgan Housel)', desc:'Timeless lessons on wealth greed and happiness elite financial literacy book guide', price:'517.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Rich Dad Poor Dad (Robert Kiyosaki)', desc:'What the rich teach their kids about money that the poor and middle class do not book', price:'460 ETB', emoji:'📚'},
-  {cat:'books', name:'The 48 Laws of Power (Robert Greene)', desc:'Amoral cunning realistic comprehensive guide to status control leadership strategy book', price:'632.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Deep Work (Cal Newport)', desc:'Rules for focused success in a distracted world peak cognitive work guide book', price:'517.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Can\'t Hurt Me (David Goggins)', desc:'Master your mind and defy the odds legendary human endurance autobiography book', price:'575 ETB', emoji:'📚'},
-  {cat:'books', name:'Amharic Fiction - Fikir Eske Mekabir', desc:'The all-time greatest traditional romantic tragedy masterwork of Ethiopian literature book', price:'402.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Amharic Fiction - Sememen', desc:'Deeply emotional popular classic Ethiopian fiction romance literature novel paper book', price:'322 ETB', emoji:'📚'},
-  {cat:'books', name:'Amharic Self-Help - Ewedihalehu (Dr. Eyob Mamo)', desc:'Stunning mental transformation relationships emotional guide by prominent local coach book', price:'345 ETB', emoji:'📚'},
-  {cat:'books', name:'Derafi Amharic Novel Collection', desc:'Fascinating dynamic rich local custom plots creative modern fiction collection book', price:'368 ETB', emoji:'📚'},
-  {cat:'books', name:'The Alchemist (Paulo Coelho)', desc:'Beautiful magical fable about pursuing your ultimate dream destiny global inspiring book', price:'402.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Thinking, Fast and Slow (Daniel Kahneman)', desc:'Nobel prize winning analysis of logic bias system 1 and 2 decision making brain book', price:'632.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Zero to One (Peter Thiel)', desc:'Notes on startups or how to build the future legendary silicon valley innovation book', price:'517.50 ETB', emoji:'📚'},
-  {cat:'books', name:'The Lean Startup (Eric Ries)', desc:'How continuous innovation creates radically successful business management book guide', price:'552 ETB', emoji:'📚'},
-  {cat:'books', name:'Good to Great (Jim Collins)', desc:'Why some companies make the leap and others don\'t institutional research business book', price:'575 ETB', emoji:'📚'},
-  {cat:'books', name:'Show Your Work! (Austin Kleon)', desc:'10 ways to share your creativity and get discovered visual artist manual book guide', price:'437 ETB', emoji:'📚'},
-  {cat:'books', name:'Steal Like an Artist (Austin Kleon)', desc:'10 things nobody told you about being creative illustrated dynamic self help guide book', price:'437 ETB', emoji:'📚'},
-  {cat:'books', name:'The Subtle Art of Not Giving a F*ck', desc:'A counterintuitive approach to living a good life honest raw modern mental review book', price:'517.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Ikigai: The Japanese Secret to a Long Life', desc:'Discovering your life passion longevity health purpose peaceful mind textbook guide', price:'460 ETB', emoji:'📚'},
-  {cat:'books', name:'The 5 AM Club (Robin Sharma)', desc:'Own your morning elevate your life high performance elite routine self help manual book', price:'517.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Monk Who Sold His Ferrari', desc:'A beautiful fable about fulfilling your dreams and channeling your inner destiny book pack', price:'483 ETB', emoji:'📚'},
-  {cat:'books', name:'Start With Why (Simon Sinek)', desc:'How great leaders inspire everyone to take action visionary business leadership core book', price:'517.50 ETB', emoji:'📚'},
-  {cat:'books', name:'English-Amharic Dictionary (Comprehensive)', desc:'Excellent vocabulary school translation large format academic study reference book volume', price:'690 ETB', emoji:'📚'},
-  {cat:'books', name:'SAT Prep Black Book', desc:'Elite tactical high score breakdown instructions college board standard test study book', price:'1,092.50 ETB', emoji:'📚'},
-  {cat:'books', name:'A5 Leather Bullet Journal (Dotted Pages)', desc:'Premium thick non-bleed cream sheet bookmark band creative note diary planner', price:'517.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Hardcover Academic Planner 2026/2027', desc:'Full tracking calendar grid task sheet goal tracker hard bond stationery organizer book', price:'632.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Sketchbook for Artists (A4 Heavy Paper)', desc:'Thick gauge plain design white sheet bleed defense pencil color arts sketch pad book', price:'690 ETB', emoji:'📚'},
-  {cat:'books', name:'Gel Ink Pens Set (12-pack multicolor)', desc:'Super smooth rolling ultra precise line drawing vibrant sketch school writing pen pack', price:'402.50 ETB', emoji:'📚'},
-  {cat:'books', name:'Dual-Tip Pastel Highlighters (6-pack)', desc:'Soft color palette broad chisel and fine point clear text marker stationery line pack', price:'322 ETB', emoji:'📚'},
-  {cat:'books', name:'Sticky Notes Tabs Mega Pack', desc:'Multi color index arrow tabs desktop text annotator bookmark page marking pad bundle', price:'230 ETB', emoji:'📚'},
-
-  // TOYS & KIDS
-  {cat:'toys', name:'Teddy Bear Plush Toy (Medium 40cm)', desc:'Super soft huggable friendly premium stuffed teddy animal doll kid toy', price:'977.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Remote Control Racing Car (Batteries Included)', desc:'High speed multi directional wireless remote transmitter model sports kid toy vehicle', price:'1,840 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Rubik’s Cube (3x3 Smooth Rotation)', desc:'Anti pop core fluid mechanical turning speed logic puzzle intellectual teaser toy', price:'287.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Classic Wooden Building Blocks Set (50pcs)', desc:'Natural solid clean timber geometry stacking brain builder kindergarten creative toys set', price:'1,610 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Lego-Compatible Creator Brick Set', desc:'Colorful interlocking plastic brick modules diy construction castle puzzle kit toys', price:'2,070 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Barbie-Style Fashion Doll with Outfits', desc:'Beautiful fully articulated lady dress up doll with multiple matching accessory gowns', price:'1,035 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Baby Silicon Teether & Rattle Set', desc:'Bpa free safe chew texture infant sensory sound hand grab catching rattle ring pack', price:'517.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Kids Electronic Drawing Pad (LCD 8.5\")', desc:'One-click clear smart slate stylus sketching clean paperless drawing tablet board', price:'747.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Watercolor Painting Art Set for Kids', desc:'Vibrant non-toxic painting tray brush sketching outline colors child craft toolkit box', price:'862.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Doctor Play-Kit Suitcase Toy', desc:'Fun simulated stethoscope syringe medical diagnostic tools dress up kid toy pack carrier', price:'1,092.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Kitchen Cooking Simulation Play-Set', desc:'Mini stoves induction pans plastic forks vegetables grocery sound simulation kitchen set', price:'1,725 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Hot Wheels Die-Cast Toy Cars (5-pack)', desc:'Authentic metal scale down model real track drift speed racing collection vehicles pack', price:'1,265 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Plush Elephant Animal Pillow', desc:'Large extra soft neck rest sleeping companion cushion stuffed elephant room doll', price:'1,380 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Baby Musical Crib Mobile Activity Toy', desc:'Rotating animal charms calm musical lullaby infant bed hanging cognitive sleep toys', price:'1,897.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Alphabet & Numbers Foam Puzzle Floor Mat', desc:'Thick eva soft clean interlocking abc room layout playground protective pad floor cushion tiles', price:'2,185 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Bubble Gun Blower Machine (Electric)', desc:'Automatic rapid multi bubble stream bubble fan blower wedding outdoor fun kid toy', price:'517.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Kids Pop-Up Play Tent Castle', desc:'Indoor outdoor rapid install prince princess playhouse cabin storage kid toy shelter hide', price:'2,070 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Clay Play-Doh Molding Set (8 Colors)', desc:'Ultra soft non sticky organic reuse colorful mud craft sculpture child matching tools pack', price:'632.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Kids Stainless Steel Water Bottle (Cartoon)', desc:'Vacuum insulation hot cold safety strap locking lid animal printed kids school straw flask', price:'517.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Baby Wet Wipes (80-sheets x 3 pack)', desc:'Alcohol free fragrance free hypoallergenic pure water diaper touch sensitive wet clean napkin', price:'402.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Silicon Baby Bibs with Food Catcher', desc:'Waterproof deep front food dropping pocket wipe clear flexible roll adjustable neck bib', price:'345 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Newborn Cotton Rompers (3-pack)', desc:'100% breathable organic soft combed cotton snap button easy wear infant sleep bodysuits', price:'1,380 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Infant Soft Sole Pre-walker Shoes', desc:'Anti slip light weight thread soft cloth elastic ankle first step baby sneaker slippers pair', price:'690 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Kids Unisex Casual Sunglasses', desc:'Flexible shatterproof rubber frame uv400 block cool style child beach eye protective specs', price:'287.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Educational Flash Cards (Words/Animals)', desc:'High density laminated graphic learning letters words logic identification early child study pack', price:'345 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Kids Backpack for Kindergarten', desc:'Light weight water resistant dual chest straps cute cartoon layout preschool pupil book pack bag', price:'1,092.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Crayola Crayons Pack (24 Colors)', desc:'Smooth gliding hard wear high pigment clean primary tones student drawing coloring wax bars', price:'287.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Handheld Brick-Game Retro Console', desc:'Classic pocket dynamic retro puzzle matrix gaming classic handheld vintage block toy machine', price:'402.50 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Magnetic Building Tiles Set', desc:'3d geometry clear crystal colorful magnet panels creative structural physics logic blocks set', price:'2,760 ETB', emoji:'🧸'},
-  {cat:'toys', name:'Kids Bowling Set Toy (Plastic Pins)', desc:'Lightweight safe colorful hollow plastic bowling pins target sports lawn game children kit', price:'805 ETB', emoji:'🧸'}
-];
-
-let cart         = [];
-let activeFilter = 'all';
-let searchQuery  = '';
-
-async function loadSharedData() {
-  try {
-    const r = await window.storage.get('xin_cats', true);
-    if (r && r.value) categories = JSON.parse(r.value);
-  } catch(_) {}
-  try {
-    const r = await window.storage.get('xin_products', true);
-    if (r && r.value) { products = JSON.parse(r.value); }
-  } catch(_) {}
-  renderCatsBar(); renderProducts();
-}
-
-async function save(){
-  try {
-    await window.storage.set('xin_cats',     JSON.stringify(categories), true);
-    await window.storage.set('xin_products', JSON.stringify(products),   true);
-  } catch(e) {
-    showToast('⚠️ Storage error — changes may not persist', true);
-  }
-}
-
-function searchProducts(q){ searchQuery=q.toLowerCase(); renderProducts(); }
-
-function renderCatsBar(){
-  const t=TRANSLATIONS[LANGS[currentLangIdx]||'en'];
-  const bar=document.getElementById('catsScroll');
-  bar.innerHTML=`<div class="cat-pill ${activeFilter==='all'?'active':''}" onclick="filterCat('all')">${t.all}</div>`;
-  categories.forEach(c=>{
-    bar.innerHTML+=`<div class="cat-pill ${activeFilter===c.id?'active':''}" onclick="filterCat('${c.id}')">${c.emoji} ${c.name}</div>`;
-  });
-}
-
-function filterCat(id){
-  activeFilter=id; searchQuery='';
-  document.getElementById('searchInput').value='';
-  const cat=categories.find(c=>c.id===id);
-  document.getElementById('sectionTitle').textContent=id==='all'?'All Products':`${cat.emoji} ${cat.name}`;
-  renderCatsBar(); renderProducts();
-}
-
-function renderProducts(){
-  const t=TRANSLATIONS[LANGS[currentLangIdx]||'en'];
-  const grid=document.getElementById('productsGrid');
-  const empty=document.getElementById('emptyState');
-  let filtered=activeFilter==='all'?products:products.filter(p=>p.cat===activeFilter);
-  if(searchQuery) filtered=filtered.filter(p=>p.name.toLowerCase().includes(searchQuery)||(p.desc||'').toLowerCase().includes(searchQuery));
-  grid.innerHTML='';
-  if(!filtered.length){empty.style.display='block';return;}
-  empty.style.display='none';
-  filtered.forEach(p=>{
-    const realIdx=products.indexOf(p);
-    const cat=categories.find(c=>c.id===p.cat);
-    const div=document.createElement('div');
-    div.className='product-card';
-    const isWished=wishlist.includes(realIdx);
-    const badge=p.badge?`<div class="product-badge badge-${p.badge}">${p.badge==='sale'?'🔥 SALE':p.badge==='new'?'✨ NEW':p.badge==='hot'?'🌶 HOT':'OUT'}</div>`:'';
-    const stockOut=p.stock!==undefined&&p.stock<=0;
-    const stockLow=p.stock!==undefined&&p.stock>0&&p.stock<=5;
-    const stockBar=p.stock!==undefined?`<div class="stock-bar"><div class="stock-label">Stock</div><div class="stock-track"><div class="stock-fill ${stockLow?'low':''}" style="width:${Math.min(100,p.stock/20*100)}%"></div></div><div class="stock-count ${stockLow||stockOut?'low':''}">${stockOut?'Out of stock':stockLow?'Only '+p.stock+' left!':p.stock+' in stock'}</div></div>`:'';
-    const avg=p.ratings&&p.ratings.length?p.ratings.reduce((a,b)=>a+b,0)/p.ratings.length:0;
-    const stars=avg?'★'.repeat(Math.round(avg))+'☆'.repeat(5-Math.round(avg)):'☆☆☆☆☆';
-    div.innerHTML=`
-      <div class="product-img" onclick="openDetail(${realIdx})" style="cursor:pointer;">
-        ${badge}
-        <span style="font-size:3.5rem;">${p.emoji||'📦'}</span>
-        <button class="wishlist-btn ${isWished?'active':''}" onclick="event.stopPropagation();toggleWishlist(${realIdx})">${isWished?'❤️':'🤍'}</button>
-      </div>
-      <div class="product-info">
-        <div class="product-cat-badge">${cat?cat.name:'General'}</div>
-        <div class="product-name" onclick="openDetail(${realIdx})" style="cursor:pointer;">${p.name}</div>
-        <div class="product-desc">${p.desc||''}</div>
-        <div class="star-row"><span class="stars">${stars}</span> <span class="rating-count">(${p.ratings?p.ratings.length:0})</span></div>
-        ${stockBar}
-        <div class="product-footer">
-          <div class="product-price">${p.price}</div>
-          <button class="add-cart" onclick="addToCart(${realIdx})">${t.addCart}</button>
-        </div>
-      </div>
-    `;
-    grid.appendChild(div);
-  });
-}
-
-// ─── TRANSLATIONS & CORE LOGIC PLACEHOLDERS ──────────────────────────────────
-const LANGS = ['en','am'];
-let currentLangIdx = 0;
-let wishlist = [];
-const TRANSLATIONS = {
-  en: { all: 'All', addCart: 'Add to Cart', items: 'items' },
-  am: { all: 'ሁሉንም', addCart: 'ወደ ጋሪ አስገባ', items: 'ዕቃዎች' }
-};
-
-function toggleLang() {
-  currentLangIdx = (currentLangIdx + 1) % LANGS.length;
-  document.getElementById('langBtn').textContent = currentLangIdx === 1 ? '🇬🇧 EN' : '🇪🇹 አማ';
-  document.body.classList.toggle('amharic', currentLangIdx === 1);
-  renderCatsBar(); renderProducts();
-}
-
-function showToast(msg, isErr=false){
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.className=`toast show ${isErr?'error':''}`;
-  setTimeout(()=>t.classList.remove('show'),2500);
-}
-
-function openCart(){ document.getElementById('overlay').classList.add('open'); document.getElementById('drawer').classList.add('open'); renderCart(); }
-function closeCart(){ document.getElementById('overlay').classList.remove('open'); document.getElementById('drawer').classList.remove('open'); }
-function openAdmin(){ document.getElementById('adminOverlay').classList.add('open'); }
-function closeAdmin(){ document.getElementById('adminOverlay').classList.remove('open'); }
-function checkPass(){ if(document.getElementById('adminPass').value===ADMIN_PASSWORD){ document.getElementById('adminLogin').style.display='none'; document.getElementById('adminDash').style.display='block'; setupAdminLists(); }else{ showToast('❌ Wrong Password',true); } }
-
-function addToCart(idx){
-  cart.push(products[idx]);
-  document.getElementById('cartCount').textContent=cart.length;
-  showToast('🛒 Added to Cart!');
-}
-
-function renderCart(){
-  const body=document.getElementById('cartBody');
-  const footer=document.getElementById('drawerFooter');
-  if(!cart.length){ body.innerHTML='<div class="empty-cart">Your cart is empty</div>'; footer.style.display='none'; return; }
-  body.innerHTML=''; footer.style.display='block';
-  let sum = 0;
-  cart.forEach((p,i)=>{
-    const priceNum = parseFloat(p.price.replace(/[^0-9.]/g,'')) || 0;
-    sum += priceNum;
-    body.innerHTML+=`
-      <div class="cart-item">
-        <span class="cart-item-emoji">${p.emoji||'📦'}</span>
-        <div class="cart-item-info"><div class="cart-item-name">${p.name}</div><div class="cart-item-price">${p.price}</div></div>
-        <button class="cart-item-remove" onclick="removeFromCart(${i})">✕</button>
-      </div>
-    `;
-  });
-  document.getElementById('cartTotal').textContent = sum.toLocaleString() + ' ETB';
-}
-
-function removeFromCart(i){ cart.splice(i,1); document.getElementById('cartCount').textContent=cart.length; renderCart(); }
-function toggleWishlist(idx){ const w=wishlist.indexOf(idx); if(w>-1) wishlist.splice(w,1); else wishlist.push(idx); renderProducts(); }
-function openDetail(idx){
-  const p = products[idx];
-  document.getElementById('detailName').textContent = p.name;
-  document.getElementById('detailPrice').textContent = p.price;
-  document.getElementById('detailDesc').textContent = p.desc || '';
-  document.getElementById('detailCat').textContent = p.cat.toUpperCase();
-  document.getElementById('detailImg').innerHTML = `<span style="font-size:6rem;">${p.emoji||'📦'}</span>`;
-  document.getElementById('detailAddBtn').onclick = () => { addToCart(idx); closeDetail(); };
-  document.getElementById('detailOverlay').classList.add('open');
-}
-function closeDetail(){ document.getElementById('detailOverlay').classList.remove('open'); }
-function openOrderForm(){ document.getElementById('orderModal').classList.add('open'); document.getElementById('paySection').classList.add('visible'); setupOrderSummary(); }
-function closeOrderForm(){ document.getElementById('orderModal').classList.remove('open'); }
-
-function setFulfillment(type){
-  document.getElementById('fo-delivery').classList.toggle('selected', type==='delivery');
-  document.getElementById('fo-pickup').classList.toggle('selected', type==='pickup');
-  document.getElementById('pickupInfo').classList.toggle('show', type==='pickup');
-  document.getElementById('deliveryLocSection').style.display = type==='delivery' ? 'block' : 'none';
-  if(type==='pickup'){
-    document.getElementById('submitBtn').disabled = false;
-    document.getElementById('submitBtn').style.opacity = '1';
-    document.getElementById('submitBtn').style.cursor = 'pointer';
-    document.getElementById('submitBtn').textContent = 'Confirm Pickup Order ✔';
-  } else {
-    document.getElementById('submitBtn').disabled = true;
-    document.getElementById('submitBtn').style.opacity = '.5';
-    document.getElementById('submitBtn').textContent = 'Detect location first';
-  }
-}
-
-function getLocation(){
-  document.getElementById('locStatus').style.display = 'block';
-  document.getElementById('locStatus').textContent = '📡 Tracking satellite coordinates...';
-  setTimeout(()=>{
-    document.getElementById('locStatus').textContent = '📍 Delivery location confirmed (Distance: 4.2 km from hub)';
-    document.getElementById('priceBreakdown').style.display = 'block';
-    document.getElementById('pbItems').textContent = document.getElementById('cartTotal').textContent;
-    document.getElementById('pbKm').textContent = '4.2';
-    document.getElementById('pbDelivery').textContent = '126 ETB';
-    const itemsNum = parseFloat(document.getElementById('cartTotal').textContent.replace(/[^0-9.]/g,'')) || 0;
-    document.getElementById('pbTotal').textContent = (itemsNum + 126).toLocaleString() + ' ETB';
-    document.getElementById('payAmountVal').textContent = document.getElementById('pbTotal').textContent;
-    document.getElementById('submitBtn').disabled = false;
-    document.getElementById('submitBtn').style.opacity = '1';
-    document.getElementById('submitBtn').style.cursor = 'pointer';
-    document.getElementById('submitBtn').textContent = 'Complete & Generate Order Code →';
-  }, 1200);
-}
-
-function selectPayMethod(method){
-  const methods = ['cbe','telebirr','mpesa','awash','abyssinia','arrival'];
-  methods.forEach(m => document.getElementById(`pm-${m}`).classList.toggle('selected', m===method));
-  if(method==='arrival'){
-    document.getElementById('payDetails').style.display='none';
-    document.getElementById('payArrivalInfo').style.display='block';
-  } else {
-    document.getElementById('payArrivalInfo').style.display='none';
-    document.getElementById('payDetails').style.display='block';
-    document.getElementById('payMethodLabel').textContent = method.toUpperCase() + ' TRANSFER INSTANT CHANNEL';
-    document.getElementById('payAccount').textContent = method==='telebirr'||method==='mpesa' ? '+251 945 199 496' : '1000349281723';
-    document.getElementById('payAccountName').textContent = 'Account Name: Xin Store Admin';
-  }
-}
-
-function setupOrderSummary(){
-  let s = '';
-  cart.forEach(p => { s += `• ${p.name} (${p.price})<br/>`; });
-  document.getElementById('pbItemsList').innerHTML = s;
-}
-
-function submitOrder(){
-  const name = document.getElementById('orderName').value;
-  const phone = document.getElementById('orderPhone').value;
-  if(!name || !phone) { showToast('⚠️ Please enter name and phone', true); return; }
-  
-  const randCode = 'XIN' + Math.floor(1000 + Math.random() * 9000);
-  document.getElementById('orderCodeBox').style.display = 'block';
-  document.getElementById('orderCodeDisplay').textContent = randCode;
-  
-  let msg = `📦 *NEW ORDER INCOMING*\n\n👤 *Customer:* ${name}\n📞 *Phone:* ${phone}\n🔖 *Tracking Code:* \`${randCode}\`\n\n🛍️ *Items Ordered:*\n`;
-  cart.forEach(p => { msg += `- ${p.name} (${p.price})\n`; });
-  
-  sendTelegramViaProxy(msg);
-  showToast('🎉 Order Sent! Keep code safe.');
-  cart = [];
-  document.getElementById('cartCount').textContent = '0';
-  setTimeout(()=>closeOrderForm(), 6000);
-}
-
-function copyOrderCode(){
-  navigator.clipboard.writeText(document.getElementById('orderCodeDisplay').textContent);
-  showToast('📋 Copied to clipboard!');
-}
-
-function setupAdminLists(){
-  const pList = document.getElementById('adminProductList');
-  pList.innerHTML = '';
-  products.forEach((p,i)=>{
-    pList.innerHTML += `
-      <div class="admin-item">
-        <div class="admin-item-info"><strong>${p.name}</strong> <span>${p.price} | Cat: ${p.cat}</span></div>
-        <button class="del-btn" onclick="deleteProduct(${i})">🗑 Delete</button>
-      </div>
-    `;
-  });
-  const catSel = document.getElementById('pCat');
-  catSel.innerHTML = '';
-  categories.forEach(c => { catSel.innerHTML += `<option value="${c.id}">${c.name}</option>`; });
-}
-
-function deleteProduct(i){ products.splice(i,1); setupAdminLists(); renderProducts(); }
-function addProduct(){
-  const name = document.getElementById('pName').value;
-  const price = document.getElementById('pPrice').value;
-  const cat = document.getElementById('pCat').value;
-  const emoji = document.getElementById('pEmoji').value || '📦';
-  if(!name || !price) return;
-  products.unshift({ cat, name, desc: document.getElementById('pDesc').value, price, emoji });
-  setupAdminLists(); renderProducts();
-  document.getElementById('pName').value=''; document.getElementById('pPrice').value='';
-  showToast('✨ Product Added Successfully');
-}
-
-window.addEventListener('DOMContentLoaded', loadSharedData);
-</script>
+    // UTILITIES
+    function showToast(msg, isError = false) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      if(isError) t.classList.add('error');
+      else t.classList.remove('error');
+      
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+  </script>
 </body>
 </html>
