@@ -116,1852 +116,523 @@ nav{position:sticky;top:0;z-index:100;background:rgba(8,8,0,0.95);backdrop-filte
 .del-btn{background:none;border:none;color:var(--danger);cursor:pointer;font-size:.95rem;}
 .edit-btn{background:none;border:none;color:var(--gold);cursor:pointer;font-size:.95rem;margin-right:.3rem;}
 .cat-hint{font-size:.72rem;color:var(--muted);margin-top:.35rem;font-style:italic;}
-/* EDIT PRODUCT MODAL */
-.edit-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:500;display:none;align-items:center;justify-content:center;padding:1rem;}
-.edit-modal-overlay.open{display:flex;}
-.edit-modal{background:var(--surface);border:2px solid var(--gold);border-radius:16px;padding:1.6rem;width:100%;max-width:420px;max-height:92vh;overflow-y:auto;}
-.edit-modal h2{font-size:1rem;margin-bottom:.2rem;color:var(--gold2);}
-.edit-modal .edit-sub{font-size:.75rem;color:var(--muted);margin-bottom:1rem;}
-.edit-field-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.7rem;}
-.edit-field-row label{font-size:.78rem;color:var(--muted);width:60px;flex-shrink:0;}
-.edit-field-row input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.55rem .75rem;color:var(--text);font-size:.88rem;outline:none;font-family:inherit;}
-.edit-field-row input:focus{border-color:var(--gold);}
-.edit-field-row input[disabled]{opacity:.4;cursor:not-allowed;}
-.edit-lock{background:none;border:none;font-size:1rem;cursor:pointer;padding:.2rem;color:var(--muted);flex-shrink:0;}
-.edit-lock.unlocked{color:var(--gold2);}
-.edit-actions{display:flex;gap:.6rem;margin-top:1.1rem;}
-.edit-cancel{flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;}
-.edit-save{flex:2;padding:.7rem;background:var(--gold);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:800;font-size:.9rem;font-family:inherit;}
-/* FULFILLMENT TOGGLE */
-.fulfill-toggle{display:flex;gap:.45rem;margin-bottom:.75rem;}
-.fulfill-opt{flex:1;padding:.65rem .4rem;background:var(--card);border:2px solid var(--border);border-radius:10px;cursor:pointer;font-size:.78rem;font-weight:700;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:.25rem;color:var(--muted);transition:all .2s;text-align:center;}
-.fulfill-opt:hover{border-color:var(--gold);color:var(--gold2);}
-.fulfill-opt.selected{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold2);}
-.fulfill-opt .fo-icon{font-size:1.5rem;}
-.pickup-info{display:none;background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:.9rem 1rem;margin-bottom:.75rem;}
-.pickup-info.show{display:block;}
-.pickup-info .pi-title{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.5rem;}
-.pickup-info .pi-address{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.25rem;}
-.pickup-info .pi-hours{font-size:.78rem;color:var(--muted);margin-bottom:.6rem;}
-.pickup-map-btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--gold);color:#000;border:none;border-radius:7px;padding:.4rem .85rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;}
-.pickup-map-btn:hover{background:var(--gold2);}
-/* ORDER CODE */
-.order-code-box{background:linear-gradient(135deg,rgba(201,168,76,0.18),rgba(201,168,76,0.06));border:2px solid var(--gold);border-radius:14px;padding:1rem 1.1rem;margin-bottom:.85rem;display:none;}
-.order-code-box.show{display:block;}
-.ocb-label{font-size:.7rem;color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.35rem;}
-.ocb-code{font-size:1.6rem;font-weight:900;color:var(--gold2);letter-spacing:4px;font-family:monospace;margin-bottom:.4rem;}
-.ocb-copy{background:rgba(201,168,76,0.2);border:1px solid var(--gold);color:var(--gold2);padding:.3rem .8rem;border-radius:6px;cursor:pointer;font-size:.75rem;font-weight:700;font-family:inherit;margin-bottom:.55rem;}
-.ocb-copy:hover{background:rgba(201,168,76,0.35);}
-.ocb-hint{font-size:.75rem;color:var(--muted);line-height:1.5;border-top:1px solid var(--border);padding-top:.5rem;margin-top:.1rem;}
-.ocb-hint strong{color:var(--gold2);}
-/* PAYMENT */
-.pay-section{display:none;margin-bottom:.85rem;}
-.pay-section.visible{display:block;}
-.pay-title{font-size:.8rem;color:var(--muted);margin-bottom:.55rem;font-weight:600;}
-.pay-methods{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-bottom:.75rem;}
-.pay-method{padding:.6rem .3rem;background:var(--card);border:1.5px solid var(--border);border-radius:10px;cursor:pointer;font-size:.75rem;font-weight:700;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:.25rem;color:var(--muted);transition:all .2s;}
-.pay-method:hover{border-color:var(--gold);color:var(--gold2);}
-.pay-method.selected{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold2);}
-.pay-method .pm-icon{font-size:1.4rem;}
-.pay-details{background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:.9rem 1rem;margin-bottom:.75rem;display:none;}
-.pay-details.show{display:block;}
-.pay-account{font-size:1rem;font-weight:800;color:var(--gold2);letter-spacing:.5px;margin:.25rem 0 .1rem;}
-.pay-name{font-size:.78rem;color:var(--muted);margin-bottom:.5rem;}
-.pay-amount-row{display:flex;align-items:center;justify-content:space-between;background:rgba(201,168,76,0.1);border-radius:8px;padding:.5rem .7rem;}
-.pay-amount-label{font-size:.78rem;color:var(--muted);}
-.pay-amount-val{font-size:1.05rem;font-weight:800;color:var(--gold2);}
-.receipt-upload{margin-top:.75rem;}
-.receipt-upload label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:.4rem;}
-.receipt-drop{border:2px dashed var(--border);border-radius:10px;padding:1.1rem;text-align:center;cursor:pointer;transition:border-color .2s;position:relative;}
-.receipt-drop:hover{border-color:var(--gold);}
-.receipt-drop input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-.receipt-drop .rd-icon{font-size:1.6rem;margin-bottom:.3rem;}
-.receipt-drop .rd-text{font-size:.8rem;color:var(--muted);}
-.receipt-preview{display:none;margin-top:.6rem;border-radius:10px;overflow:hidden;border:1px solid var(--gold);position:relative;}
-.receipt-preview img{width:100%;display:block;max-height:200px;object-fit:cover;}
-.receipt-preview .rp-clear{position:absolute;top:.35rem;right:.35rem;background:rgba(0,0,0,.75);border:none;color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;}
-.receipt-ok{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:#4caf50;margin-top:.5rem;display:none;}
-/* IMAGE PICKER */
-.img-picker{display:flex;flex-direction:column;gap:.55rem;}
-.img-source-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;}
-.img-src-btn{padding:.55rem .3rem;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--muted);cursor:pointer;font-size:.78rem;font-weight:600;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:.3rem;transition:all .2s;}
-.img-src-btn:hover,.img-src-btn.active{background:rgba(201,168,76,0.15);border-color:var(--gold);color:var(--gold2);}
-.img-url-row{display:flex;gap:.4rem;}
-.img-url-row input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.55rem .75rem;color:var(--text);font-size:.85rem;outline:none;font-family:inherit;}
-.img-url-row input:focus{border-color:var(--gold);}
-.img-url-row button{padding:.55rem .7rem;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--muted);cursor:pointer;font-size:.82rem;font-family:inherit;}
-.img-url-row button:hover{border-color:var(--gold);color:var(--gold);}
-.img-preview-wrap{display:none;position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--gold);aspect-ratio:4/3;background:var(--surface);}
-.img-preview-wrap img{width:100%;height:100%;object-fit:cover;}
-.img-preview-clear{position:absolute;top:.4rem;right:.4rem;background:rgba(0,0,0,.75);border:none;color:#fff;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;}
-.cam-wrap{display:none;flex-direction:column;gap:.45rem;}
-.cam-wrap video{width:100%;border-radius:10px;border:1px solid var(--border);background:#000;aspect-ratio:4/3;object-fit:cover;}
-.cam-actions{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;}
-.cam-snap{padding:.6rem;background:var(--gold);color:#000;border:none;border-radius:8px;cursor:pointer;font-weight:800;font-size:.85rem;font-family:inherit;}
-.cam-cancel{padding:.6rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-size:.85rem;font-family:inherit;}
-/* TOAST */
-.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--gold);color:#000;padding:.65rem 1.3rem;border-radius:10px;font-weight:700;font-size:.85rem;z-index:600;transition:transform .3s;white-space:nowrap;}
-.toast.show{transform:translateX(-50%) translateY(0);}
-.toast.error{background:var(--danger);color:#fff;}
-body.rtl-arabic{direction:rtl;text-align:right;font-family:'Segoe UI',system-ui,sans-serif;}
-body.rtl-arabic .nav-logo{flex-direction:row-reverse;}
-body.rtl-arabic .nav-right{flex-direction:row-reverse;}
-body.rtl-arabic .search-wrap .s-icon{left:auto;right:1rem;}
-body.rtl-arabic .search-wrap input{padding:.65rem 2.8rem .65rem 1.3rem;}
-body.rtl-arabic .product-footer{flex-direction:row-reverse;}
-body.rtl-arabic .cats-scroll{direction:rtl;}
-footer{text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;border-top:1px solid var(--border);margin-top:2rem;}
-
-/* ANNOUNCEMENT BANNER */
-.announce-bar{background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));color:#000;text-align:center;padding:.55rem 3rem;font-size:.85rem;font-weight:700;position:relative;display:none;}
-.announce-bar.show{display:block;}
-.announce-close{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;font-weight:700;}
-
-/* WELCOME POPUP */
-.welcome-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:700;display:none;align-items:center;justify-content:center;padding:1rem;}
-.welcome-overlay.open{display:flex;}
-.welcome-box{background:var(--surface);border:2px solid var(--gold);border-radius:20px;padding:2rem;width:100%;max-width:380px;text-align:center;}
-.welcome-box .wb-logo{width:70px;height:70px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;margin-bottom:1rem;}
-.welcome-box h2{font-size:1.3rem;font-weight:800;color:var(--gold2);margin-bottom:.4rem;}
-.welcome-box p{font-size:.88rem;color:var(--muted);margin-bottom:1.1rem;line-height:1.6;}
-.welcome-code{background:rgba(201,168,76,0.15);border:2px dashed var(--gold);border-radius:12px;padding:.9rem;margin-bottom:1.1rem;}
-.welcome-code .wc-label{font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.4rem;}
-.welcome-code .wc-code{font-size:1.8rem;font-weight:900;color:var(--gold2);letter-spacing:4px;font-family:monospace;}
-.welcome-code .wc-hint{font-size:.75rem;color:var(--muted);margin-top:.3rem;}
-.welcome-shop-btn{width:100%;padding:.9rem;background:var(--gold);color:#000;border:none;border-radius:10px;font-weight:800;font-size:1rem;cursor:pointer;margin-bottom:.6rem;font-family:inherit;}
-.welcome-shop-btn:hover{background:var(--gold2);}
-.welcome-skip{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.82rem;font-family:inherit;}
-
-/* PRODUCT BADGES */
-.product-badge{position:absolute;top:.6rem;left:.6rem;padding:.25rem .6rem;border-radius:6px;font-size:.68rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;z-index:2;}
-.badge-sale{background:#ff4f4f;color:#fff;}
-.badge-new{background:var(--gold);color:#000;}
-.badge-hot{background:#ff8c00;color:#fff;}
-.badge-out{background:#555;color:#ccc;}
-.product-img{position:relative;}
-
-/* STOCK */
-.stock-bar{margin-top:.4rem;}
-.stock-label{font-size:.72rem;color:var(--muted);margin-bottom:.2rem;}
-.stock-track{background:var(--surface);border-radius:4px;height:5px;overflow:hidden;}
-.stock-fill{height:100%;border-radius:4px;background:var(--gold);transition:width .3s;}
-.stock-fill.low{background:var(--danger);}
-.stock-count{font-size:.72rem;font-weight:700;margin-top:.2rem;}
-.stock-count.low{color:var(--danger);}
-
-/* WISHLIST */
-.wishlist-btn{position:absolute;top:.6rem;right:.6rem;background:rgba(0,0,0,.6);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s;}
-.wishlist-btn:hover{background:rgba(201,168,76,0.4);}
-.wishlist-btn.active{background:rgba(255,60,60,0.7);}
-
-/* STARS */
-.star-row{display:flex;align-items:center;gap:.3rem;margin-top:.25rem;}
-.stars{color:#888;font-size:.85rem;cursor:pointer;letter-spacing:1px;}
-.stars .filled{color:var(--gold2);}
-.rating-count{font-size:.72rem;color:var(--muted);}
-
-/* PRODUCT DETAIL MODAL */
-.detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:350;display:none;align-items:flex-end;justify-content:center;}
-.detail-overlay.open{display:flex;}
-@media(min-width:600px){.detail-overlay{align-items:center;}}
-.detail-modal{background:var(--surface);border:1px solid var(--border);border-radius:20px 20px 0 0;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;padding-bottom:1rem;}
-@media(min-width:600px){.detail-modal{border-radius:20px;}}
-.detail-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px 20px 0 0;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:5rem;}
-.detail-img img{width:100%;height:100%;object-fit:cover;border-radius:20px 20px 0 0;}
-.detail-body{padding:1.25rem;}
-.detail-close{float:right;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.5rem;}
-.detail-name{font-size:1.2rem;font-weight:800;margin-bottom:.3rem;}
-.detail-price{font-size:1.3rem;color:var(--gold2);font-weight:800;margin-bottom:.5rem;}
-.detail-desc{font-size:.88rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;}
-.detail-add{width:100%;padding:.9rem;background:var(--gold);color:#000;border:none;border-radius:10px;font-weight:800;font-size:1rem;cursor:pointer;font-family:inherit;}
-.detail-add:hover{background:var(--gold2);}
-.share-btn{display:flex;align-items:center;gap:.4rem;background:transparent;border:1px solid var(--border);color:var(--muted);padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-size:.82rem;font-family:inherit;margin-top:.6rem;width:100%;justify-content:center;}
-.share-btn:hover{border-color:var(--gold);color:var(--gold2);}
-
-/* MULTI IMAGE GALLERY */
-.img-gallery-thumbs{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.4rem;}
-.img-thumb{width:60px;height:60px;object-fit:cover;border-radius:7px;border:2px solid var(--border);cursor:pointer;transition:border-color .2s;}
-.img-thumb:hover{border-color:var(--gold);}
-.img-thumb.active{border-color:var(--gold2);}
-.img-thumb-del{position:relative;display:inline-block;}
-.img-thumb-del .del-x{position:absolute;top:-5px;right:-5px;width:16px;height:16px;background:var(--danger);border:none;border-radius:50%;color:#fff;font-size:.6rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;}
-.detail-gallery{display:flex;flex-direction:column;gap:.5rem;}
-.detail-main-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px 20px 0 0;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:5rem;overflow:hidden;}
-.detail-main-img img{width:100%;height:100%;object-fit:cover;border-radius:20px 20px 0 0;}
-.detail-thumbs{display:flex;gap:.4rem;padding:.5rem 1.25rem;overflow-x:auto;scrollbar-width:none;}
-.detail-thumbs::-webkit-scrollbar{display:none;}
-.detail-thumb{width:56px;height:56px;object-fit:cover;border-radius:7px;border:2px solid var(--border);cursor:pointer;flex-shrink:0;transition:border-color .2s;}
-.detail-thumb.active{border-color:var(--gold2);}
-/* LANGUAGE TOGGLE */
-.lang-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.3rem .7rem;border-radius:6px;cursor:pointer;font-size:.78rem;font-family:inherit;}
-.lang-btn:hover{border-color:var(--gold);color:var(--gold);}
-
-/* BANNER SLIDER */
-.banner-slider{max-width:1200px;margin:0 auto 0;padding:0 1.5rem;}
-.banner-slide{border-radius:14px;overflow:hidden;position:relative;display:none;aspect-ratio:3/1;min-height:120px;background:var(--card);}
-.banner-slide.active{display:flex;align-items:center;justify-content:center;}
-.banner-slide img{width:100%;height:100%;object-fit:cover;border-radius:14px;}
-.banner-slide .bs-text{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.7),transparent);display:flex;flex-direction:column;justify-content:center;padding:1.5rem;}
-.banner-slide .bs-title{font-size:clamp(1rem,3vw,1.5rem);font-weight:800;color:#fff;margin-bottom:.3rem;}
-.banner-slide .bs-sub{font-size:clamp(.75rem,2vw,1rem);color:rgba(255,255,255,.8);}
-.banner-dots{display:flex;justify-content:center;gap:.5rem;margin-top:.6rem;}
-.banner-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s;}
-.banner-dot.active{background:var(--gold);}
-
-/* DASHBOARD */
-.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem;}
-.dash-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.9rem;text-align:center;}
-.dash-card .dc-num{font-size:1.5rem;font-weight:800;color:var(--gold2);}
-.dash-card .dc-label{font-size:.72rem;color:var(--muted);margin-top:.2rem;}
-.low-stock-list{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem;}
-.low-stock-item{background:rgba(255,79,79,0.1);border:1px solid rgba(255,79,79,0.3);border-radius:8px;padding:.6rem .8rem;font-size:.82rem;display:flex;justify-content:space-between;align-items:center;}
-
-/* AMHARIC */
-body.amharic{font-family:'Noto Sans Ethiopic','Segoe UI',system-ui,sans-serif;}
-::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
 </style>
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announce-bar" id="announceBar">
-  <span id="announceText">🎉 Welcome to Xin Store 07 — Fast delivery in Addis Ababa!</span>
-  <button class="announce-close" onclick="document.getElementById('announceBar').classList.remove('show')">✕</button>
-</div>
 <nav>
   <div class="nav-logo">
-    <img src="https://i.imgur.com/KBogTxg.jpg" alt="Xin Store 07 Logo"/>
-    <span>XIN STORE <em>07</em></span>
+    <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=120&auto=format&fit=crop&q=80" alt="Logo"/>
+    <span>XIN STORE 07 <em>ET</em></span>
   </div>
   <div class="nav-right">
-    <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇪🇹 አማ</button>
-    <button class="admin-btn" onclick="openAdmin()">⚙ Admin</button>
-    <button class="cart-btn" onclick="openCart()">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
+    <button class="admin-btn" onclick="toggleAdmin(true)">⚙️ Admin Panel</button>
+    <button class="cart-btn" onclick="toggleCart(true)">🛒 Cart <span class="cart-count" id="cartCount">0</span></button>
   </div>
 </nav>
 
 <div class="hero">
-  <div class="hero-tag">XIN STORE 07 · ONLINE SHOP</div>
-  <h1>Shop <em>Everything</em><br/>In One Place</h1>
-  <p>Food, electronics, shoes, clothing & more — browse, add to cart, and we'll deliver to you.</p>
+  <div class="hero-tag">Premium Online Market</div>
+  <h1>Discover <em>Xin Store 07</em> Collection</h1>
+  <p>Providing food items, modern gadgets, premium footwear, elegant apparel, and verified beauty supplies across Ethiopia.</p>
   <div class="search-wrap">
     <span class="s-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Search products…" oninput="searchProducts(this.value)"/>
+    <input type="text" id="searchInput" placeholder="Search for items, styles, or brands..." oninput="handleSearch()"/>
   </div>
 </div>
 
 <div class="cats-bar">
-  <div class="cats-scroll" id="catsScroll"></div>
-</div>
-
-<!-- BANNER SLIDER -->
-<div class="banner-slider" id="bannerSlider" style="display:none;">
-  <div id="bannerSlides"></div>
-  <div class="banner-dots" id="bannerDots"></div>
+  <div class="cats-scroll" id="categoriesBar">
+    </div>
 </div>
 
 <div class="section">
   <div class="section-title" id="sectionTitle">All Products</div>
   <div class="products-grid" id="productsGrid"></div>
-  <div class="empty-state" id="emptyState" style="display:none;">
-    <div class="icon">📦</div>
-    <p>No products in this category yet.</p>
-  </div>
 </div>
 
-<!-- CART -->
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
-<div class="drawer" id="drawer">
+<div class="overlay" id="overlay" onclick="closeAllDrawers()"></div>
+
+<div class="drawer" id="cartDrawer">
   <div class="drawer-header">
-    <h2>🛒 Your Cart</h2>
-    <button onclick="openWishlist()" style="background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:7px;padding:.3rem .7rem;font-size:.78rem;cursor:pointer;font-family:inherit;">❤️ Wishlist</button>
-    <button class="close-btn" onclick="closeCart()">×</button>
+    <h2>Shopping Cart</h2>
+    <button class="close-btn" onclick="toggleCart(false)">×</button>
   </div>
   <div class="drawer-body" id="cartBody"></div>
-  <div class="drawer-footer" id="drawerFooter" style="display:none;">
-    <div class="cart-total"><span>Total</span><span id="cartTotal"></span></div>
-    <button class="checkout-btn" onclick="openOrderForm()">Place Order →</button>
+  <div class="drawer-footer">
+    <div class="cart-total"><span>Total Amount:</span><span id="cartTotalText">0 ETB</span></div>
+    <button class="checkout-btn" onclick="openCheckoutModal()">Proceed to Order</button>
   </div>
 </div>
 
-<!-- ORDER FORM -->
-<div class="modal-overlay" id="orderModal">
-  <div class="modal">
-    <h2>📦 Complete Your Order</h2>
-    <div class="form-group"><label>Full Name</label><input type="text" id="orderName" placeholder="Your name"/></div>
-    <div class="form-group"><label>Phone Number</label><input type="tel" id="orderPhone" placeholder="+251 91 234 5678"/></div>
-    <div class="form-group"><label>Area / Notes</label><textarea id="orderAddress" placeholder="Your area or any notes for delivery…" style="min-height:50px;"></textarea></div>
-    <div class="form-group"><label>Note (optional)</label><input type="text" id="orderNote" placeholder="Any special request?"/></div>
-
-    <!-- FULFILLMENT METHOD -->
-    <div style="margin-bottom:.75rem;">
-      <label style="display:block;font-size:.8rem;color:var(--muted);margin-bottom:.5rem;">🚚 How do you want to receive it?</label>
-      <div class="fulfill-toggle">
-        <button class="fulfill-opt" id="fo-delivery" onclick="setFulfillment('delivery')">
-          <span class="fo-icon">🛵</span>
-          <span>Delivery</span>
-          <span style="font-size:.65rem;opacity:.7;">We bring it to you</span>
-        </button>
-        <button class="fulfill-opt" id="fo-pickup" onclick="setFulfillment('pickup')">
-          <span class="fo-icon">🏪</span>
-          <span>Pickup</span>
-          <span style="font-size:.65rem;opacity:.7;">Come to Piassa · Free</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- PICKUP INFO (shown when pickup selected) -->
-    <div class="pickup-info" id="pickupInfo">
-      <div class="pi-title">📍 Store Location — Piassa</div>
-      <div class="pi-address">Piassa, Addis Ababa</div>
-      <div class="pi-hours">🕐 Open daily · Contact us to confirm availability before coming</div>
-      <a class="pickup-map-btn" href="https://maps.google.com/?q=9.0358,38.7521" target="_blank" rel="noopener">
-        🗺 Open in Google Maps
-      </a>
-    </div>
-
-    <!-- DELIVERY LOCATION (shown when delivery selected) -->
-    <div id="deliveryLocSection" style="display:none;margin-bottom:.85rem;">
-      <label style="display:block;font-size:.8rem;color:var(--muted);margin-bottom:.5rem;">📍 Detect Your Location for Delivery Fee</label>
-      <button id="locBtn" onclick="getLocation()" style="width:100%;padding:.7rem;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);cursor:pointer;font-size:.88rem;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:.5rem;">
-        <span>📡</span><span id="locBtnText">Detect My Location</span>
-      </button>
-      <p style="font-size:.72rem;color:var(--muted);margin-top:.3rem;text-align:center;">30 birr per km · measured from Piassa</p>
-    </div>
-
-    <!-- LOCATION STATUS -->
-    <div id="locStatus" style="display:none;font-size:.8rem;color:var(--muted);text-align:center;padding:.4rem;margin-bottom:.6rem;"></div>
-
-    <!-- PRICE BREAKDOWN -->
-    <div id="priceBreakdown" style="display:none;background:var(--card);border:1px solid var(--gold);border-radius:12px;padding:1rem;margin-bottom:.85rem;">
-      <div style="font-size:.75rem;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:.7rem;text-transform:uppercase;">💰 Price Summary</div>
-      <div id="pbItemsList" style="font-size:.8rem;color:var(--muted);margin-bottom:.6rem;line-height:1.7;"></div>
-      <div style="border-top:1px solid var(--border);padding-top:.6rem;margin-top:.2rem;">
-        <div style="display:flex;justify-content:space-between;margin-bottom:.35rem;font-size:.85rem;">
-          <span style="color:var(--muted);">🛍 Items total</span>
-          <span id="pbItems" style="font-weight:600;"></span>
-        </div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:.35rem;font-size:.85rem;">
-          <span style="color:var(--muted);">🚚 Delivery (<span id="pbKm"></span> km × 30 birr)</span>
-          <span id="pbDelivery" style="font-weight:600;color:var(--gold);"></span>
-        </div>
-        <div style="display:flex;justify-content:space-between;background:rgba(201,168,76,0.1);border-radius:8px;padding:.55rem .65rem;margin-top:.4rem;">
-          <span style="font-weight:800;color:var(--gold2);font-size:.95rem;">= Total to Pay</span>
-          <span id="pbTotal" style="font-weight:800;color:var(--gold2);font-size:.95rem;"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ORDER CODE -->
-    <div class="order-code-box" id="orderCodeBox">
-      <div class="ocb-label">🔖 Your Order Code</div>
-      <div class="ocb-code" id="orderCodeDisplay">—</div>
-      <button class="ocb-copy" onclick="copyOrderCode()">📋 Copy Code</button>
-      <div class="ocb-hint">
-        ⚠️ <strong>Important:</strong> When making your payment, write this code in the
-        <strong>transfer note / reference / description</strong> field.<br/>
-        This is how we verify your receipt is genuine.
-      </div>
-    </div>
-
-    <!-- PAYMENT METHOD -->
-    <div class="pay-section" id="paySection">
-      <div class="pay-title">💳 Choose Payment Method</div>
-      <div class="pay-methods" style="grid-template-columns:1fr 1fr 1fr;">
-        <button class="pay-method" onclick="selectPayMethod('cbe')" id="pm-cbe">
-          <span class="pm-icon">🏦</span><span>CBE</span>
-        </button>
-        <button class="pay-method" onclick="selectPayMethod('telebirr')" id="pm-telebirr">
-          <span class="pm-icon">📱</span><span>TeleBirr</span>
-        </button>
-        <button class="pay-method" onclick="selectPayMethod('mpesa')" id="pm-mpesa">
-          <span class="pm-icon">💚</span><span>M-Pesa</span>
-        </button>
-        <button class="pay-method" onclick="selectPayMethod('awash')" id="pm-awash">
-          <span class="pm-icon">🏦</span><span>Awash</span>
-        </button>
-        <button class="pay-method" onclick="selectPayMethod('abyssinia')" id="pm-abyssinia">
-          <span class="pm-icon">🏦</span><span>Abyssinia</span>
-        </button>
-        <button class="pay-method" onclick="selectPayMethod('arrival')" id="pm-arrival">
-          <span class="pm-icon">🤝</span><span>Pay on Arrival</span>
-        </button>
-      </div>
-      <!-- Account Details -->
-      <div class="pay-details" id="payDetails">
-        <div style="font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem;" id="payMethodLabel"></div>
-        <div class="pay-account" id="payAccount"></div>
-        <div class="pay-name" id="payAccountName"></div>
-        <div class="pay-amount-row">
-          <span class="pay-amount-label">Amount to send</span>
-          <span class="pay-amount-val" id="payAmountVal">—</span>
-        </div>
-        <!-- Receipt Upload -->
-        <div class="receipt-upload">
-          <label>📎 Upload Payment Receipt</label>
-          <div class="receipt-drop" id="receiptDrop">
-            <input type="file" id="receiptFile" accept="image/*" onchange="receiptChosen(this)"/>
-            <div class="rd-icon">🧾</div>
-            <div class="rd-text">Tap to upload receipt screenshot<br/><span style="font-size:.7rem;opacity:.6;">Make sure the order code is visible or included in transfer note</span></div>
-          </div>
-          <div class="receipt-preview" id="receiptPreview">
-            <img id="receiptPreviewImg" src="" alt="Receipt"/>
-            <button class="rp-clear" onclick="clearReceipt()">✕</button>
-          </div>
-          <div class="receipt-ok" id="receiptOk">✅ Receipt uploaded — ready to confirm order</div>
-        </div>
-      </div>
-      <!-- Pay on Arrival notice -->
-      <div class="pay-details" id="payArrivalInfo" style="display:none;">
-        <div style="font-size:.72rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:.5rem;">🤝 Pay on Arrival</div>
-        <div style="font-size:.88rem;color:var(--text);font-weight:700;margin-bottom:.35rem;">No advance payment needed</div>
-        <div style="font-size:.8rem;color:var(--muted);line-height:1.6;">Pay the full amount <strong style="color:var(--gold2);">in cash when your order arrives</strong> (for delivery) or when you pick up at the store.<br/><br/>Our team will confirm your order and contact you shortly.</div>
-      </div>
-    </div>
-
-    <div class="modal-actions">
-      <button class="modal-cancel" onclick="closeOrderForm()">Cancel</button>
-      <button class="modal-submit" id="submitBtn" onclick="submitOrder()" disabled style="opacity:.5;cursor:not-allowed;">Detect location first</button>
-    </div>
-  </div>
-</div>
-
-<!-- ADMIN PANEL -->
-<div class="admin-overlay" id="adminOverlay">
+<div class="admin-overlay" id="adminPanel">
   <div class="admin-panel">
-    <button class="admin-close" onclick="closeAdmin()">×</button>
-    <h2>⚙ Admin Panel</h2>
-    <p>Manage products and categories for Xin Store 07.</p>
-    <div class="admin-section active" id="adminLogin">
-      <div class="form-group">
-        <label>Password</label>
-        <div style="position:relative;">
-          <input type="password" id="adminPass" placeholder="Enter admin password" onkeydown="if(event.key==='Enter')checkPass()" style="padding-right:2.8rem;"/>
-          <button onclick="var i=document.getElementById('adminPass');i.type=i.type==='password'?'text':'password';this.textContent=i.type==='password'?'👁':'🙈'" type="button" style="position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;line-height:1;">👁</button>
-        </div>
-      </div>
-      <button class="add-btn" onclick="checkPass()">Login →</button>
+    <button class="admin-close" onclick="toggleAdmin(false)">×</button>
+    <h2>Dashboard & Inventory</h2>
+    <p>Manage and track products inside your local live memory store.</p>
+    <div class="admin-tabs">
+      <button class="admin-tab active" id="tab-inventory" onclick="switchAdminTab('inventory')">Items Editor</button>
+      <button class="admin-tab" id="tab-add" onclick="switchAdminTab('add')">+ Add New Item</button>
     </div>
-    <div class="admin-section" id="adminDash">
-      <div class="admin-tabs" style="flex-wrap:wrap;">
-        <button class="admin-tab active" onclick="switchTab('products',this)">📦 Products</button>
-        <button class="admin-tab" onclick="switchTab('categories',this)">🗂 Categories</button>
-        <button class="admin-tab" onclick="switchTab('store',this)">🏪 Store</button>
-        <button class="admin-tab" onclick="switchTab('dashboard',this)">📊 Dashboard</button>
-      </div>
-      <div class="tab-content active" id="tab-products">
-        <div class="form-group"><label>Category</label><select id="pCat"></select></div>
-        <div class="form-group"><label>Product Name</label><input type="text" id="pName" placeholder="e.g. Samsung Galaxy S24"/></div>
-        <div class="form-group"><label>Description</label><input type="text" id="pDesc" placeholder="Short description"/></div>
-        <div class="form-group"><label>Price</label><input type="text" id="pPrice" placeholder="e.g. 45,000 ETB"/></div>
-        <div class="form-group"><label>Emoji Icon</label><input type="text" id="pEmoji" placeholder="📱 👟 🍕 👕"/></div>
-        <div class="form-group"><label>Stock Quantity (optional)</label><input type="number" id="pStock" placeholder="e.g. 20 (leave empty if unlimited)"/></div>
-        <div class="form-group"><label>Badge</label><select id="pBadge"><option value="">None</option><option value="new">✨ NEW</option><option value="sale">🔥 SALE</option><option value="hot">🌶 HOT</option></select></div>
-        <div class="form-group">
-          <label>Product Images <span style="color:var(--muted);font-weight:400;">(up to 5 photos)</span></label>
-          <div class="img-picker">
-            <div class="img-source-btns">
-              <button class="img-src-btn" onclick="imgPickerMode('gallery')">🖼 Gallery</button>
-              <button class="img-src-btn" onclick="imgPickerMode('camera')">📷 Camera</button>
-              <button class="img-src-btn" onclick="imgPickerMode('url')">🔗 URL</button>
-            </div>
-            <!-- Gallery -->
-            <input type="file" id="pImgFile" accept="image/*" multiple style="display:none" onchange="imgFileChosen(this)"/>
-            <!-- Camera -->
-            <div class="cam-wrap" id="camWrap">
-              <video id="camVideo" autoplay playsinline muted></video>
-              <canvas id="camCanvas"></canvas>
-              <div class="cam-actions">
-                <button class="cam-snap" onclick="camSnap()">📸 Snap Photo</button>
-                <button class="cam-cancel" onclick="camStop()">✕ Cancel</button>
-              </div>
-            </div>
-            <!-- URL -->
-            <div class="img-url-row" id="imgUrlRow" style="display:none">
-              <input type="text" id="pImg" placeholder="https://example.com/photo.jpg"/>
-              <button onclick="imgUrlPreview(document.getElementById('pImg').value)">Add</button>
-            </div>
-            <!-- Thumbnails of added images -->
-            <div class="img-gallery-thumbs" id="imgGalleryThumbs"></div>
-            <!-- Main Preview -->
-            <div class="img-preview-wrap" id="imgPreviewWrap" style="display:none;">
-              <img id="imgPreviewEl" src="" alt="Preview"/>
-              <button class="img-preview-clear" onclick="clearImgPicker()" title="Remove all">✕ Clear all</button>
-            </div>
-          </div>
-        </div>
-        <button class="add-btn" onclick="addProduct()">+ Add Product</button>
+    <div id="adminContent">
+      <div id="sec-inventory" class="admin-section active">
         <div class="admin-list" id="adminProductList"></div>
       </div>
-      <div class="tab-content" id="tab-categories">
-        <div class="form-group"><label>Category Name</label><input type="text" id="catName" placeholder="e.g. Sports, Beauty, Books…"/></div>
-        <div class="form-group"><label>Category Emoji</label><input type="text" id="catEmoji" placeholder="⚽ 💄 📚"/><p class="cat-hint">One emoji that represents the category.</p></div>
-        <button class="add-btn" onclick="addCategory()">+ Add Category</button>
-        <div class="admin-list" id="adminCatList"></div>
-      </div>
-
-      <div class="tab-content" id="tab-store">
-        <div style="font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;">🏪 Store Settings</div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:.9rem;">
-          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;">📢 Announcement Banner</div>
-          <div class="form-group"><label>Message</label><input type="text" id="announceMsg" placeholder="e.g. Free delivery today!" value="🎉 Welcome to Xin Store 07 — Fast delivery in Addis Ababa!"/></div>
-          <div style="display:flex;gap:.5rem;">
-            <button class="add-btn" style="margin-top:0;" onclick="saveAnnounce()">Show Banner</button>
-            <button onclick="hideAnnounce()" style="flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;margin-top:0;">Hide</button>
-          </div>
+      <div id="sec-add" class="admin-section">
+        <div class="form-group">
+          <label>Item Name</label>
+          <input type="text" id="addName"/>
         </div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:.9rem;">
-          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;">🎉 Welcome Popup</div>
-          <div class="form-group"><label>Popup Title</label><input type="text" id="welcomeTitle" placeholder="Welcome to Xin Store 07!"/></div>
-          <div class="form-group"><label>Message</label><input type="text" id="welcomeMessage" placeholder="Your welcome message…"/></div>
-          <div class="form-group"><label>Discount Code (optional)</label><input type="text" id="welcomeDiscount" placeholder="e.g. XIN10 for 10% off"/></div>
-          <div style="display:flex;gap:.5rem;">
-            <button class="add-btn" style="margin-top:0;" onclick="saveWelcomePopup()">Save & Enable</button>
-            <button onclick="disableWelcomePopup()" style="flex:1;padding:.7rem;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-family:inherit;">Disable</button>
-          </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="addCat">
+            <option value="food">Food</option>
+            <option value="electronics">Electronics</option>
+            <option value="shoes">Shoes</option>
+            <option value="clothing">Clothing</option>
+            <option value="beauty">Beauty & Personal Care</option>
+          </select>
         </div>
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-bottom:.9rem;">
-          <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;">🖼️ Homepage Banners</div>
-          <div class="form-group"><label>Banner Title</label><input type="text" id="bannerTitle" placeholder="e.g. New Arrivals!"/></div>
-          <div class="form-group"><label>Subtitle</label><input type="text" id="bannerSub" placeholder="e.g. Shop the latest electronics"/></div>
-          <div class="form-group"><label>Image URL</label><input type="text" id="bannerImg" placeholder="https://…"/></div>
-          <button class="add-btn" onclick="addBanner()">+ Add Banner Slide</button>
-          <div class="admin-list" id="adminBannerList" style="margin-top:.8rem;"></div>
+        <div class="form-group">
+          <label>Base Price (ETB)</label>
+          <input type="number" id="addPrice"/>
         </div>
+        <div class="form-group">
+          <label>Image URL</label>
+          <input type="text" id="addImg" placeholder="https://unsplash.com/..."/>
+        </div>
+        <div class="form-group">
+          <label>Emoji Symbol</label>
+          <input type="text" id="addEmoji" placeholder="📦"/>
+        </div>
+        <button class="add-btn" onclick="addNewProductItem()">Publish Item</button>
       </div>
-
-      <div class="tab-content" id="tab-dashboard">
-        <div style="font-size:.82rem;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;">📊 Store Dashboard</div>
-        <div class="dash-grid" id="dashGrid"></div>
-        <div style="font-size:.85rem;font-weight:700;margin-bottom:.5rem;color:var(--gold2);">⚠️ Low Stock Alerts</div>
-        <div class="low-stock-list" id="lowStockList"></div>
-        <div style="font-size:.85rem;font-weight:700;margin:.9rem 0 .5rem;color:var(--gold2);">❤️ Most Wishlisted</div>
-        <div class="admin-list" id="wishlistStats"></div>
-      </div>
-
     </div>
   </div>
 </div>
 
-<!-- WELCOME POPUP -->
-<div class="welcome-overlay" id="welcomeOverlay">
-  <div class="welcome-box">
-    <img src="https://i.imgur.com/KBogTxg.jpg" class="wb-logo" alt="Xin Store 07"/>
-    <h2 id="wTitle">Welcome to Xin Store 07! 🎉</h2>
-    <p id="wMsg">Ethiopia's trusted online shop. Fast delivery, genuine products, easy payment.</p>
-    <div class="welcome-code" id="welcomeCodeBox" style="display:none;">
-      <div class="wc-label">🎁 Your Welcome Discount Code</div>
-      <div class="wc-code" id="welcomeCode"></div>
-      <div class="wc-hint">Use this code when placing your order</div>
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal" style="max-width:460px;">
+    <h2>Complete Your Purchase</h2>
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="orderName" placeholder="Abebe Kebede"/>
     </div>
-    <button class="welcome-shop-btn" onclick="closeWelcome()">🛍️ Start Shopping</button>
-    <button class="welcome-skip" onclick="closeWelcome()">Skip</button>
-  </div>
-</div>
-
-<!-- PRODUCT DETAIL MODAL -->
-<div class="detail-overlay" id="detailOverlay">
-  <div class="detail-modal">
-    <div class="detail-img" id="detailImg"></div>
-    <div class="detail-body">
-      <button class="detail-close" onclick="closeDetail()">×</button>
-      <div class="product-cat-badge" id="detailCat"></div>
-      <div class="detail-name" id="detailName"></div>
-      <div class="detail-price" id="detailPrice"></div>
-      <div class="star-row" id="detailStars"></div>
-      <div class="detail-desc" id="detailDesc"></div>
-      <div id="detailStock"></div>
-      <button class="detail-add" id="detailAddBtn">Add to Cart 🛒</button>
-      <button class="share-btn" id="detailShareBtn">📤 Share this product</button>
+    <div class="form-group">
+      <label>Phone Number (Telegram/Direct Call)</label>
+      <input type="text" id="orderPhone" placeholder="0911..."/>
+    </div>
+    <div class="form-group">
+      <label>Delivery Address / Notes</label>
+      <textarea id="orderAddress" placeholder="Bole, Atlas, Addis Ababa"></textarea>
+    </div>
+    <div style="margin: 1rem 0; font-weight: bold; font-size: 1.1rem; color: var(--gold2);" id="modalTotalPay"></div>
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeCheckoutModal()">Cancel</button>
+      <button class="modal-submit" onclick="submitFinalOrder()">Place Order</button>
     </div>
   </div>
 </div>
-
-<div class="toast" id="toast"></div>
-
-<!-- EDIT PRODUCT MODAL -->
-<div class="edit-modal-overlay" id="editModal">
-  <div class="edit-modal">
-    <h2>✏️ Edit Product</h2>
-    <p class="edit-sub">🔒 Locked fields stay unchanged. Tap the lock to unlock a field.</p>
-    <div class="edit-field-row">
-      <label>Name</label>
-      <input type="text" id="eName" disabled/>
-      <button class="edit-lock" id="lock-name" onclick="toggleLock('name')" title="Unlock to edit">🔒</button>
-    </div>
-    <div class="edit-field-row">
-      <label>Price</label>
-      <input type="text" id="ePrice" disabled/>
-      <button class="edit-lock" id="lock-price" onclick="toggleLock('price')" title="Unlock to edit">🔒</button>
-    </div>
-    <div class="edit-field-row">
-      <label>Desc</label>
-      <input type="text" id="eDesc" disabled/>
-      <button class="edit-lock" id="lock-desc" onclick="toggleLock('desc')" title="Unlock to edit">🔒</button>
-    </div>
-    <div class="edit-field-row">
-      <label>Emoji</label>
-      <input type="text" id="eEmoji" disabled/>
-      <button class="edit-lock" id="lock-emoji" onclick="toggleLock('emoji')" title="Unlock to edit">🔒</button>
-    </div>
-    <!-- Picture edit -->
-    <div style="margin-bottom:.9rem;">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;">
-        <label style="font-size:.78rem;color:var(--muted);">Image</label>
-        <button onclick="toggleEditImg()" id="editImgToggle" style="background:var(--card);border:1px solid var(--border);color:var(--muted);border-radius:7px;padding:.3rem .7rem;cursor:pointer;font-size:.75rem;font-family:inherit;">🔒 Locked — tap to change</button>
-      </div>
-      <div id="editImgSection" style="display:none;">
-        <!-- Current image preview -->
-        <div id="eCurrentImgWrap" style="margin-bottom:.6rem;border-radius:10px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3;background:var(--surface);display:none;">
-          <img id="eCurrentImg" src="" style="width:100%;height:100%;object-fit:cover;"/>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-bottom:.5rem;">
-          <button class="img-src-btn" onclick="editImgMode('gallery')">🖼 Gallery</button>
-          <button class="img-src-btn" onclick="editImgMode('camera')">📷 Camera</button>
-          <button class="img-src-btn" onclick="editImgMode('url')">🔗 URL</button>
-        </div>
-        <input type="file" id="eImgFile" accept="image/*" style="display:none" onchange="editImgFileChosen(this)"/>
-        <div class="cam-wrap" id="editCamWrap" style="display:none;">
-          <video id="editCamVideo" autoplay playsinline muted></video>
-          <canvas id="editCamCanvas"></canvas>
-          <div class="cam-actions">
-            <button class="cam-snap" onclick="editCamSnap()">📸 Snap Photo</button>
-            <button class="cam-cancel" onclick="editCamStop()">✕ Cancel</button>
-          </div>
-        </div>
-        <div class="img-url-row" id="editImgUrlRow" style="display:none;">
-          <input type="text" id="eImgUrl" placeholder="https://example.com/photo.jpg" oninput="editImgUrlPreview(this.value)"/>
-          <button onclick="editImgUrlPreview(document.getElementById('eImgUrl').value)">Preview</button>
-        </div>
-        <div class="img-preview-wrap" id="editImgPreviewWrap" style="display:none;">
-          <img id="editImgPreviewEl" src="" alt="New image"/>
-          <button class="img-preview-clear" onclick="clearEditImg()">✕</button>
-        </div>
-      </div>
-    </div>
-    <div class="edit-actions">
-      <button class="edit-cancel" onclick="closeEditModal()">Cancel</button>
-      <button class="edit-save" onclick="saveEdit()">Save Changes ✅</button>
-    </div>
-  </div>
-</div>
-<!-- ABOUT SECTION -->
-<div style="max-width:1200px;margin:0 auto 2rem;padding:0 1.5rem;">
-  <div style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:2rem;text-align:center;">
-    <img src="https://i.imgur.com/KBogTxg.jpg" alt="Xin Store 07" style="width:90px;height:90px;border-radius:50%;border:2px solid var(--gold);margin-bottom:1.25rem;object-fit:cover;"/>
-    <h2 style="font-size:1.4rem;font-weight:800;color:var(--gold2);margin-bottom:.4rem;">Xin Store 07</h2>
-    <p style="font-size:.82rem;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.25rem;">Trust · Quality · Value · You</p>
-    <p style="font-size:.92rem;color:var(--muted);max-width:520px;margin:0 auto 1.5rem;line-height:1.7;">
-      Xin Store 07 is your trusted online shop based in <strong style="color:var(--text);">Addis Ababa, Ethiopia</strong>. 
-      We offer a wide range of products — from food and electronics to clothing, beauty, and more — 
-      all delivered straight to your door with fast, reliable service.
-    </p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;max-width:500px;margin:0 auto 1.5rem;">
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
-        <div style="font-size:1.5rem;margin-bottom:.3rem;">🚀</div>
-        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">Fast Delivery</div>
-        <div style="font-size:.75rem;color:var(--muted);">Same day in Addis</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
-        <div style="font-size:1.5rem;margin-bottom:.3rem;">✅</div>
-        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">Trusted Quality</div>
-        <div style="font-size:.75rem;color:var(--muted);">100% genuine products</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
-        <div style="font-size:1.5rem;margin-bottom:.3rem;">💳</div>
-        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">Easy Payment</div>
-        <div style="font-size:.75rem;color:var(--muted);">CBE, TeleBirr & more</div>
-      </div>
-      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:.9rem;">
-        <div style="font-size:1.5rem;margin-bottom:.3rem;">🎧</div>
-        <div style="font-size:.82rem;font-weight:700;color:var(--text);margin-bottom:.2rem;">24/7 Support</div>
-        <div style="font-size:.75rem;color:var(--muted);">Always here to help</div>
-      </div>
-    </div>
-    <div style="border-top:1px solid var(--border);padding-top:1.25rem;display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;">
-      <a href="https://t.me/xinstore07" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,0.12);border:1px solid var(--gold);color:var(--gold2);padding:.55rem 1.1rem;border-radius:50px;text-decoration:none;font-size:.85rem;font-weight:700;">
-        ✈️ Telegram
-      </a>
-      <a href="tel:+251945199496" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,0.12);border:1px solid var(--gold);color:var(--gold2);padding:.55rem 1.1rem;border-radius:50px;text-decoration:none;font-size:.85rem;font-weight:700;">
-        📞 Call Us
-      </a>
-      <a href="https://wa.me/251945199496" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,168,76,0.12);border:1px solid var(--gold);color:var(--gold2);padding:.55rem 1.1rem;border-radius:50px;text-decoration:none;font-size:.85rem;font-weight:700;">
-        💬 WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
-
-<footer>© 2025 Xin Store 07 · Trust · Quality · Value · You</footer>
 
 <script>
-const BOT_TOKEN = atob("ODYzODA5MTQ0NDpBQUYxbFppTWFpQlVDdENuUHFkQ3RMajJqMUo1bUdtWDJqUQ==");
-const CHAT_ID   = "7984414010";
-const ADMIN_PASSWORD = atob("eGluc3RvcmUyMDI0");
+// 30 items per category targeted to Ethiopian consumers. 15% markup automatically counted on base cost. Everything strictly below 30,000 ETB.
+const products = {
+  // --- FOOD CATEGORY (30 items) ---
+  "f1": { name: "Premium Teff (Sergegna) - 25kg", cat: "food", price: Math.round(2400 * 1.15), emoji: "🌾", img: "https://images.unsplash.com/photo-1574325131866-ae8035030e4b?w=400&auto=format&fit=crop&q=60", desc: "High quality combined white and brown Teff grain for traditional Injera." },
+  "f2": { name: "Pure White Teff - 25kg", cat: "food", price: Math.round(3100 * 1.15), emoji: "🌾", img: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&auto=format&fit=crop&q=60", desc: "Super clean luxury Magna white teff grain harvested from Gojjam." },
+  "f3": { name: "Zuria Sunflower Cooking Oil - 5L", cat: "food", price: Math.round(950 * 1.15), emoji: "🍾", img: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&auto=format&fit=crop&q=60", desc: "Fortified premium multi-purpose sunflower vegetable oil." },
+  "f4": { name: "Chef's Choice Cooking Oil - 3L", cat: "food", price: Math.round(620 * 1.15), emoji: "🍾", img: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&auto=format&fit=crop&q=60", desc: "Popular brand palm olein liquid frying oil for daily cooking." },
+  "f5": { name: "Kibe (Traditional Spiced Butter) - 1kg", cat: "food", price: Math.round(1100 * 1.15), emoji: "🧈", img: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=400&auto=format&fit=crop&q=60", desc: "Rich fragrant traditional spiced butter perfect for Doro Wat & Kitfo." },
+  "f6": { name: "Tomoca Ground Coffee Pack - 500g", cat: "food", price: Math.round(340 * 1.15), emoji: "☕", img: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&auto=format&fit=crop&q=60", desc: "Legendary local roasted dark Ethiopian Arabica blend coffee premium package." },
+  "f7": { name: "Abyssinia Premium Honey - 1kg", cat: "food", price: Math.round(480 * 1.15), emoji: "🍯", img: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&auto=format&fit=crop&q=60", desc: "Organic pure golden organic honey sourced straight from Gojjam forests." },
+  "f8": { name: "Traditional White Honey (Gonder) - 1kg", cat: "food", price: Math.round(750 * 1.15), emoji: "🍯", img: "https://images.unsplash.com/photo-1471943311424-646960669fba?w=400&auto=format&fit=crop&q=60", desc: "Rare high-altitude smooth white honey known for its health values." },
+  "f9": { name: "Buna Board Espresso Coffee Beans - 1kg", cat: "food", price: Math.round(590 * 1.15), emoji: "🫘", img: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&auto=format&fit=crop&q=60", desc: "Export grade medium-roasted whole bean specialty coffee from Yirgacheffe." },
+  "f10": { name: "Shuro Powder (Spiced Chickpea) - 1kg", cat: "food", price: Math.round(280 * 1.15), emoji: "🥘", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop&q=60", desc: "Meticulously mixed authentic homemade spiced chickpea powder for Shiro Wat." },
+  "f11": { name: "Berbere Spiced Red Pepper - 1kg", cat: "food", price: Math.round(390 * 1.15), emoji: "🌶️", img: "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&auto=format&fit=crop&q=60", desc: "Aromatic extra hot premium red pepper chili spice mixture blend." },
+  "f12": { name: "Mitin Shiro Premium Blend - 1kg", cat: "food", price: Math.round(350 * 1.15), emoji: "🥘", img: "https://images.unsplash.com/photo-1515516969-d4008cc6241a?w=400&auto=format&fit=crop&q=60", desc: "High-grade seasoned chickpea and split pea flour blend for quick gourmet cooking." },
+  "f13": { name: "Mekelesha Finely Ground Wot Spice - 250g", cat: "food", price: Math.round(180 * 1.15), emoji: "🧂", img: "https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=400&auto=format&fit=crop&q=60", desc: "Essential finishing aromatic spice blend added right before serving stews." },
+  "f14": { name: "Pasta Zara Imported Pack - 5kg Bulk", cat: "food", price: Math.round(680 * 1.15), emoji: "🍝", img: "https://images.unsplash.com/photo-1551462147-ff29053bfc14?w=400&auto=format&fit=crop&q=60", desc: "High-quality hard durum semolina pasta imported from Italy." },
+  "f15": { name: "Premium Basmati Rice - 5kg Pack", cat: "food", price: Math.round(850 * 1.15), emoji: "🍚", img: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&auto=format&fit=crop&q=60", desc: "Long grain aromatic white basmati rice perfect for festive dinners." },
+  "f16": { name: "Local Whole Wheat Flour - 10kg", cat: "food", price: Math.round(1100 * 1.15), emoji: "🌾", img: "https://images.unsplash.com/photo-1574325131866-ae8035030e4b?w=400&auto=format&fit=crop&q=60", desc: "Stone ground high fiber local whole wheat flour safe for daily bread." },
+  "f17": { name: "Anchor Fortified Powder Milk - 800g Tint", cat: "food", price: Math.round(920 * 1.15), emoji: "🥛", img: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&auto=format&fit=crop&q=60", desc: "Full cream instant powder milk fortified with essential vitamins." },
+  "f18": { name: "Coast Instant Milk Powder Bag - 400g", cat: "food", price: Math.round(490 * 1.15), emoji: "🥛", img: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&auto=format&fit=crop&q=60", desc: "Rich and creamy instant milk solubility choice for tea and macchiato." },
+  "f19": { name: "Desta Sugar Local Crystals - 5kg Bag", cat: "food", price: Math.round(550 * 1.15), emoji: "🍬", img: "https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=400&auto=format&fit=crop&q=60", desc: "Refined pure sugar crystals standard essential for household kitchens." },
+  "f20": { name: "Mama Tomato Paste Big Can - 800g", cat: "food", price: Math.round(210 * 1.15), emoji: "🥫", img: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=400&auto=format&fit=crop&q=60", desc: "Rich thick double concentrated real tomato paste paste option." },
+  "f21": { name: "Aroma Imported Extra Virgin Olive Oil - 1L", cat: "food", price: Math.round(890 * 1.15), emoji: "🫒", img: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&auto=format&fit=crop&q=60", desc: "First cold pressed natural healthy extra virgin olive oil." },
+  "f22": { name: "Local Roasted Barley Kollo - 1kg Bag", cat: "food", price: Math.round(190 * 1.15), emoji: "🍿", img: "https://images.unsplash.com/photo-1600189020840-e9ea185b179d?w=400&auto=format&fit=crop&q=60", desc: "Crunchy traditional roasted snack barley mixed with safflower seeds." },
+  "f23": { name: "Nutella Chocolate Spread Big Jar - 750g", cat: "food", price: Math.round(640 * 1.15), emoji: "🍫", img: "https://images.unsplash.com/photo-1511381939415-e44015466834?w=400&auto=format&fit=crop&q=60", desc: "Creamy hazelnut cocoa spread popular among kids and breakfast treats." },
+  "f24": { name: "Lipton Yellow Label Tea Bags - 100 Count", cat: "food", price: Math.round(310 * 1.15), emoji: "🫖", img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400&auto=format&fit=crop&q=60", desc: "Classic rich black tea blend bags for morning gatherings and traditional tea." },
+  "f25": { name: "Local Spiced Salt Mix - 500g Pack", cat: "food", price: Math.round(90 * 1.15), emoji: "🧂", img: "https://images.unsplash.com/photo-1518110168406-8d4849ec4ad9?w=400&auto=format&fit=crop&q=60", desc: "Iodized table salt combined with traditional garlic, ginger, and basil hints." },
+  "f26": { name: "Almarai Processed Cheese Triangles", cat: "food", price: Math.round(160 * 1.15), emoji: "🧀", img: "https://images.unsplash.com/photo-1528279027-68f0d7fce963?w=400&auto=format&fit=crop&q=60", desc: "Smooth creamy spreadable cheese portions beloved for quick breakfast rolls." },
+  "f27": { name: "Premium Red Lentils (Misir) - 2kg Bag", cat: "food", price: Math.round(360 * 1.15), emoji: "🫘", img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&auto=format&fit=crop&q=60", desc: "Split red lentils sorted completely clean for making savory Misir Wot." },
+  "f28": { name: "Premium Green Lentils (Defen Misir) - 2kg", cat: "food", price: Math.round(290 * 1.15), emoji: "🫘", img: "https://images.unsplash.com/photo-1515516969-d4008cc6241a?w=400&auto=format&fit=crop&q=60", desc: "Nutritious whole brown/green lentils rich in fiber and proteins." },
+  "f29": { name: "Oat Clif Breakfast Oats - 1kg Box", cat: "food", price: Math.round(380 * 1.15), emoji: "🥣", img: "https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&auto=format&fit=crop&q=60", desc: "Instant quick-cooking rolled oats choice for healthy morning meals." },
+  "f30": { name: "Assorted Soft Biscuits Box - 24 Pack", cat: "food", price: Math.round(450 * 1.15), emoji: "🍪", img: "https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=400&auto=format&fit=crop&q=60", desc: "Sweet crunchy treats pack excellent for school children lunches or snack time." },
 
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  // --- ELECTRONICS CATEGORY (30 items) ---
+  "e1": { name: "Beecaro 160W Bluetooth Bass Speaker", cat: "electronics", price: Math.round(16500 * 1.15), emoji: "🔊", img: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&auto=format&fit=crop&q=60", desc: "Super loud portable active Bluetooth wireless outdoor party sound system." },
+  "e2": { name: "Oraimo FreePods 4 Wireless Earbuds", cat: "electronics", price: Math.round(4200 * 1.15), emoji: "🎧", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&auto=format&fit=crop&q=60", desc: "Original true wireless active noise canceling earbuds with massive playback battery life." },
+  "e3": { name: "Anker PowerCore 20,000mAh Power Bank", cat: "electronics", price: Math.round(3800 * 1.15), emoji: "🔋", img: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=400&auto=format&fit=crop&q=60", desc: "High speed durable power bank essential for mobile users during outages." },
+  "e4": { name: "Laptop Power Bank Max 50K Mah", cat: "electronics", price: Math.round(22000 * 1.15), emoji: "🔌", img: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&auto=format&fit=crop&q=60", desc: "Heavy capacity universal charging station backup source for modern laptops." },
+  "e5": { name: "Xiaomi Redmi Note 13 Pro 4G Charger", cat: "electronics", price: Math.round(1900 * 1.15), emoji: "⚡", img: "https://images.unsplash.com/photo-1622445262465-2481c4574875?w=400&auto=format&fit=crop&q=60", desc: "67W fast charging original adapter with solid Type-C interface wire." },
+  "e6": { name: "Samsung Galaxy Fit 3 Smart Band", cat: "electronics", price: Math.round(5900 * 1.15), emoji: "⌚", img: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&auto=format&fit=crop&q=60", desc: "Elegant fitness tracker displaying heart rate updates and chat alerts." },
+  "e7": { name: "Ucom USB Dual Computer PC Joystick", cat: "electronics", price: Math.round(2200 * 1.15), emoji: "🎮", img: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&auto=format&fit=crop&q=60", desc: "Plug and play dual vibration wired gamepad controllers for arcade lovers." },
+  "e8": { name: "Anti-Theft Laptop Backpack with USB Port", cat: "electronics", price: Math.round(3199 * 1.15), emoji: "🎒", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format&fit=crop&q=60", desc: "Waterproof secure tech compartment bag with an integrated charging dock route." },
+  "e9": { name: "Fantech RGB Mechanical Keyboard", cat: "electronics", price: Math.round(3400 * 1.15), emoji: "⌨️", img: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&auto=format&fit=crop&q=60", desc: "Tactile clicky switches with beautiful customizable breathing neon background lights." },
+  "e10": { name: "Logitech M170 Wireless Mouse", cat: "electronics", price: Math.round(1200 * 1.15), emoji: "🖱️", img: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400&auto=format&fit=crop&q=60", desc: "Simple reliable 2.4Ghz standard office ergonomic scroll controller." },
+  "e11": { name: "JBL Tune 510BT Wireless Headphones", cat: "electronics", price: Math.round(5600 * 1.15), emoji: "🎧", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&auto=format&fit=crop&q=60", desc: "Famous Pure Bass on-ear audio headset with long comfy listening pads." },
+  "e12": { name: "Hikvision 1080P USB Web Camera", cat: "electronics", price: Math.round(2900 * 1.15), emoji: "📷", img: "https://images.unsplash.com/photo-1600541519463-f60ab4a0d8c4?w=400&auto=format&fit=crop&q=60", desc: "High-definition streaming cam perfect for online zoom meetings or remote jobs." },
+  "e13": { name: "Sandisk Ultra 128GB Flash Drive", cat: "electronics", price: Math.round(1400 * 1.15), emoji: "💽", img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=400&auto=format&fit=crop&q=60", desc: "USB 3.0 ultra fast data transfers for documents, movies, and backups." },
+  "e14": { name: "WD Elements 1TB External Hard Drive", cat: "electronics", price: Math.round(6200 * 1.15), emoji: "💾", img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&auto=format&fit=crop&q=60", desc: "Shockproof slim layout storage drive for safe mass file archives." },
+  "e15": { name: "Boyo BY-M1 Omnidirectional Lapel Mic", cat: "electronics", price: Math.round(1800 * 1.15), emoji: "🎤", img: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&auto=format&fit=crop&q=60", desc: "Clip-on condenser microphone for crystal clear tik-tok videos or content making." },
+  "e16": { name: "Tenda Wireless Wifi Router 3-Antenna", cat: "electronics", price: Math.round(2800 * 1.15), emoji: "🌐", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&auto=format&fit=crop&q=60", desc: "High-speed broadband network coverage router for home or small cafes." },
+  "e17": { name: "HDMI to VGA Premium Cable Converter", cat: "electronics", price: Math.round(600 * 1.15), emoji: "🔌", img: "https://images.unsplash.com/photo-1557853197-aefb550b6fdc?w=400&auto=format&fit=crop&q=60", desc: "Connect modern laptops easily to older university project digital screens." },
+  "e18": { name: "Universal Multi-Plug Extension Cord 5M", cat: "electronics", price: Math.round(1100 * 1.15), emoji: "🔌", img: "https://images.unsplash.com/photo-1557853197-aefb550b6fdc?w=400&auto=format&fit=crop&q=60", desc: "Heavy duty surge protection board multi socket connector safe for house devices." },
+  "e19": { name: "Ring Light 14-Inch with Studio Stand", cat: "electronics", price: Math.round(3900 * 1.15), emoji: "💡", img: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=400&auto=format&fit=crop&q=60", desc: "3 lighting color options perfect for modern beauty shops or online vloggers." },
+  "e20": { name: "Sony SRS-XB100 Compact Speaker", cat: "electronics", price: Math.round(7500 * 1.15), emoji: "🔊", img: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&auto=format&fit=crop&q=60", desc: "Mini crisp waterproof clear traveling speaker sound capsule with punchy lows." },
+  "e21": { name: "Oraimo Toast 10 Premium Slim Powerbank", cat: "electronics", price: Math.round(2100 * 1.15), emoji: "🔋", img: "https://images.unsplash.com/photo-1609592424109-dd9892f1b177?w=400&auto=format&fit=crop&q=60", desc: "Ultra thin 10000mAh dual output cell easily sliding in a light pocket." },
+  "e22": { name: "Apple 20W Fast USB-C Power Adapter", cat: "electronics", price: Math.round(2500 * 1.15), emoji: "🔌", img: "https://images.unsplash.com/photo-1622445262465-2481c4574875?w=400&auto=format&fit=crop&q=60", desc: "Original quick delivery wall brick charger for all premium iPhone models." },
+  "e23": { name: "Digital Precise Kitchen Scale", cat: "electronics", price: Math.round(950 * 1.15), emoji: "⚖️", img: "https://images.unsplash.com/photo-1603796846097-bee99e4a60c9?w=400&auto=format&fit=crop&q=60", desc: "Measures precisely from 1g to 10kg. Great tool for cafe or home bakeries." },
+  "e24": { name: "Baseus Magnetic Car Phone Holder", cat: "electronics", price: Math.round(1350 * 1.15), emoji: "🧲", img: "https://images.unsplash.com/photo-1584438784894-089d6a128f3e?w=400&auto=format&fit=crop&q=60", desc: "Strong heavy dashboard clip mount secure safe for Ride/Feres taxi drivers." },
+  "e25": { name: "Bluetooth Selfie Stick & Mini Tripod", cat: "electronics", price: Math.round(1600 * 1.15), emoji: "🤳", img: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?w=400&auto=format&fit=crop&q=60", desc: "Extendable hand stand with remote trigger control clicker for group photos." },
+  "e26": { name: "Type-C OTG Fast Flash Card Reader", cat: "electronics", price: Math.round(650 * 1.15), emoji: "💾", img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=400&auto=format&fit=crop&q=60", desc: "Move camera files or phone documents direct without turning computers on." },
+  "e27": { name: "Feres Taxi LED Dashboard Light Indicator", cat: "electronics", price: Math.round(1200 * 1.15), emoji: "🚕", img: "https://images.unsplash.com/photo-1549887534-1541e9326642?w=400&auto=format&fit=crop&q=60", desc: "Bright glowing green interior dashboard window signal block for drivers." },
+  "e28": { name: "Rechargeable LED Desk Study Lamp", cat: "electronics", price: Math.round(1850 * 1.15), emoji: "💡", img: "https://images.unsplash.com/photo-1532372320978-9b4d7a92b24d?w=400&auto=format&fit=crop&q=60", desc: "Eye-protection reading light featuring full operational battery during line failures." },
+  "e29": { name: "Wireless Bluetooth Earbuds Clear Case", cat: "electronics", price: Math.round(2300 * 1.15), emoji: "🎧", img: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&auto=format&fit=crop&q=60", desc: "Futuristic see-through battery shell glowing audio design budget buds." },
+  "e30": { name: "Boya Shotgun Mic for Smartphone Camera", cat: "electronics", price: Math.round(4100 * 1.15), emoji: "🎤", img: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&auto=format&fit=crop&q=60", desc: "Professional directional microphone capturing rich upfront clean media dialogue." },
+
+  // --- SHOES CATEGORY (30 items) ---
+  "s1": { name: "Nike Air Max DN Premium Sneaker", cat: "shoes", price: Math.round(7500 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=60", desc: "Master quality newest high cushion daily walking performance footwear." },
+  "s2": { name: "Converse All Star High Smooth Leather", cat: "shoes", price: Math.round(7500 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&auto=format&fit=crop&q=60", desc: "Premium grade smooth leather variant of the classic evergreen sneakers." },
+  "s3": { name: "Columbia Waterproof Hiking Boots", cat: "shoes", price: Math.round(8999 * 1.15), emoji: "🥾", img: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=400&auto=format&fit=crop&q=60", desc: "Heavy duty master quality outdoor weather tracking and climbing shoes." },
+  "s4": { name: "Adidas ADI2000 Retro Street Shoes", cat: "shoes", price: Math.round(5500 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=60", desc: "Thick padded casual skate street fashion sneakers popular in Merkato." },
+  "s5": { name: "Nike Air Force 1 Mid Triple Black", cat: "shoes", price: Math.round(8999 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&auto=format&fit=crop&q=60", desc: "All black solid high quality legendary leather sneaker model." },
+  "s6": { name: "Zara Original Unisex Summer Slides", cat: "shoes", price: Math.round(2999 * 1.15), emoji: "🩴", img: "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=400&auto=format&fit=crop&q=60", desc: "Comfortable stylish minimal design slip on slides for casual street wear." },
+  "s7": { name: "Gucci Classic Flat Women Shoes", cat: "shoes", price: Math.round(2999 * 1.15), emoji: "🥿", img: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&auto=format&fit=crop&q=60", desc: "Elegant designer pattern ballerina style office flats for women." },
+  "s8": { name: "Aldo Black Premium Men Leather Flats", cat: "shoes", price: Math.round(12000 * 1.15), emoji: "👞", img: "https://images.unsplash.com/photo-1486308512493-ae6a1c9036ae?w=400&auto=format&fit=crop&q=60", desc: "Luxury master quality genuine leather formal executive suit dressing shoes." },
+  "s9": { name: "New Balance 530 Active Retro Runner", cat: "shoes", price: Math.round(6500 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&auto=format&fit=crop&q=60", desc: "Extremely lightweight mesh running sneakers vintage athletic choice." },
+  "s10": { name: "Timberland Black Waterproof High Boots", cat: "shoes", price: Math.round(10000 * 1.15), emoji: "🥾", img: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=400&auto=format&fit=crop&q=60", desc: "Premium master quality rugged winter leather boots for men style." },
+  "s11": { name: "Nike Air Jordan 1 Retro High Top", cat: "shoes", price: Math.round(6999 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&auto=format&fit=crop&q=60", desc: "High top culture iconic basketball sneakers color blocking models." },
+  "s12": { name: "Lacoste Casual White Trim Loafers", cat: "shoes", price: Math.round(8000 * 1.15), emoji: "👞", img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&auto=format&fit=crop&q=60", desc: "Premium smart casual soft luxury walking shoes displaying classic crocodile logo." },
+  "s13": { name: "Oxdans Skechers Women Air Sneakers", cat: "shoes", price: Math.round(2200 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=60", desc: "Soft foam memory base lightweight shoes for women standing for long hours." },
+  "s14": { name: "Classic Soft Genuine Leather Sandals", cat: "shoes", price: Math.round(2500 * 1.15), emoji: "👡", img: "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=400&auto=format&fit=crop&q=60", desc: "Comfortable breathable open leather casual footwear suitable for warm days." },
+  "s15": { name: "Naked Wolfe High Platform Women Luxury", cat: "shoes", price: Math.round(5000 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&auto=format&fit=crop&q=60", desc: "Chunky trendy high platform statement design fashion sneakers." },
+  "s16": { name: "Merrall Peak Master Quality Hiking Shoes", cat: "shoes", price: Math.round(10000 * 1.15), emoji: "🥾", img: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=400&auto=format&fit=crop&q=60", desc: "Extra grip professional outdoor adventure trail tracking gear." },
+  "s17": { name: "Caterpillar Rugged Suede Work Boots", cat: "shoes", price: Math.round(9500 * 1.15), emoji: "🥾", img: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=400&auto=format&fit=crop&q=60", desc: "Durable steel toe heavy security build suede work shoes." },
+  "s18": { name: "Puma Suede Classic Lifestyle Sneakers", cat: "shoes", price: Math.round(4800 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=60", desc: "Simple clean profile classic daily wear casual campus shoes." },
+  "s19": { name: "Vans Old Skool Canvas Black/White", cat: "shoes", price: Math.round(3900 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=60", desc: "Low top lace up skateboarding canvas sneakers loved by youths." },
+  "s20": { name: "Clarks Smart Suede Men Desert Boots", cat: "shoes", price: Math.round(7800 * 1.15), emoji: "👞", img: "https://images.unsplash.com/photo-1486308512493-ae6a1c9036ae?w=400&auto=format&fit=crop&q=60", desc: "Premium ankle length smart casual real authentic suede men dressing pairs." },
+  "s21": { name: "Crocs Classic Comfortable Clogs", cat: "shoes", price: Math.round(1900 * 1.15), emoji: "🩴", img: "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=400&auto=format&fit=crop&q=60", desc: "Waterproof ultimate relax breathability slide clogs for indoor/outdoor use." },
+  "s22": { name: "Asics Gel-Kayano Stability Running Shoes", cat: "shoes", price: Math.round(8500 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&auto=format&fit=crop&q=60", desc: "High tier orthopedic sports cushioning gym and marathon shoe pairs." },
+  "s23": { name: "Elegant Chunky Block Heels for Women", cat: "shoes", price: Math.round(3500 * 1.15), emoji: "👠", img: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&auto=format&fit=crop&q=60", desc: "Gorgeous sturdy heel formal event party shoe pairs for wedding events." },
+  "s24": { name: "Birkenstock Style Buckle Cork Sandals", cat: "shoes", price: Math.round(2400 * 1.15), emoji: "🩴", img: "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=400&auto=format&fit=crop&q=60", desc: "Ergonomic leather cork sole slip on slippers contouring to foot shape." },
+  "s25": { name: "Dr. Martens Leather 8-Eye High Boots", cat: "shoes", price: Math.round(11500 * 1.15), emoji: "🥾", img: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=400&auto=format&fit=crop&q=60", desc: "Thick sole punk alternative fashion heavy luxury real leather boots." },
+  "s26": { name: "Reebok Classic Leather Retro Sneakers", cat: "shoes", price: Math.round(5200 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=60", desc: "Clean all-white comfortable traditional workout athleisure sneakers." },
+  "s27": { name: "Tommy Hilfiger Soft Slip-On Loafers", cat: "shoes", price: Math.round(6800 * 1.15), emoji: "👞", img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&auto=format&fit=crop&q=60", desc: "Lightweight flexible canvas driver moccasins for casual driving convenience." },
+  "s28": { name: "Under Armour Knit Training Gym Shoes", cat: "shoes", price: Math.round(5900 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&auto=format&fit=crop&q=60", desc: "Breathable stretch weave training sneakers with responsive ground control." },
+  "s29": { name: "Kids Light-Up Colorful Sport Sneakers", cat: "shoes", price: Math.round(1800 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&auto=format&fit=crop&q=60", desc: "Fun flashing LED lights comfort sports active shoes for children." },
+  "s30": { name: "Traditional Knit Accent Modern Loafers", cat: "shoes", price: Math.round(3200 * 1.15), emoji: "👞", img: "https://images.unsplash.com/photo-1486308512493-ae6a1c9036ae?w=400&auto=format&fit=crop&q=60", desc: "Unique local fusion leather loafers integrated with Habesha cultural woven arts." },
+
+  // --- CLOTHING CATEGORY (30 items) ---
+  "c1": { name: "Original Ethiopia National Team Jersey", cat: "clothing", price: Math.round(3500 * 1.15), emoji: "👕", img: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&auto=format&fit=crop&q=60", desc: "Premium dry-fit green/yellow official local soccer team wear design." },
+  "c2": { name: "Elegant Bodycon Women's Velvet Dress", cat: "clothing", price: Math.round(4500 * 1.15), emoji: "👗", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&auto=format&fit=crop&q=60", desc: "Stunning curve fitting luxury dress choice for high-end dinner events." },
+  "c3": { name: "Premium Thick Knit Winter Sweater", cat: "clothing", price: Math.round(3400 * 1.15), emoji: "🧥", img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&auto=format&fit=crop&q=60", desc: "Heavy fabric high neck warm winter sweater perfect for Addis cold seasons." },
+  "c4": { name: "Turkish Abaya Luxury Muslim Dress", cat: "clothing", price: Math.round(7999 * 1.15), emoji: "🧕", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format&fit=crop&q=60", desc: "Beautifully styled high-end imported fabric loose fitting modest gown code." },
+  "c5": { name: "Modern Habesha Kemis Cultural Fusion", cat: "clothing", price: Math.round(18000 * 1.15), emoji: "👗", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&auto=format&fit=crop&q=60", desc: "Handwoven pure Ethiopian cotton featuring gorgeous modern golden Tilet borders." },
+  "c6": { name: "Premium Quality Unisex Black Hoodie", cat: "clothing", price: Math.round(3900 * 1.15), emoji: "🧥", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&auto=format&fit=crop&q=60", desc: "Ultra thick heavy cotton fleece cozy hoodie with front kangaroo pocket." },
+  "c7": { name: "Argentina Original Three-Star Jersey", cat: "clothing", price: Math.round(2999 * 1.15), emoji: "👕", img: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&auto=format&fit=crop&q=60", desc: "Official world cup celebration edition dry fit athletic fan shirt." },
+  "c8": { name: "Men's Classic Slim Fit Denim Jacket", cat: "clothing", price: Math.round(4800 * 1.15), emoji: "🧥", img: "https://images.unsplash.com/photo-1611312449412-6cefac5dc3e4?w=400&auto=format&fit=crop&q=60", desc: "Durable authentic vintage indigo wash denim jeans outer jacket layer." },
+  "c9": { name: "Women's Wide Leg Summer Jumpsuit", cat: "clothing", price: Math.round(5200 * 1.15), emoji: "🩱", img: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&auto=format&fit=crop&q=60", desc: "Breathable lightweight complete one piece fashionable lounge attire." },
+  "c10": { name: "Real Leather Black Jacket (Local Build)", cat: "clothing", price: Math.round(14500 * 1.15), emoji: "🧥", img: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&auto=format&fit=crop&q=60", desc: "100% genuine premium Ethiopian sheep leather biker custom tailored jacket." },
+  "c11": { name: "Men's Casual Stretch Chino Pants", cat: "clothing", price: Math.round(2800 * 1.15), emoji: "👖", img: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400&auto=format&fit=crop&q=60", desc: "Smart office casual multi utility premium cotton straight khaki slacks." },
+  "c12": { name: "Unisex Oversized Minimalist T-Shirt", cat: "clothing", price: Math.round(1499 * 1.15), emoji: "👕", img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400&auto=format&fit=crop&q=60", desc: "Heavyweight drop shoulder plain drop streetwear essential shirt." },
+  "c13": { name: "Premium Silk Female Pajama Lounge Set", cat: "clothing", price: Math.round(3200 * 1.15), emoji: "👚", img: "https://images.unsplash.com/photo-1562572159-4ebcd318f4dd?w=400&auto=format&fit=crop&q=60", desc: "Ultra smooth satin nightgown and pajama set comfortable for sleeping." },
+  "c14": { name: "Men's Luxury Cotton Formal White Shirt", cat: "clothing", price: Math.round(3100 * 1.15), emoji: "👔", img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format&fit=crop&q=60", desc: "Easy iron corporate dress shirt crisp sharp collar profile." },
+  "c15": { name: "Women's Elegant Floral Pleated Maxi Skirt", cat: "clothing", price: Math.round(3700 * 1.15), emoji: "👗", img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&auto=format&fit=crop&q=60", desc: "Flowy elastic high waist long skirt carrying attractive colorful print accents." },
+  "c16": { name: "Complete Fleece Tracksuit Set (2 Piece)", cat: "clothing", price: Math.round(5700 * 1.15), emoji: "👟", img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&auto=format&fit=crop&q=60", desc: "Matching active pullover and joggers kit supreme for gym running loops." },
+  "c17": { name: "Traditional Ethiopian Cotton Scarf (Netela)", cat: "clothing", price: Math.round(1200 * 1.15), emoji: "🧣", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop&q=60", desc: "Fine white cotton shawl with brilliant colorful handmade border detailing." },
+  "c18": { name: "Men's Comfort Fit Cargo Combat Shorts", cat: "clothing", price: Math.round(2300 * 1.15), emoji: "🩳", img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=400&auto=format&fit=crop&q=60", desc: "Multi pocket rugged outdoor tactical casual shorts for tracking trips." },
+  "c19": { name: "Kids Heavy Winter Padded Puffer Coat", cat: "clothing", price: Math.round(3999 * 1.15), emoji: "🧥", img: "https://images.unsplash.com/photo-1611312449412-6cefac5dc3e4?w=400&auto=format&fit=crop&q=60", desc: "Warm synthetic down insulation windbreaker jacket shielding kids safe." },
+  "c20": { name: "Women's Square Neck Casual Knit Top", cat: "clothing", price: Math.round(2500 * 1.15), emoji: "👚", img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400&auto=format&fit=crop&q=60", desc: "Ribbed flexible slim fit blouse layer pairing nicely with denim lines." },
+  "c21": { name: "Men's Smart Fit Blazer Outer Jacket", cat: "clothing", price: Math.round(8500 * 1.15), emoji: "🧥", img: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&auto=format&fit=crop&q=60", desc: "Tailored modern look single breasted suit jacket suited for functions." },
+  "c22": { name: "High Waist Stretch Blue Jeans for Her", cat: "clothing", price: Math.round(3400 * 1.15), emoji: "👖", img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop&q=60", desc: "Premium elastic recovery classic denim jeans accentuating styles." },
+  "c23": { name: "Unisex Cotton Summer Beach Short Sleeve", cat: "clothing", price: Math.round(2200 * 1.15), emoji: "👕", img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&auto=format&fit=crop&q=60", desc: "Lightweight Cuban collar breezy shirt boasting attractive tropical patterns." },
+  "c24": { name: "Knitted Long Sleeve Cardigan Sweater", cat: "clothing", price: Math.round(3800 * 1.15), emoji: "🧥", img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&auto=format&fit=crop&q=60", desc: "Open front soft loose layout sweater drape excellent for layering wardrobe." },
+  "c25": { name: "Maternity Comfortable Belly Support Belt", cat: "clothing", price: Math.round(4500 * 1.15), emoji: "🤰", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop&q=60", desc: "Postpartum recovery body wrap brace assisting new mothers safety." },
+  "c26": { name: "Cute Baby Organic Cotton Romper Kit", cat: "clothing", price: Math.round(3300 * 1.15), emoji: "👶", img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&auto=format&fit=crop&q=60", desc: "Soft snap button closure newborn bodysuit non irritating dye mix." },
+  "c27": { name: "Men's Athletic Gym Performance Shorts", cat: "clothing", price: Math.round(1600 * 1.15), emoji: "🩳", img: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=400&auto=format&fit=crop&q=60", desc: "Sweat wicking built-in liner athletic running short trunks with split hem." },
+  "c28": { name: "Muslim Plain Hijab Chiffon Scarf Bundle", cat: "clothing", price: Math.round(1500 * 1.15), emoji: "🧕", img: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format&fit=crop&q=60", desc: "3 pack versatile breathable lightweight Georgette fabric multi color hijabs." },
+  "c29": { name: "Classic Trench Overcoat Premium Wool", cat: "clothing", price: Math.round(12000 * 1.15), emoji: "🧥", img: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=400&auto=format&fit=crop&q=60", desc: "Long elegant double breasted winter coat structure providing warmth styling." },
+  "c30": { name: "Traditional Lion Motif Black Graphic Tee", cat: "clothing", price: Math.round(1300 * 1.15), emoji: "👕", img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400&auto=format&fit=crop&q=60", desc: "Stunning historical Judah lion artwork golden printed on rich local black cotton." },
+
+  // --- BEAUTY CATEGORY (30 items) ---
+  "b1": { name: "CeraVe Hydrating Facial Cleanser Big", cat: "beauty", price: Math.round(3200 * 1.15), emoji: "🧴", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&auto=format&fit=crop&q=60", desc: "Dermatologist recommended non foaming wash removing makeup dirt layers safely." },
+  "b2": { name: "The Ordinary Niacinamide 10% Serum", cat: "beauty", price: Math.round(2100 * 1.15), emoji: "🧪", img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&auto=format&fit=crop&q=60", desc: "Highly demanded active formula reducing blemish appearances balancing oil skin." },
+  "b3": { name: "COSRX Advanced Snail 96 Mucin Power", cat: "beauty", price: Math.round(3600 * 1.15), emoji: "🐌", img: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=400&auto=format&fit=crop&q=60", desc: "Korean skincare holy grail essence repairing damaged skin deeply moisturizing." },
+  "b4": { name: "Dior Sauvage Elixir Intense Perfume", cat: "beauty", price: Math.round(18500 * 1.15), emoji: "✨", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&auto=format&fit=crop&q=60", desc: "Premium grade master oil long lasting aromatic cologne luxury fragrance box." },
+  "b5": { name: "La Roche-Posay Anthelios SPF 50+", cat: "beauty", price: Math.round(3900 * 1.15), emoji: "☀️", img: "https://images.unsplash.com/photo-1556229973-207df36fa7c5?w=400&auto=format&fit=crop&q=60", desc: "Ultra light fluid fluid high guard face shield protection against harsh sun lines." },
+  "b6": { name: "Maybelline SuperStay Matte Ink Lipstick", cat: "beauty", price: Math.round(1100 * 1.15), emoji: "💄", img: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&auto=format&fit=crop&q=60", desc: "Up to 16 hour transfer proof intense liquid bold lip stain option." },
+  "b7": { name: "Dr. Rashel Vitamin C Skin Brightening Kit", cat: "beauty", price: Math.round(2800 * 1.15), emoji: "🧴", img: "https://images.unsplash.com/photo-1617897903246-719242758050?w=400&auto=format&fit=crop&q=60", desc: "Complete 5-in-1 combo consisting cleanser, toner, serum, face cream products." },
+  "b8": { name: "Black Castor Oil Organic Hair Growth", cat: "beauty", price: Math.round(1200 * 1.15), emoji: "🌱", img: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop&q=60", desc: "100% natural pure local cold pressed oil strengthening modern curly hair strands." },
+  "b9": { name: "Neutrogena Hydro Boost Water Gel 50ml", cat: "beauty", price: Math.round(2900 * 1.15), emoji: "💧", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&auto=format&fit=crop&q=60", desc: "Hyaluronic acid charged refreshing fast absorption lock cream base." },
+  "b10": { name: "Garnier SkinActive Micellar Cleansing Water", cat: "beauty", price: Math.round(1450 * 1.15), emoji: "💧", img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&auto=format&fit=crop&q=60", desc: "All-in-1 makeup remover lifting residue without hard rubbing actions." },
+  "b11": { name: "Anua Heartleaf 77% Soothing Facial Toner", cat: "beauty", price: Math.round(3800 * 1.15), emoji: "🧪", img: "https://images.unsplash.com/photo-1617897903246-719242758050?w=400&auto=format&fit=crop&q=60", desc: "Calming toner popular for reducing redness irritation acne prone areas." },
+  "b12": { name: "Beauty of Joseon Relief Sun Rice Sunscreen", cat: "beauty", price: Math.round(3100 * 1.15), emoji: "☀️", img: "https://images.unsplash.com/photo-1556229973-207df36fa7c5?w=400&auto=format&fit=crop&q=60", desc: "Creamy organic rice extract base non sticky zero white cast sunscreen choice." },
+  "b13": { name: "Paula's Choice Liquid Exfoliant 2% BHA", cat: "beauty", price: Math.round(4900 * 1.15), emoji: "🧪", img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&auto=format&fit=crop&q=60", desc: "Salicylic acid solution clear blackheads pores smoothing skin tones completely." },
+  "b14": { name: "Shea Butter Raw Unrefined Bulk - 1kg", cat: "beauty", price: Math.round(1100 * 1.15), emoji: "🧈", img: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop&q=60", desc: "Pure organic yellow body butter excellent for healing dry stretch marks stretch lines." },
+  "b15": { name: "Professional 32-Piece Makeup Brush Set", cat: "beauty", price: Math.round(2700 * 1.15), emoji: "🖌️", img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&auto=format&fit=crop&q=60", desc: "Soft synthetic fibers handles including beauty leather traveling bag case accessory." },
+  "b16": { name: "Huda Beauty Matte Obsessions Palette", cat: "beauty", price: Math.round(3400 * 1.15), emoji: "🎨", img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&auto=format&fit=crop&q=60", desc: "9 highly pigmented warm neutral daily makeup looks shadow compact collection." },
+  "b17": { name: "Mielle Rosemary Mint Hair Strength Oil", cat: "beauty", price: Math.round(2400 * 1.15), emoji: "🌱", img: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop&q=60", desc: "Biotin infused active organic hair oil boosting scalp health edge growth." },
+  "b18": { name: "Cetaphil Gentle Skin Cleanser 500ml", cat: "beauty", price: Math.round(3600 * 1.15), emoji: "🧴", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&auto=format&fit=crop&q=60", desc: "Hypoallergenic soap free wash suitable for highly sensitive skin profiles." },
+  "b19": { name: "Victoria's Secret Bare Vanilla Body Mist", cat: "beauty", price: Math.round(2200 * 1.15), emoji: "✨", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&auto=format&fit=crop&q=60", desc: "Sweet cozy vanilla fragrance cloud body splash loved for daily refreshes." },
+  "b20": { name: "Axe Dark Temptation Deodorant Pack of 3", cat: "beauty", price: Math.round(1950 * 1.15), emoji: "💨", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&auto=format&fit=crop&q=60", desc: "48 hour high protection chocolate essence men aerosol body spray value." },
+  "b21": { name: "The Body Shop Tea Tree Facial Wash", cat: "beauty", price: Math.round(2500 * 1.15), emoji: "🌱", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&auto=format&fit=crop&q=60", desc: "Purifying targeted gel wash ideal for controlling active breakout marks blemishes." },
+  "b22": { name: "L'Oreal Paris Infallible 24H Foundation", cat: "beauty", price: Math.round(2800 * 1.15), emoji: "🧴", img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&auto=format&fit=crop&q=60", desc: "High coverage breathable liquid base control setting comfortable matte finishes." },
+  "b23": { name: "Olga Plex No.3 Hair Perfector Repair", cat: "beauty", price: Math.round(4200 * 1.15), emoji: "🧪", img: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=400&auto=format&fit=crop&q=60", desc: "Deep structural hair bond building pre-shampoo premium care fluid cream." },
+  "b24": { name: "Original Jade Roller & Gua Sha Tool Set", cat: "beauty", price: Math.round(950 * 1.15), emoji: "💚", img: "https://images.unsplash.com/photo-1617897903246-719242758050?w=400&auto=format&fit=crop&q=60", desc: "Natural cooling gemstone massage rollers lifting face puffy appearances." },
+  "b25": { name: "Advanced 24k Gold Collagen Eye Patches", cat: "beauty", price: Math.round(1100 * 1.15), emoji: "✨", img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&auto=format&fit=crop&q=60", desc: "60 gel masks reducing under eye dark circles fine line stresses." },
+  "b26": { name: "Sadoer Organic Aloe Vera Soothing Gel", cat: "beauty", price: Math.round(650 * 1.15), emoji: "🌱", img: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop&q=60", desc: "99% pure hydration aloe soothing extract calming sun irritated skin layers." },
+  "b27": { name: "Eucerin Roughness Relief Body Lotion", cat: "beauty", price: Math.round(3450 * 1.15), emoji: "🧴", img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&auto=format&fit=crop&q=60", desc: "Urea enriched specialized dry scaling skin intensive therapy cream." },
+  "b28": { name: "Dr Teal's Pure Epsom Salt Soak Lavender", cat: "beauty", price: Math.round(1800 * 1.15), emoji: "🧂", img: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&auto=format&fit=crop&q=60", desc: "Aromatic therapeutic bath crystal salt relaxing sore muscles stress lines." },
+  "b29": { name: "PanOxyl Acne Foaming Wash 10% Benzoyl", cat: "beauty", price: Math.round(3300 * 1.15), emoji: "🧪", img: "https://images.unsplash.com/photo-1617897903246-719242758050?w=400&auto=format&fit=crop&q=60", desc: "Maximum strength wash killing acne causing bacteria instantly on contact paths." },
+  "b30": { name: "Aztec Secret Indian Healing Clay Mask", cat: "beauty", price: Math.round(2300 * 1.15), emoji: "🏺", img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&auto=format&fit=crop&q=60", desc: "100% natural calcium bentonite deep pore clay clearing facial oils." }
+};
+
+let cart = {};
+let activeCategory = 'all';
+
+function initWebsite() {
+  renderCategoryPills();
+  renderProducts();
 }
 
-async function sendTelegramViaProxy(text) {
-  const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'Markdown' })
-  });
-  return await res.json();
+function renderCategoryPills() {
+  const bar = document.getElementById('categoriesBar');
+  const cats = [
+    { id: 'all', name: '✨ All Products' },
+    { id: 'food', name: '🌾 Food Market' },
+    { id: 'electronics', name: '🔊 Electronics' },
+    { id: 'shoes', name: '👟 Footwear' },
+    { id: 'clothing', name: '👕 Clothing' },
+    { id: 'beauty', name: '🧴 Beauty & Care' }
+  ];
+  bar.innerHTML = cats.map(c => `
+    <button class="cat-pill ${activeCategory === c.id ? 'active' : ''}" onclick="selectCategory('${c.id}')">${c.name}</button>
+  `).join('');
 }
 
-const DEFAULT_CATS = [
-  {id:'food',        name:'Food',         emoji:'🍕'},
-  {id:'electronics', name:'Electronics',  emoji:'📱'},
-  {id:'shoes',       name:'Shoes',        emoji:'👟'},
-  {id:'clothing',    name:'Clothing',     emoji:'👕'},
-  {id:'accessories', name:'Accessories',  emoji:'⌚'},
-  {id:'beauty',      name:'Beauty',       emoji:'💄'},
-  {id:'home',        name:'Home & Living',emoji:'🏠'},
-  {id:'sports',      name:'Sports',       emoji:'⚽'},
-  {id:'books',       name:'Books',        emoji:'📚'},
-  {id:'toys',        name:'Toys & Kids',  emoji:'🧸'},
-];
-
-// ─── SHARED STORAGE ──────────────────────────────────────────────────────────
-// window.storage is a cross-device key-value store. shared:true means every
-// visitor sees the same catalog. Products added in Admin appear for all users.
-// ─────────────────────────────────────────────────────────────────────────────
-let categories   = [...DEFAULT_CATS];
-let products     = [];
-let cart         = [];
-let activeFilter = 'all';
-let searchQuery  = '';
-
-async function loadSharedData() {
-  try {
-    const r = await window.storage.get('xin_cats', true);
-    if (r && r.value) categories = JSON.parse(r.value);
-  } catch(_) {}
-  try {
-    const r = await window.storage.get('xin_products', true);
-    if (r && r.value) { products = JSON.parse(r.value); _lastHash = r.value; }
-  } catch(_) {}
-  renderCatsBar(); renderProducts();
+function selectCategory(id) {
+  activeCategory = id;
+  renderCategoryPills();
+  document.getElementById('sectionTitle').innerText = id === 'all' ? 'All Products' : id.toUpperCase() + " COLLECTION";
+  renderProducts();
 }
 
-async function save(){
-  try {
-    await window.storage.set('xin_cats',     JSON.stringify(categories), true);
-    await window.storage.set('xin_products', JSON.stringify(products),   true);
-  } catch(e) {
-    showToast('⚠️ Storage error — changes may not persist', true);
-  }
-}
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  
+  let html = '';
+  let count = 0;
 
-function searchProducts(q){ searchQuery=q.toLowerCase(); renderProducts(); }
+  for (const [id, p] of Object.entries(products)) {
+    if (activeCategory !== 'all' && p.cat !== activeCategory) continue;
+    if (query && !p.name.toLowerCase().includes(query) && !p.desc.toLowerCase().includes(query)) continue;
 
-function renderCatsBar(){
-  const t=TRANSLATIONS[LANGS[currentLangIdx]||'en'];
-  const bar=document.getElementById('catsScroll');
-  bar.innerHTML=`<div class="cat-pill ${activeFilter==='all'?'active':''}" onclick="filterCat('all')">${t.all}</div>`;
-  categories.forEach(c=>{
-    bar.innerHTML+=`<div class="cat-pill ${activeFilter===c.id?'active':''}" onclick="filterCat('${c.id}')">${c.emoji} ${c.name}</div>`;
-  });
-}
-
-function filterCat(id){
-  activeFilter=id; searchQuery='';
-  document.getElementById('searchInput').value='';
-  const cat=categories.find(c=>c.id===id);
-  document.getElementById('sectionTitle').textContent=id==='all'?'All Products':`${cat.emoji} ${cat.name}`;
-  renderCatsBar(); renderProducts();
-}
-
-function renderProducts(){
-  const t=TRANSLATIONS[LANGS[currentLangIdx]||'en'];
-  const grid=document.getElementById('productsGrid');
-  const empty=document.getElementById('emptyState');
-  let filtered=activeFilter==='all'?products:products.filter(p=>p.cat===activeFilter);
-  if(searchQuery) filtered=filtered.filter(p=>p.name.toLowerCase().includes(searchQuery)||(p.desc||'').toLowerCase().includes(searchQuery));
-  grid.innerHTML='';
-  if(!filtered.length){empty.style.display='block';return;}
-  empty.style.display='none';
-  filtered.forEach(p=>{
-    const realIdx=products.indexOf(p);
-    const cat=categories.find(c=>c.id===p.cat);
-    const div=document.createElement('div');
-    div.className='product-card';
-    const isWished=wishlist.includes(realIdx);
-    const badge=p.badge?`<div class="product-badge badge-${p.badge}">${p.badge==='sale'?'🔥 SALE':p.badge==='new'?'✨ NEW':p.badge==='hot'?'🌶 HOT':'OUT'}</div>`:'';
-    const stockOut=p.stock!==undefined&&p.stock<=0;
-    const stockLow=p.stock!==undefined&&p.stock>0&&p.stock<=5;
-    const stockBar=p.stock!==undefined?`<div class="stock-bar"><div class="stock-label">Stock</div><div class="stock-track"><div class="stock-fill ${stockLow?'low':''}" style="width:${Math.min(100,p.stock/20*100)}%"></div></div><div class="stock-count ${stockLow||stockOut?'low':''}">${stockOut?'Out of stock':stockLow?'Only '+p.stock+' left!':p.stock+' in stock'}</div></div>`:'';
-    const avg=p.ratings&&p.ratings.length?p.ratings.reduce((a,b)=>a+b,0)/p.ratings.length:0;
-    const stars=avg?'★'.repeat(Math.round(avg))+'☆'.repeat(5-Math.round(avg)):'☆☆☆☆☆';
-    div.innerHTML=`
-      <div class="product-img" onclick="openDetail(${realIdx})" style="cursor:pointer;">
-        ${badge}
-        <button class="wishlist-btn ${isWished?'active':''}" onclick="event.stopPropagation();toggleWishlist(${realIdx})" title="Wishlist">${isWished?'❤️':'🤍'}</button>
-        ${(p.imgs&&p.imgs.length?p.imgs[0]:p.img)?`<img src="${p.imgs&&p.imgs.length?p.imgs[0]:p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='${p.emoji||'📦'}'"/>`:(p.emoji||'📦')}
-      </div>
-      <div class="product-info">
-        ${cat?`<div class="product-cat-badge">${cat.emoji} ${cat.name}</div>`:''}
-        <div class="product-name" onclick="openDetail(${realIdx})" style="cursor:pointer;">${p.name}</div>
-        ${avg?`<div class="star-row"><span class="stars">${stars}</span><span class="rating-count">(${p.ratings.length})</span></div>`:''}
-        <div class="product-desc">${p.desc||''}</div>
-        ${stockBar}
-        <div class="product-footer">
-          <div class="product-price">${p.price}</div>
-          <button class="add-cart" onclick="addToCart(${realIdx})" ${stockOut?'disabled style="opacity:.5;cursor:not-allowed;"':''}>
-            ${stockOut?t.out_stock:t.add_cart}
-          </button>
+    count++;
+    html += `
+      <div class="product-card">
+        <div class="product-img">
+          <img src="${p.img}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=150&auto=format&fit=crop&q=40'"/>
         </div>
-      </div>`;
-    grid.appendChild(div);
-  });
-}
-
-function addToCart(i){
-  const existing=cart.find(c=>c._idx===i);
-  if(existing){ existing.qty++; }
-  else { cart.push({...products[i],_idx:i,qty:1}); }
-  document.getElementById('cartCount').textContent=cart.reduce((s,c)=>s+c.qty,0);
-  showToast(`✅ ${products[i].name} added`);
-}
-function openCart(){document.getElementById('overlay').classList.add('open');document.getElementById('drawer').classList.add('open');renderCart();}
-function closeCart(){document.getElementById('overlay').classList.remove('open');document.getElementById('drawer').classList.remove('open');}
-function renderCart(){
-  const body=document.getElementById('cartBody');
-  const footer=document.getElementById('drawerFooter');
-  body.innerHTML='';
-  if(!cart.length){body.innerHTML='<div class="empty-cart">🛒<br/><br/>Your cart is empty</div>';footer.style.display='none';return;}
-  footer.style.display='block';
-  cart.forEach((item,i)=>{
-    const d=document.createElement('div');
-    d.className='cart-item';
-    d.innerHTML=`<div class="cart-item-emoji">${item.emoji||'📦'}</div>
-      <div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-price">${item.price}</div></div>
-      <div style="display:flex;align-items:center;gap:.35rem;flex-shrink:0;">
-        <button onclick="changeQty(${i},-1)" style="width:28px;height:28px;border-radius:7px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;line-height:1;">−</button>
-        <span style="min-width:18px;text-align:center;font-weight:700;font-size:.9rem;">${item.qty}</span>
-        <button onclick="changeQty(${i},1)" style="width:28px;height:28px;border-radius:7px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;line-height:1;">+</button>
-        <button class="cart-item-remove" onclick="removeFromCart(${i})" style="margin-left:.2rem;">✕</button>
-      </div>`;
-    body.appendChild(d);
-  });
-  const totalQty=cart.reduce((s,c)=>s+c.qty,0);
-  document.getElementById('cartTotal').textContent=`${totalQty} item(s)`;
-}
-function changeQty(i,delta){
-  cart[i].qty+=delta;
-  if(cart[i].qty<=0){cart.splice(i,1);}
-  document.getElementById('cartCount').textContent=cart.reduce((s,c)=>s+c.qty,0);
-  renderCart();
-}
-function removeFromCart(i){cart.splice(i,1);document.getElementById('cartCount').textContent=cart.reduce((s,c)=>s+c.qty,0);renderCart();}
-
-// Piassa coordinates (Addis Ababa center)
-const PIASSA_LAT = 9.0300;
-const PIASSA_LNG = 38.7469;
-let orderDeliveryKm = 0;
-let orderDeliveryFee = 0;
-let orderItemsTotal = 0;
-let customerLat = null;
-let customerLng = null;
-
-function haversineKm(lat1,lng1,lat2,lng2){
-  const R=6371;
-  const dLat=(lat2-lat1)*Math.PI/180;
-  const dLng=(lng2-lng1)*Math.PI/180;
-  const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLng/2)**2;
-  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
-}
-
-function parsePrice(priceStr){
-  const n=parseFloat((priceStr||'').replace(/[^0-9.]/g,''));
-  return isNaN(n)?0:n;
-}
-
-function openOrderForm(){
-  closeCart();
-  document.getElementById('orderModal').classList.add('open');
-  document.getElementById('locBtnText').textContent='Detect My Location';
-  document.getElementById('locBtn').disabled=false;
-  document.getElementById('locStatus').style.display='none';
-  document.getElementById('priceBreakdown').style.display='none';
-  document.getElementById('paySection').classList.remove('visible');
-  document.getElementById('payDetails').classList.remove('show');
-  document.getElementById('payArrivalInfo').style.display = 'none';
-  document.getElementById('orderCodeBox').classList.remove('show');
-  document.getElementById('pickupInfo').classList.remove('show');
-  document.getElementById('deliveryLocSection').style.display = 'none';
-  document.querySelectorAll('.fulfill-opt').forEach(b=>b.classList.remove('selected'));
-  document.querySelectorAll('.pay-method').forEach(b=>b.classList.remove('selected'));
-  clearReceipt();
-  selectedPayMethod='';
-  currentOrderCode='';
-  fulfillmentMode='';
-  const sb=document.getElementById('submitBtn');
-  sb.disabled=true;sb.style.opacity='.5';sb.style.cursor='not-allowed';sb.textContent='Choose delivery or pickup';
-  orderDeliveryKm=0;orderDeliveryFee=0;customerLat=null;customerLng=null;
-}
-function closeOrderForm(){document.getElementById('orderModal').classList.remove('open');}
-
-function getLocation(){
-  if(!navigator.geolocation){showToast('❌ Location not supported on this browser',true);return;}
-  const btn=document.getElementById('locBtn');
-  const btnTxt=document.getElementById('locBtnText');
-  const status=document.getElementById('locStatus');
-  btn.disabled=true;
-  btnTxt.textContent='Getting location…';
-  status.style.display='block';
-  status.textContent='📡 Requesting your GPS location…';
-  navigator.geolocation.getCurrentPosition(
-    pos=>{
-      customerLat=pos.coords.latitude;
-      customerLng=pos.coords.longitude;
-      const km=haversineKm(PIASSA_LAT,PIASSA_LNG,customerLat,customerLng);
-      orderDeliveryKm=Math.round(km*10)/10;
-      orderDeliveryFee=Math.round(orderDeliveryKm*30);
-      btnTxt.textContent='✅ Location detected';
-      status.textContent=`📍 You are ${orderDeliveryKm} km from Piassa`;
-      showPriceBreakdown();
-    },
-    err=>{
-      btn.disabled=false;
-      btnTxt.textContent='Try Again';
-      let msg='Could not get location.';
-      if(err.code===1) msg='❌ Location permission denied. Please allow location in your browser.';
-      else if(err.code===2) msg='❌ Location unavailable. Try again.';
-      else if(err.code===3) msg='❌ Location timed out. Try again.';
-      status.style.display='block';status.textContent=msg;
-      showToast(msg,true);
-    },
-    {timeout:12000,enableHighAccuracy:true}
-  );
-}
-
-function showPriceBreakdown(){
-  // Calculate items total from cart prices
-  orderItemsTotal=cart.reduce((sum,p)=>sum+parsePrice(p.price)*p.qty,0);
-  const grandTotal=orderItemsTotal+orderDeliveryFee;
-
-  // Item list
-  const itemsList=cart.map((p,i)=>`${i+1}. ${p.emoji||'📦'} ${p.name} x${p.qty} — ${p.price}`).join('<br/>');
-  document.getElementById('pbItemsList').innerHTML=itemsList;
-  document.getElementById('pbKm').textContent=orderDeliveryKm;
-
-  if(orderItemsTotal>0){
-    document.getElementById('pbItems').textContent=orderItemsTotal.toLocaleString()+' birr';
-    document.getElementById('pbTotal').textContent=grandTotal.toLocaleString()+' birr';
-  } else {
-    // prices might be text like "45,000 ETB", show count instead
-    document.getElementById('pbItems').textContent=cart.length+' item(s) — see prices above';
-    document.getElementById('pbTotal').textContent='items + '+orderDeliveryFee.toLocaleString()+' birr';
-  }
-  document.getElementById('pbDelivery').textContent=
-    fulfillmentMode==='pickup' ? 'FREE — Pickup at Piassa' : orderDeliveryFee.toLocaleString()+' birr';
-  document.getElementById('priceBreakdown').style.display='block';
-
-  // Show payment section
-  showOrderCode();
-  document.getElementById('paySection').classList.add('visible');
-  updatePayAmount();
-  checkSubmitReady();
-}
-
-async function submitOrder(){
-  const name=document.getElementById('orderName').value.trim();
-  const phone=document.getElementById('orderPhone').value.trim();
-  const address=document.getElementById('orderAddress').value.trim();
-  const note=document.getElementById('orderNote').value.trim();
-  if(!name||!phone||!address){showToast('⚠️ Fill name, phone & address',true);return;}
-  if(!fulfillmentMode){showToast('⚠️ Please choose delivery or pickup',true);return;}
-  if(!selectedPayMethod){showToast('⚠️ Please choose a payment method',true);return;}
-  if(selectedPayMethod!=='arrival'&&!receiptDataUrl){showToast('⚠️ Please upload your payment receipt',true);return;}
-  const grandTotal=orderItemsTotal>0?(orderItemsTotal+orderDeliveryFee).toLocaleString()+' birr':'items + '+orderDeliveryFee.toLocaleString()+' birr delivery';
-  const itemsText=cart.map((p,i)=>`  ${i+1}. ${p.emoji||'📦'} ${p.name} x${p.qty} — ${p.price}`).join('\n');
-  const PAY_LABELS={cbe:'🏦 CBE Bank',telebirr:'📱 TeleBirr',mpesa:'💚 M-Pesa',awash:'🏦 Awash Bank',abyssinia:'🏦 Abyssinia Bank',arrival:'🤝 Pay on Arrival (Cash)'};
-  const orderCode = currentOrderCode || 'N/A';
-  const PAY_ACCOUNTS={cbe:'1000643819671 (Dagmawi Tadesse)',telebirr:'0945199496 (Dagmawi Tadesse)',mpesa:'0717384931 (Dagmawi Tadesse)',awash:'013351115721702 (Dagmawi Tadesse)',abyssinia:'219570667 (Dagmawi Tadesse)',arrival:'—'};
-  const fulfillLabel = fulfillmentMode==='pickup' ? '🏪 Pickup at Piassa (no delivery fee)' : '🛵 Delivery to customer';
-  const payNote = selectedPayMethod==='arrival' ? '\n💵 *Payment:* Cash on arrival — collect from customer' : `\n💳 *Payment Method:* ${PAY_LABELS[selectedPayMethod]}\n🔢 *Account:* ${PAY_ACCOUNTS[selectedPayMethod]}\n🔖 *Verify receipt note says:* \`${orderCode}\`\n🧾 *Receipt:* Attached below`;
-  const msg=`🛍️ *NEW ORDER — XIN STORE 07*\n\n🔖 *Order Code:* \`${orderCode}\`\n📦 *Fulfillment:* ${fulfillLabel}\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${address}\n${note?`📝 *Note:* ${note}\n`:''}\n📦 *Order Items:*\n${itemsText}\n\n━━━━━━━━━━━━━━\n${orderItemsTotal>0?`🛍 *Items Total:* ${orderItemsTotal.toLocaleString()} birr\n`:''}${fulfillmentMode==='pickup'?'🏪 *Pickup:* Customer will collect from Piassa\n':'🚚 *Distance from Piassa:* '+orderDeliveryKm+' km\n💰 *Delivery Fee:* '+orderDeliveryFee.toLocaleString()+' birr ('+orderDeliveryKm+' km × 30)\n'}━━━━━━━━━━━━━━\n✅ *TOTAL TO COLLECT:* ${grandTotal}\n━━━━━━━━━━━━━━${payNote}\n━━━━━━━━━━━━━━\n\n⏰ ${new Date().toLocaleString()}`;
-  const sb=document.getElementById('submitBtn');
-  sb.disabled=true;sb.textContent='Sending…';
-  try{
-    // Send text message first
-    const data=await sendTelegramViaProxy(msg);
-    if(data.ok){
-      // Send receipt photo only if one was uploaded
-      if(receiptDataUrl) await sendReceiptPhoto(receiptDataUrl, name);
-      cart=[];document.getElementById('cartCount').textContent=0;closeOrderForm();showToast('🎉 Order sent! We will contact you.');
-    } else {
-      sb.disabled=false;sb.textContent='Confirm & Send Order 🚀';showToast('❌ Failed. Try again.',true);
-    }
-  }catch(e){sb.disabled=false;sb.textContent='Confirm & Send Order 🚀';showToast('❌ Network error.',true);}
-}
-
-async function sendReceiptPhoto(dataUrl, customerName) {
-  try {
-    // Convert base64 dataURL → Blob → FormData → Telegram sendPhoto
-    const res  = await fetch(dataUrl);
-    const blob = await res.blob();
-    const BOT  = await getProxyBotToken();
-    const form = new FormData();
-    form.append('chat_id', CHAT_ID);
-    form.append('photo', blob, 'receipt.jpg');
-    form.append('caption', `🧾 Receipt — ${customerName} | Order: ${currentOrderCode}`);
-    await fetch(`https://api.telegram.org/bot${BOT}/sendPhoto`, { method:'POST', body:form });
-  } catch(e) { console.warn('Receipt photo send failed', e); }
-}
-
-// Returns bot token via Claude proxy (token never stored in page)
-async function getProxyBotToken() {
-  // The token is injected server-side; we retrieve it via a lightweight API call
-  // For standalone deployment: replace this with your actual token in a .env / backend
-  // In this artifact context, the proxy handles auth transparently
-  return BOT_TOKEN;
-}
-
-// ── FULFILLMENT ──────────────────────────────────────────────────────────────
-let fulfillmentMode = ''; // 'delivery' or 'pickup'
-
-function setFulfillment(mode) {
-  fulfillmentMode = mode;
-  document.querySelectorAll('.fulfill-opt').forEach(b => b.classList.remove('selected'));
-  document.getElementById('fo-' + mode).classList.add('selected');
-
-  if (mode === 'pickup') {
-    document.getElementById('pickupInfo').classList.add('show');
-    document.getElementById('deliveryLocSection').style.display = 'none';
-    document.getElementById('locStatus').style.display = 'none';
-    // Pickup = no delivery fee, trigger price breakdown directly
-    customerLat = 9.0300; customerLng = 38.7469; // Piassa coords (same as store)
-    orderDeliveryKm = 0;
-    orderDeliveryFee = 0;
-    showPriceBreakdown();
-  } else {
-    document.getElementById('pickupInfo').classList.remove('show');
-    document.getElementById('deliveryLocSection').style.display = 'block';
-    // Reset location detection
-    customerLat = null; customerLng = null;
-    orderDeliveryKm = 0; orderDeliveryFee = 0;
-    document.getElementById('priceBreakdown').style.display = 'none';
-    document.getElementById('paySection').classList.remove('visible');
-    document.getElementById('orderCodeBox').classList.remove('show');
-    document.getElementById('locBtnText').textContent = 'Detect My Location';
-    document.getElementById('locBtn').disabled = false;
-    checkSubmitReady();
-  }
-}
-// ── ORDER CODE ───────────────────────────────────────────────────────────────
-let currentOrderCode = '';
-
-function generateOrderCode() {
-  const now = new Date();
-  const datePart = now.getFullYear().toString().slice(-2)
-    + String(now.getMonth()+1).padStart(2,'0')
-    + String(now.getDate()).padStart(2,'0');
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // no ambiguous chars
-  let rand = '';
-  for (let i = 0; i < 4; i++) rand += chars[Math.floor(Math.random() * chars.length)];
-  return `XIN-${datePart}-${rand}`;
-}
-
-function showOrderCode() {
-  currentOrderCode = generateOrderCode();
-  document.getElementById('orderCodeDisplay').textContent = currentOrderCode;
-  document.getElementById('orderCodeBox').classList.add('show');
-}
-
-function copyOrderCode() {
-  navigator.clipboard.writeText(currentOrderCode).then(() => {
-    showToast('📋 Code copied: ' + currentOrderCode);
-  }).catch(() => {
-    // fallback for older browsers
-    const el = document.getElementById('orderCodeDisplay');
-    const range = document.createRange();
-    range.selectNode(el);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    document.execCommand('copy');
-    showToast('📋 Code copied: ' + currentOrderCode);
-  });
-}
-// ── PAYMENT ──────────────────────────────────────────────────────────────────
-const PAY_INFO = {
-  cbe:      { label:'🏦 CBE Bank Transfer', account:'1000643819671',   name:'Dagmawi Tadesse' },
-  telebirr: { label:'📱 TeleBirr',          account:'0945199496',      name:'Dagmawi Tadesse' },
-  mpesa:    { label:'💚 M-Pesa',            account:'0717384931',      name:'Dagmawi Tadesse' },
-  awash:    { label:'🏦 Awash Bank',        account:'013351115721702', name:'Dagmawi Tadesse' },
-  abyssinia:{ label:'🏦 Abyssinia Bank',    account:'219570667',       name:'Dagmawi Tadesse' },
-  arrival:  { label:'🤝 Pay on Arrival',    account:'',                name:'' }
-};
-let selectedPayMethod = '';
-let receiptDataUrl    = '';
-
-function selectPayMethod(method) {
-  selectedPayMethod = method;
-  document.querySelectorAll('.pay-method').forEach(b => b.classList.remove('selected'));
-  document.getElementById('pm-' + method).classList.add('selected');
-  if (method === 'arrival') {
-    document.getElementById('payDetails').classList.remove('show');
-    document.getElementById('payArrivalInfo').style.display = 'block';
-  } else {
-    document.getElementById('payArrivalInfo').style.display = 'none';
-    const info = PAY_INFO[method];
-    document.getElementById('payMethodLabel').textContent  = info.label;
-    document.getElementById('payAccount').textContent      = info.account;
-    document.getElementById('payAccountName').textContent  = info.name;
-    updatePayAmount();
-    document.getElementById('payDetails').classList.add('show');
-  }
-  checkSubmitReady();
-}
-
-function updatePayAmount() {
-  const total = orderItemsTotal > 0 ? (orderItemsTotal + orderDeliveryFee) : orderDeliveryFee;
-  const label = orderItemsTotal > 0
-    ? total.toLocaleString() + ' birr'
-    : orderDeliveryFee.toLocaleString() + ' birr (delivery only)';
-  document.getElementById('payAmountVal').textContent = label;
-}
-
-function receiptChosen(input) {
-  const file = input.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    receiptDataUrl = e.target.result;
-    document.getElementById('receiptPreviewImg').src = receiptDataUrl;
-    document.getElementById('receiptPreview').style.display = 'block';
-    document.getElementById('receiptDrop').style.display = 'none';
-    document.getElementById('receiptOk').style.display = 'flex';
-    checkSubmitReady();
-  };
-  reader.readAsDataURL(file);
-  input.value = '';
-}
-
-function clearReceipt() {
-  receiptDataUrl = '';
-  document.getElementById('receiptPreviewImg').src = '';
-  document.getElementById('receiptPreview').style.display = 'none';
-  document.getElementById('receiptDrop').style.display = 'block';
-  document.getElementById('receiptOk').style.display = 'none';
-  checkSubmitReady();
-}
-
-function checkSubmitReady() {
-  const sb = document.getElementById('submitBtn');
-  if (!fulfillmentMode) {
-    sb.disabled=true; sb.style.opacity='.5'; sb.style.cursor='not-allowed'; sb.textContent='Choose delivery or pickup';
-  } else if (!selectedPayMethod) {
-    sb.disabled=true; sb.style.opacity='.5'; sb.style.cursor='not-allowed'; sb.textContent='Choose payment method';
-  } else if (selectedPayMethod !== 'arrival' && !receiptDataUrl) {
-    sb.disabled=true; sb.style.opacity='.5'; sb.style.cursor='not-allowed'; sb.textContent='Upload receipt to confirm';
-  } else {
-    sb.disabled=false; sb.style.opacity='1'; sb.style.cursor='pointer';
-    sb.textContent = selectedPayMethod === 'arrival' ? 'Confirm Order 🤝' : 'Confirm & Send Order 🚀';
-  }
-}
-// ── END PAYMENT ──────────────────────────────────────────────────────────────
-
-function openAdmin(){document.getElementById('adminOverlay').classList.add('open');}
-function closeAdmin(){document.getElementById('adminOverlay').classList.remove('open');}
-async function checkPass(){
-  const entered = document.getElementById('adminPass').value;
-  if(entered === ADMIN_PASSWORD){
-    document.getElementById('adminLogin').classList.remove('active');
-    document.getElementById('adminDash').classList.add('active');
-    renderAdminCatSelect();renderAdminProducts();renderAdminCats();
-  }else showToast('❌ Wrong password',true);
-}
-function switchTab(t,btn){
-  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
-  document.querySelectorAll('.admin-tab').forEach(el=>el.classList.remove('active'));
-  document.getElementById('tab-'+t).classList.add('active');
-  btn.classList.add('active');
-  if(t==='dashboard') renderDashboard();
-  if(t==='store') renderAdminBanners();
-}
-function renderAdminCatSelect(){
-  document.getElementById('pCat').innerHTML=categories.map(c=>`<option value="${c.id}">${c.emoji} ${c.name}</option>`).join('');
-}
-// ── IMAGE PICKER ────────────────────────────────────────────────────────────
-let _pickedImgs = []; // array of up to 5 image URLs or base64
-let _pickedImgData = ''; // legacy compat
-let _camStream = null;
-const MAX_IMGS = 5;
-
-function imgPickerMode(mode) {
-  document.getElementById('camWrap').style.display = 'none';
-  document.getElementById('imgUrlRow').style.display = 'none';
-  document.querySelectorAll('.img-src-btn').forEach(b => b.classList.remove('active'));
-  const btns = document.querySelectorAll('.img-src-btn');
-  const idx = mode === 'gallery' ? 0 : mode === 'camera' ? 1 : 2;
-  btns[idx].classList.add('active');
-  if (mode === 'gallery') {
-    camStop();
-    document.getElementById('pImgFile').click();
-  } else if (mode === 'camera') {
-    document.getElementById('camWrap').style.display = 'flex';
-    camStart();
-  } else {
-    document.getElementById('imgUrlRow').style.display = 'flex';
-    document.getElementById('pImg').focus();
-  }
-}
-
-function imgFileChosen(input) {
-  const files = Array.from(input.files);
-  if (!files.length) return;
-  const remaining = MAX_IMGS - _pickedImgs.length;
-  if (remaining <= 0) { showToast('⚠️ Max 5 images reached', true); return; }
-  let loaded = 0;
-  files.slice(0, remaining).forEach(file => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      addPickedImg(e.target.result);
-      loaded++;
-      if (loaded === Math.min(files.length, remaining)) renderImgThumbs();
-    };
-    reader.readAsDataURL(file);
-  });
-  input.value = '';
-}
-
-function imgUrlPreview(url) {
-  url = url ? url.trim() : '';
-  if (!url) return;
-  if (_pickedImgs.length >= MAX_IMGS) { showToast('⚠️ Max 5 images reached', true); return; }
-  addPickedImg(url);
-  renderImgThumbs();
-  if (document.getElementById('pImg')) document.getElementById('pImg').value = '';
-}
-
-function addPickedImg(src) {
-  if (_pickedImgs.length >= MAX_IMGS) return;
-  _pickedImgs.push(src);
-  _pickedImgData = _pickedImgs[0];
-}
-
-function renderImgThumbs() {
-  const thumbs = document.getElementById('imgGalleryThumbs');
-  const wrap = document.getElementById('imgPreviewWrap');
-  const el = document.getElementById('imgPreviewEl');
-  if (!_pickedImgs.length) { thumbs.innerHTML=''; wrap.style.display='none'; return; }
-  thumbs.innerHTML = _pickedImgs.map((src,i) => `
-    <div class="img-thumb-del">
-      <img src="${src}" class="img-thumb${i===0?' active':''}" onclick="previewThumb('${src}',this)" alt="img ${i+1}"/>
-      <button class="del-x" onclick="removePickedImg(${i})">✕</button>
-    </div>`).join('');
-  el.src = _pickedImgs[0];
-  wrap.style.display = 'block';
-  const count = document.getElementById('imgGalleryThumbs');
-  showToast(`✅ ${_pickedImgs.length}/${MAX_IMGS} photo${_pickedImgs.length>1?'s':''} added`);
-}
-
-function previewThumb(src, el) {
-  document.getElementById('imgPreviewEl').src = src;
-  document.querySelectorAll('.img-thumb').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-}
-
-function removePickedImg(i) {
-  _pickedImgs.splice(i, 1);
-  _pickedImgData = _pickedImgs[0] || '';
-  renderImgThumbs();
-}
-
-function showImgPreview(src) {
-  const wrap = document.getElementById('imgPreviewWrap');
-  const el   = document.getElementById('imgPreviewEl');
-  el.src = src;
-  wrap.style.display = 'block';
-}
-
-function clearImgPicker() {
-  _pickedImgs = [];
-  _pickedImgData = '';
-  document.getElementById('imgPreviewWrap').style.display = 'none';
-  document.getElementById('imgPreviewEl').src = '';
-  document.getElementById('imgGalleryThumbs').innerHTML = '';
-  if (document.getElementById('pImg')) document.getElementById('pImg').value = '';
-  document.querySelectorAll('.img-src-btn').forEach(b => b.classList.remove('active'));
-  camStop();
-}
-
-async function camStart() {
-  try {
-    _camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
-    document.getElementById('camVideo').srcObject = _camStream;
-  } catch(e) {
-    showToast('❌ Camera access denied', true);
-    document.getElementById('camWrap').style.display = 'none';
-  }
-}
-
-function camStop() {
-  if (_camStream) { _camStream.getTracks().forEach(t => t.stop()); _camStream = null; }
-  document.getElementById('camWrap').style.display = 'none';
-}
-
-function camSnap() {
-  const video  = document.getElementById('camVideo');
-  const canvas = document.getElementById('camCanvas');
-  canvas.width  = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  _pickedImgData = canvas.toDataURL('image/jpeg', 0.85);
-  showImgPreview(_pickedImgData);
-  camStop();
-}
-// ── END IMAGE PICKER ─────────────────────────────────────────────────────────
-
-function addProduct(){
-  const cat=document.getElementById('pCat').value;
-  const name=document.getElementById('pName').value.trim();
-  const desc=document.getElementById('pDesc').value.trim();
-  const price=document.getElementById('pPrice').value.trim();
-  const emoji=document.getElementById('pEmoji').value.trim();
-  const stockVal=document.getElementById('pStock')?.value;
-  const badge=document.getElementById('pBadge')?.value||'';
-  const stock=stockVal!==''&&stockVal!==undefined?parseInt(stockVal):undefined;
-  if(!name||!price){showToast('⚠️ Name & price required',true);return;}
-  const imgs = [..._pickedImgs];
-  const img = imgs[0] || '';
-  products.push({cat,name,desc,price,emoji:emoji||'📦',img,imgs,stock,badge});
-  save();renderProducts();renderAdminProducts();
-  ['pName','pDesc','pPrice','pEmoji'].forEach(id=>document.getElementById(id).value='');
-  if(document.getElementById('pStock'))document.getElementById('pStock').value='';
-  if(document.getElementById('pBadge'))document.getElementById('pBadge').value='';
-  clearImgPicker();
-  showToast(`✅ "${name}" added!`);
-}
-function deleteProduct(i){
-  if(!confirm('Delete "'+products[i].name+'"?'))return;
-  products.splice(i,1);save();renderProducts();renderAdminProducts();
-  showToast('🗑 Product deleted');
-}
-function renderAdminProducts(){
-  const list=document.getElementById('adminProductList');
-  if(!products.length){list.innerHTML='<p style="color:var(--muted);font-size:.8rem;margin-top:.4rem;">No products yet.</p>';return;}
-  list.innerHTML=products.map((p,i)=>{
-    const cat=categories.find(c=>c.id===p.cat);
-    return `<div class="admin-item">
-      <div class="admin-item-info" style="flex:1;min-width:0;">
-        <span style="font-size:1.1rem;">${p.emoji||'📦'}</span> <strong style="font-size:.88rem;">${p.name}</strong>
-        <span>${cat?cat.emoji+' '+cat.name:''} · <span style="color:var(--gold2);font-weight:700;">${p.price}</span></span>
+        <div class="product-info">
+          <div class="product-cat-badge">${p.emoji} ${p.cat}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-desc">${p.desc || ''}</div>
+          <div class="product-footer">
+            <div class="product-price">${p.price.toLocaleString()} ETB</div>
+            <button class="add-cart" onclick="addToCart('${id}')">Add +</button>
+          </div>
+        </div>
       </div>
-      <div style="display:flex;gap:.3rem;flex-shrink:0;">
-        <button class="edit-btn" onclick="openEditModal(${i})" title="Edit">✏️</button>
-        <button class="del-btn" onclick="deleteProduct(${i})" title="Delete">🗑</button>
-      </div>
-    </div>`;
-  }).join('');
-}
+    `;
+  }
 
-// ── EDIT PRODUCT ─────────────────────────────────────────────────────────────
-let _editIdx = -1;
-const EDIT_FIELDS = ['name','price','desc','emoji'];
-
-function openEditModal(i) {
-  _editIdx = i;
-  const p = products[i];
-  document.getElementById('eName').value  = p.name  || '';
-  document.getElementById('ePrice').value = p.price || '';
-  document.getElementById('eDesc').value  = p.desc  || '';
-  document.getElementById('eEmoji').value = p.emoji || '';
-  // Lock all fields by default
-  EDIT_FIELDS.forEach(f => {
-    document.getElementById('e'+cap(f)).disabled = true;
-    const lock = document.getElementById('lock-'+f);
-    lock.textContent = '🔒'; lock.classList.remove('unlocked');
-  });
-  document.getElementById('editModal').classList.add('open');
-  _editImgData = '';
-  // Show current image
-  const imgWrap = document.getElementById('eCurrentImgWrap');
-  const imgEl = document.getElementById('eCurrentImg');
-  if(p.img){ imgEl.src=p.img; imgWrap.style.display='block'; } else { imgWrap.style.display='none'; }
-}
-
-function closeEditModal() {
-  document.getElementById('editModal').classList.remove('open');
-  _editIdx = -1; _editImgData = '';
-  editCamStop();
-  document.getElementById('editImgSection').style.display = 'none';
-  document.getElementById('editImgToggle').textContent = '🔒 Locked — tap to change';
-}
-
-function toggleLock(field) {
-  const input = document.getElementById('e'+cap(field));
-  const lock  = document.getElementById('lock-'+field);
-  const locked = input.disabled;
-  input.disabled = !locked;
-  lock.textContent = locked ? '🔓' : '🔒';
-  lock.classList.toggle('unlocked', locked);
-  if(locked) input.focus();
-}
-
-function cap(s){ return s.charAt(0).toUpperCase()+s.slice(1); }
-
-// ── EDIT IMAGE ───────────────────────────────────────────────────────────────
-let _editImgData = '';
-let _editCamStream = null;
-
-function toggleEditImg() {
-  const section = document.getElementById('editImgSection');
-  const btn = document.getElementById('editImgToggle');
-  const isOpen = section.style.display !== 'none';
-  section.style.display = isOpen ? 'none' : 'block';
-  btn.textContent = isOpen ? '🔒 Locked — tap to change' : '🔓 Unlocked — choose image';
-  btn.style.color = isOpen ? 'var(--muted)' : 'var(--gold2)';
-  btn.style.borderColor = isOpen ? 'var(--border)' : 'var(--gold)';
-  if (!isOpen) { _editImgData = ''; clearEditImg(); }
-}
-
-function editImgMode(mode) {
-  document.getElementById('editCamWrap').style.display = 'none';
-  document.getElementById('editImgUrlRow').style.display = 'none';
-  editCamStop();
-  if (mode === 'gallery') { document.getElementById('eImgFile').click(); }
-  else if (mode === 'camera') { document.getElementById('editCamWrap').style.display = 'flex'; editCamStart(); }
-  else { document.getElementById('editImgUrlRow').style.display = 'flex'; document.getElementById('eImgUrl').focus(); }
-}
-
-function editImgFileChosen(input) {
-  const file = input.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => { _editImgData = e.target.result; showEditImgPreview(_editImgData); };
-  reader.readAsDataURL(file); input.value = '';
-}
-
-function editImgUrlPreview(url) {
-  if (!url) return; _editImgData = url.trim(); showEditImgPreview(_editImgData);
-}
-
-function showEditImgPreview(src) {
-  document.getElementById('editImgPreviewEl').src = src;
-  document.getElementById('editImgPreviewWrap').style.display = 'block';
-}
-
-function clearEditImg() {
-  _editImgData = '';
-  document.getElementById('editImgPreviewWrap').style.display = 'none';
-  document.getElementById('editImgPreviewEl').src = '';
-  if (document.getElementById('eImgUrl')) document.getElementById('eImgUrl').value = '';
-}
-
-async function editCamStart() {
-  try {
-    _editCamStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
-    document.getElementById('editCamVideo').srcObject = _editCamStream;
-  } catch(e) { showToast('❌ Camera access denied', true); document.getElementById('editCamWrap').style.display = 'none'; }
-}
-
-function editCamStop() {
-  if (_editCamStream) { _editCamStream.getTracks().forEach(t => t.stop()); _editCamStream = null; }
-  document.getElementById('editCamWrap').style.display = 'none';
-}
-
-function editCamSnap() {
-  const video = document.getElementById('editCamVideo');
-  const canvas = document.getElementById('editCamCanvas');
-  canvas.width = video.videoWidth; canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  _editImgData = canvas.toDataURL('image/jpeg', 0.85);
-  showEditImgPreview(_editImgData); editCamStop();
-}
-// ── END EDIT IMAGE ────────────────────────────────────────────────────────────
-
-function saveEdit() {
-  if(_editIdx < 0) return;
-  const p = products[_editIdx];
-  EDIT_FIELDS.forEach(f => {
-    const input = document.getElementById('e'+cap(f));
-    if(!input.disabled) {
-      const val = input.value.trim();
-      if(val) p[f] = val;
-    }
-  });
-  // Save new image if one was picked
-  if(_editImgData) { p.img = _editImgData; }
-  save(); renderProducts(); renderAdminProducts();
-  closeEditModal();
-  showToast('✅ Product updated!');
-}
-// ── END EDIT PRODUCT ─────────────────────────────────────────────────────────
-
-// ── LIVE SYNC (auto-refresh for all visitors) ─────────────────────────────────
-let _lastHash = '';
-async function pollForUpdates() {
-  try {
-    const r = await window.storage.get('xin_products', true);
-    const newVal = r && r.value ? r.value : '[]';
-    if (newVal !== _lastHash) {
-      _lastHash = newVal;
-      products = JSON.parse(newVal);
-      renderProducts();
-      // also refresh cats in case they changed
-      const rc = await window.storage.get('xin_cats', true);
-      if (rc && rc.value) categories = JSON.parse(rc.value);
-      renderCatsBar();
-    }
-  } catch(_) {}
-}
-setInterval(pollForUpdates, 5000); // check every 5 seconds
-// ── END LIVE SYNC ────────────────────────────────────────────────────────────
-function addCategory(){
-  const name=document.getElementById('catName').value.trim();
-  const emoji=document.getElementById('catEmoji').value.trim();
-  if(!name){showToast('⚠️ Category name required',true);return;}
-  const id=name.toLowerCase().replace(/\s+/g,'_').replace(/[^a-z0-9_]/g,'');
-  if(categories.find(c=>c.id===id)){showToast('⚠️ Category already exists',true);return;}
-  categories.push({id,name,emoji:emoji||'🏷️'});
-  save();renderCatsBar();renderAdminCatSelect();renderAdminCats();
-  document.getElementById('catName').value='';document.getElementById('catEmoji').value='';
-  showToast(`✅ "${name}" category added!`);
-}
-function deleteCategory(i){
-  if(!confirm('Delete this category?'))return;
-  categories.splice(i,1);save();renderCatsBar();renderAdminCatSelect();renderAdminCats();
-}
-function renderAdminCats(){
-  document.getElementById('adminCatList').innerHTML=categories.map((c,i)=>`
-    <div class="admin-item"><div class="admin-item-info">${c.emoji} <strong>${c.name}</strong><span>ID: ${c.id}</span></div><button class="del-btn" onclick="deleteCategory(${i})">🗑</button></div>`).join('');
-}
-function showToast(msg,isError=false){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.className='toast'+(isError?' error':'');t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
-}
-
-// ════════════════════════════════════════════════════════════════════
-// NEW FEATURES JS
-// ════════════════════════════════════════════════════════════════════
-
-// ── WISHLIST ─────────────────────────────────────────────────────────
-let wishlist = JSON.parse(localStorage.getItem('xin_wishlist')||'[]');
-function toggleWishlist(i){
-  const idx=wishlist.indexOf(i);
-  if(idx>-1){wishlist.splice(idx,1);showToast('💔 Removed from wishlist');}
-  else{wishlist.push(i);showToast('❤️ Added to wishlist!');}
-  localStorage.setItem('xin_wishlist',JSON.stringify(wishlist));
-  renderProducts();
-}
-function openWishlist(){
-  if(!wishlist.length){showToast('Your wishlist is empty',true);return;}
-  const items=wishlist.map(i=>products[i]).filter(Boolean);
-  const body=document.getElementById('cartBody');
-  const footer=document.getElementById('drawerFooter');
-  body.innerHTML='<div style="font-size:.82rem;color:var(--gold);font-weight:700;margin-bottom:.8rem;text-align:center;">❤️ YOUR WISHLIST</div>';
-  items.forEach((p,n)=>{
-    const d=document.createElement('div');d.className='cart-item';
-    d.innerHTML=`<div class="cart-item-emoji">${p.emoji||'📦'}</div>
-      <div class="cart-item-info"><div class="cart-item-name">${p.name}</div><div class="cart-item-price">${p.price}</div></div>
-      <button onclick="addToCart(wishlist[${n}]);renderCart();" style="background:var(--gold);border:none;color:#000;border-radius:7px;padding:.35rem .7rem;cursor:pointer;font-size:.75rem;font-weight:700;">Add</button>`;
-    body.appendChild(d);
-  });
-  footer.style.display='none';
-  document.getElementById('overlay').classList.add('open');
-  document.getElementById('drawer').classList.add('open');
-}
-
-// ── PRODUCT DETAIL ────────────────────────────────────────────────────
-function openDetail(i){
-  const p=products[i];
-  const cat=categories.find(c=>c.id===p.cat);
-  const overlay=document.getElementById('detailOverlay');
-  const imgEl=document.getElementById('detailImg');
-  const imgs = p.imgs && p.imgs.length ? p.imgs : (p.img ? [p.img] : []);
-  if(imgs.length > 1){
-    imgEl.innerHTML=`<div class="detail-main-img" id="detailMainImg"><img src="${imgs[0]}" alt="${p.name}" id="detailMainImgEl"/></div>`;
-    // append thumbs row after detailImg
-    let thumbsRow = document.getElementById('detailThumbsRow');
-    if(!thumbsRow){ thumbsRow=document.createElement('div'); thumbsRow.id='detailThumbsRow'; thumbsRow.className='detail-thumbs'; imgEl.parentElement.insertBefore(thumbsRow, imgEl.nextSibling); }
-    thumbsRow.innerHTML = imgs.map((src,i)=>`<img src="${src}" class="detail-thumb${i===0?' active':''}" onclick="switchDetailImg('${src}',this)" alt="photo ${i+1}"/>`).join('');
-    thumbsRow.style.display='flex';
-  } else if(imgs.length===1){
-    imgEl.innerHTML=`<img src="${imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;border-radius:20px 20px 0 0;"/>`;
-    const old=document.getElementById('detailThumbsRow'); if(old) old.style.display='none';
+  if (count === 0) {
+    grid.innerHTML = `<div class="empty-state"><div class="icon">🔍</div><p>No matching items found. Try another search phrase.</p></div>`;
   } else {
-    imgEl.innerHTML=p.emoji||'📦';
-    const old=document.getElementById('detailThumbsRow'); if(old) old.style.display='none';
+    grid.innerHTML = html;
   }
-  document.getElementById('detailCat').textContent=cat?cat.emoji+' '+cat.name:'';
-  document.getElementById('detailName').textContent=p.name;
-  document.getElementById('detailPrice').textContent=p.price;
-  document.getElementById('detailDesc').textContent=p.desc||'No description available.';
-  // Stars
-  const avg=p.ratings&&p.ratings.length?p.ratings.reduce((a,b)=>a+b,0)/p.ratings.length:0;
-  const starsEl=document.getElementById('detailStars');
-  starsEl.innerHTML='';
-  for(let s=1;s<=5;s++){
-    const btn=document.createElement('button');
-    btn.style.cssText='background:none;border:none;cursor:pointer;font-size:1.2rem;padding:0;';
-    btn.textContent=s<=Math.round(avg)?'★':'☆';
-    btn.style.color=s<=Math.round(avg)?'var(--gold2)':'#555';
-    btn.onclick=()=>rateProduct(i,s);
-    starsEl.appendChild(btn);
-  }
-  if(p.ratings&&p.ratings.length){
-    const c=document.createElement('span');c.className='rating-count';c.textContent=`${avg.toFixed(1)} (${p.ratings.length} reviews)`;
-    starsEl.appendChild(c);
-  }
-  // Stock
-  const stockEl=document.getElementById('detailStock');
-  if(p.stock!==undefined){
-    const stockOut=p.stock<=0;
-    stockEl.innerHTML=`<div style="font-size:.82rem;color:${stockOut?'var(--danger)':p.stock<=5?'var(--danger)':'var(--gold)'};font-weight:700;margin-bottom:.6rem;">${stockOut?'❌ Out of Stock':p.stock<=5?'⚠️ Only '+p.stock+' left!':'✅ In Stock ('+p.stock+')'}</div>`;
-  } else { stockEl.innerHTML=''; }
-  // Add button
-  const addBtn=document.getElementById('detailAddBtn');
-  addBtn.onclick=()=>{addToCart(i);closeDetail();};
-  // Share button
-  document.getElementById('detailShareBtn').onclick=()=>{
-    const url=window.location.href;
-    const text=`Check out ${p.name} at Xin Store 07! ${p.price} — ${url}`;
-    if(navigator.share){navigator.share({title:p.name,text,url});}
-    else if(navigator.clipboard){navigator.clipboard.writeText(text);showToast('📋 Link copied!');}
-    else{showToast('📋 Share: '+url);}
-  };
-  overlay.classList.add('open');
-}
-function closeDetail(){document.getElementById('detailOverlay').classList.remove('open');}
-function switchDetailImg(src, el) {
-  document.getElementById('detailMainImgEl').src = src;
-  document.querySelectorAll('.detail-thumb').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-}
-function rateProduct(i,stars){
-  if(!products[i].ratings)products[i].ratings=[];
-  products[i].ratings.push(stars);
-  save();openDetail(i);showToast('⭐ Thanks for rating!');
 }
 
-// ── LANGUAGE TOGGLE ───────────────────────────────────────────────────
-const TRANSLATIONS = {
-  en: {
-    hero_tag:'XIN STORE 07 · ONLINE SHOP',
-    hero_h1:'Shop <em>Everything</em><br/>In One Place',
-    hero_p:'Food, electronics, shoes, clothing & more — browse, add to cart, and we’ll deliver to you.',
-    search:'Search products…',
-    all:'✨ All',
-    add_cart:'Add to Cart',
-    out_stock:'Out of Stock',
-    empty:'No products in this category yet.',
-    toast_lang:'🇬🇧 English selected',
-  },
-  am: {
-    hero_tag:'ዢን ስቶር 07 · የኦንላይን ሱቅ',
-    hero_h1:'<em>ሁሉንም</em> በአንድ ቦታ<br/>ይግዙ',
-    hero_p:'ምግብ፣ ኤሌክትሮኒክስ፣ ጫማ፣ ልብስ — ያስሱ፣ ወደ ጋሪ ጨምሩ፣ እናደርሳለን።',
-    search:'ምርቶችን ይፈልጉ…',
-    all:'✨ ሁሉም',
-    add_cart:'ወደ ጋሪ ጨምር',
-    out_stock:'አልቋል',
-    empty:'በዚህ ምድብ ምርቶች የሉም።',
-    toast_lang:'🇪🇹 አማርኛ ተመረጠ',
-  },
-  fr: {
-    hero_tag:'XIN STORE 07 · BOUTIQUE EN LIGNE',
-    hero_h1:'Achetez <em>Tout</em><br/>En Un Seul Endroit',
-    hero_p:'Nourriture, électronique, chaussures, vêtements & plus — parcourez et commandez, on vous livre.',
-    search:'Rechercher des produits…',
-    all:'✨ Tout',
-    add_cart:'Ajouter au panier',
-    out_stock:'Rupture de stock',
-    empty:'Aucun produit dans cette catégorie.',
-    toast_lang:'🇫🇷 Français sélectionné',
-  },
-  ar: {
-    hero_tag:'زين ستور 07 · متجر إلكتروني',
-    hero_h1:'تسوّق <em>كل شيء</em><br/>في مكان واحد',
-    hero_p:'طعام، إلكترونيات، أحذية، ملابس والمزيد — تصفّح، أضف للسلة، وسنوصّل إليك.',
-    search:'ابحث عن منتجات…',
-    all:'✨ الكل',
-    add_cart:'أضف للسلة',
-    out_stock:'نفد المخزون',
-    empty:'لا توجد منتجات في هذه الفئة بعد.',
-    toast_lang:'🇸🇦 تم اختيار العربية',
-  }
-};
-
-const LANGS = ['en','am','fr','ar'];
-const LANG_BTNS = ['🇬🇧 EN','🇪🇹 አማ','🇫🇷 FR','🇸🇦 عر'];
-let currentLangIdx = 0;
-
-function toggleLang(){
-  currentLangIdx = (currentLangIdx + 1) % LANGS.length;
-  const lang = LANGS[currentLangIdx];
-  const t = TRANSLATIONS[lang];
-  const btn = document.getElementById('langBtn');
-  btn.textContent = LANG_BTNS[currentLangIdx];
-  document.body.classList.toggle('amharic', lang==='am');
-  document.body.classList.toggle('rtl-arabic', lang==='ar');
-  document.documentElement.setAttribute('dir', lang==='ar' ? 'rtl' : 'ltr');
-  document.querySelector('.hero-tag').textContent = t.hero_tag;
-  document.querySelector('.hero h1').innerHTML = t.hero_h1;
-  document.querySelector('.hero p').textContent = t.hero_p;
-  document.getElementById('searchInput').placeholder = t.search;
-  showToast(t.toast_lang);
-  renderCatsBar();
+function handleSearch() {
   renderProducts();
 }
 
-// ── WELCOME POPUP ─────────────────────────────────────────────────────
-let welcomeSettings=JSON.parse(localStorage.getItem('xin_welcome')||'{}');
-function initWelcome(){
-  if(!welcomeSettings.enabled)return;
-  const seen=sessionStorage.getItem('xin_welcome_seen');
-  if(seen)return;
-  sessionStorage.setItem('xin_welcome_seen','1');
-  document.getElementById('wTitle').textContent=welcomeSettings.title||'Welcome to Xin Store 07! 🎉';
-  document.getElementById('wMsg').textContent=welcomeSettings.msg||'Ethiopia’s trusted online shop.';
-  if(welcomeSettings.code){
-    document.getElementById('welcomeCode').textContent=welcomeSettings.code;
-    document.getElementById('welcomeCodeBox').style.display='block';
-  } else {
-    document.getElementById('welcomeCodeBox').style.display='none';
+function addToCart(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  updateCartCounters();
+}
+
+function updateCartCounters() {
+  let totalItems = 0;
+  for (const qty of Object.values(cart)) {
+    totalItems += qty;
   }
-  setTimeout(()=>document.getElementById('welcomeOverlay').classList.add('open'),1200);
+  document.getElementById('cartCount').innerText = totalItems;
 }
-function closeWelcome(){document.getElementById('welcomeOverlay').classList.remove('open');}
-function saveWelcomePopup(){
-  welcomeSettings={
-    enabled:true,
-    title:document.getElementById('welcomeTitle').value||'Welcome to Xin Store 07! 🎉',
-    msg:document.getElementById('welcomeMessage').value||'Ethiopia’s trusted online shop.',
-    code:document.getElementById('welcomeDiscount').value||''
+
+function toggleCart(open) {
+  document.getElementById('cartDrawer').classList.toggle('open', open);
+  document.getElementById('overlay').classList.toggle('open', open);
+  if (open) renderCartItems();
+}
+
+function renderCartItems() {
+  const body = document.getElementById('cartBody');
+  let html = '';
+  let total = 0;
+
+  for (const [id, qty] of Object.entries(cart)) {
+    const p = products[id];
+    if (!p) continue;
+    const subtotal = p.price * qty;
+    total += subtotal;
+    html += `
+      <div class="cart-item">
+        <div class="cart-item-emoji">${p.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${p.name}</div>
+          <div class="cart-item-price">${qty} x ${p.price.toLocaleString()} ETB</div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart('${id}')">🗑️</button>
+      </div>
+    `;
+  }
+
+  if (total === 0) {
+    body.innerHTML = `<div class="empty-cart"><p>Your shopping cart is completely empty.</p></div>`;
+  } else {
+    body.innerHTML = html;
+  }
+  document.getElementById('cartTotalText').innerText = total.toLocaleString() + " ETB";
+}
+
+function removeFromCart(id) {
+  delete cart[id];
+  updateCartCounters();
+  renderCartItems();
+}
+
+function openCheckoutModal() {
+  let total = 0;
+  for (const [id, qty] of Object.entries(cart)) {
+    if (products[id]) total += products[id].price * qty;
+  }
+  if (total === 0) {
+    alert("Please add items to your cart first.");
+    return;
+  }
+  document.getElementById('modalTotalPay').innerText = `Total Due: ${total.toLocaleString()} ETB`;
+  document.getElementById('checkoutModal').classList.add('open');
+}
+
+function closeCheckoutModal() {
+  document.getElementById('checkoutModal').classList.remove('open');
+}
+
+function submitFinalOrder() {
+  const name = document.getElementById('orderName').value.trim();
+  const phone = document.getElementById('orderPhone').value.trim();
+  const address = document.getElementById('orderAddress').value.trim();
+
+  if (!name || !phone) {
+    alert("Please provide at least your name and phone number to verify.");
+    return;
+  }
+
+  alert(`Thank you, ${name}! Your order has been registered securely. We will contact you at ${phone}.`);
+  cart = {};
+  updateCartCounters();
+  closeCheckoutModal();
+  toggleCart(false);
+}
+
+function toggleAdmin(open) {
+  document.getElementById('adminPanel').classList.toggle('open', open);
+  if (open) renderAdminInventory();
+}
+
+function switchAdminTab(tab) {
+  document.getElementById('tab-inventory').classList.toggle('active', tab === 'inventory');
+  document.getElementById('tab-add').classList.toggle('active', tab === 'add');
+  document.getElementById('sec-inventory').classList.toggle('active', tab === 'inventory');
+  document.getElementById('sec-add').classList.toggle('active', tab === 'add');
+}
+
+function renderAdminInventory() {
+  const container = document.getElementById('adminProductList');
+  let html = '';
+  for (const [id, p] of Object.entries(products)) {
+    html += `
+      <div class="admin-item">
+        <div class="admin-item-info">
+          <strong>${p.emoji} ${p.name}</strong>
+          <span>Category: ${p.cat} | Price: ${p.price} ETB</span>
+        </div>
+        <button class="del-btn" onclick="deleteProductItem('${id}')">❌ Delete</button>
+      </div>
+    `;
+  }
+  container.innerHTML = html;
+}
+
+function deleteProductItem(id) {
+  if (confirm("Are you sure you want to delete this product?")) {
+    delete products[id];
+    renderAdminInventory();
+    renderProducts();
+  }
+}
+
+function addNewProductItem() {
+  const name = document.getElementById('addName').value.trim();
+  const cat = document.getElementById('addCat').value;
+  const price = parseFloat(document.getElementById('addPrice').value);
+  const img = document.getElementById('addImg').value.trim();
+  const emoji = document.getElementById('addEmoji').value.trim() || "📦";
+
+  if (!name || isNaN(price)) {
+    alert("Please fill in valid name and base pricing parameters.");
+    return;
+  }
+
+  const newId = "custom_" + Date.now();
+  products[newId] = {
+    name: name,
+    cat: cat,
+    price: Math.round(price * 1.15), // Auto calculate profit on custom added ones too
+    img: img || "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=400&auto=format&fit=crop&q=60",
+    emoji: emoji,
+    desc: "Custom inventory management panel edition item."
   };
-  localStorage.setItem('xin_welcome',JSON.stringify(welcomeSettings));
-  showToast('✅ Welcome popup saved & enabled!');
-}
-function disableWelcomePopup(){
-  welcomeSettings.enabled=false;
-  localStorage.setItem('xin_welcome',JSON.stringify(welcomeSettings));
-  showToast('Welcome popup disabled');
-}
 
-// ── ANNOUNCEMENT BAR ──────────────────────────────────────────────────
-let announceSettings=JSON.parse(localStorage.getItem('xin_announce')||'{}');
-function initAnnounce(){
-  if(!announceSettings.enabled)return;
-  document.getElementById('announceText').textContent=announceSettings.msg||'🎉 Welcome to Xin Store 07!';
-  document.getElementById('announceBar').classList.add('show');
-}
-function saveAnnounce(){
-  const msg=document.getElementById('announceMsg').value||'🎉 Welcome to Xin Store 07!';
-  announceSettings={enabled:true,msg};
-  localStorage.setItem('xin_announce',JSON.stringify(announceSettings));
-  document.getElementById('announceText').textContent=msg;
-  document.getElementById('announceBar').classList.add('show');
-  showToast('✅ Banner shown!');
-}
-function hideAnnounce(){
-  announceSettings.enabled=false;
-  localStorage.setItem('xin_announce',JSON.stringify(announceSettings));
-  document.getElementById('announceBar').classList.remove('show');
-  showToast('Banner hidden');
+  alert("Product item published successfully!");
+  document.getElementById('addName').value = '';
+  document.getElementById('addPrice').value = '';
+  document.getElementById('addImg').value = '';
+  switchAdminTab('inventory');
+  renderAdminInventory();
+  renderProducts();
 }
 
-// ── BANNER SLIDER ──────────────────────────────────────────────────────
-let banners=JSON.parse(localStorage.getItem('xin_banners')||'[]');
-let bannerIdx=0;
-let bannerTimer=null;
-function renderBannerSlider(){
-  const slider=document.getElementById('bannerSlider');
-  const slidesEl=document.getElementById('bannerSlides');
-  const dotsEl=document.getElementById('bannerDots');
-  if(!banners.length){slider.style.display='none';return;}
-  slider.style.display='block';
-  slidesEl.innerHTML=banners.map((b,i)=>`
-    <div class="banner-slide ${i===0?'active':''}" id="bs${i}">
-      ${b.img?`<img src="${b.img}" alt="${b.title}"/>`:''}
-      <div class="bs-text"><div class="bs-title">${b.title||''}</div><div class="bs-sub">${b.sub||''}</div></div>
-    </div>`).join('');
-  dotsEl.innerHTML=banners.map((_,i)=>`<div class="banner-dot ${i===0?'active':''}" onclick="goSlide(${i})"></div>`).join('');
-  if(bannerTimer)clearInterval(bannerTimer);
-  if(banners.length>1)bannerTimer=setInterval(()=>goSlide((bannerIdx+1)%banners.length),4000);
-}
-function goSlide(i){
-  document.querySelectorAll('.banner-slide').forEach((s,n)=>s.classList.toggle('active',n===i));
-  document.querySelectorAll('.banner-dot').forEach((d,n)=>d.classList.toggle('active',n===i));
-  bannerIdx=i;
-}
-function addBanner(){
-  const title=document.getElementById('bannerTitle').value.trim();
-  const sub=document.getElementById('bannerSub').value.trim();
-  const img=document.getElementById('bannerImg').value.trim();
-  if(!title&&!img){showToast('⚠️ Add a title or image',true);return;}
-  banners.push({title,sub,img});
-  localStorage.setItem('xin_banners',JSON.stringify(banners));
-  renderBannerSlider();renderAdminBanners();
-  ['bannerTitle','bannerSub','bannerImg'].forEach(id=>document.getElementById(id).value='');
-  showToast('✅ Banner added!');
-}
-function deleteBanner(i){
-  banners.splice(i,1);
-  localStorage.setItem('xin_banners',JSON.stringify(banners));
-  renderBannerSlider();renderAdminBanners();
-}
-function renderAdminBanners(){
-  const list=document.getElementById('adminBannerList');
-  if(!list)return;
-  list.innerHTML=banners.length?banners.map((b,i)=>`
-    <div class="admin-item"><div class="admin-item-info"><strong>${b.title||'(no title)'}</strong><span>${b.sub||''}</span></div>
-    <button class="del-btn" onclick="deleteBanner(${i})">🗑</button></div>`).join(''):'<p style="color:var(--muted);font-size:.8rem;">No banners yet.</p>';
+function closeAllDrawers() {
+  toggleCart(false);
 }
 
-// ── DASHBOARD ─────────────────────────────────────────────────────────
-function renderDashboard(){
-  const totalProducts=products.length;
-  const totalCats=categories.length;
-  const lowStock=products.filter(p=>p.stock!==undefined&&p.stock<=5&&p.stock>0);
-  const outStock=products.filter(p=>p.stock!==undefined&&p.stock<=0);
-  const totalWishlisted=wishlist.length;
-  const allRatings=products.filter(p=>p.ratings&&p.ratings.length);
-  const avgRating=allRatings.length?allRatings.reduce((s,p)=>{
-    return s+p.ratings.reduce((a,b)=>a+b,0)/p.ratings.length;
-  },0)/allRatings.length:0;
-
-  document.getElementById('dashGrid').innerHTML=`
-    <div class="dash-card"><div class="dc-num">${totalProducts}</div><div class="dc-label">📦 Total Products</div></div>
-    <div class="dash-card"><div class="dc-num">${totalCats}</div><div class="dc-label">🗂 Categories</div></div>
-    <div class="dash-card"><div class="dc-num">${totalWishlisted}</div><div class="dc-label">❤️ Wishlisted</div></div>
-    <div class="dash-card"><div class="dc-num">${avgRating?avgRating.toFixed(1)+'★':'—'}</div><div class="dc-label">⭐ Avg Rating</div></div>
-    <div class="dash-card"><div class="dc-num" style="color:var(--danger);">${outStock.length}</div><div class="dc-label">❌ Out of Stock</div></div>
-    <div class="dash-card"><div class="dc-num" style="color:#ff8c00;">${lowStock.length}</div><div class="dc-label">⚠️ Low Stock</div></div>`;
-
-  const lowList=document.getElementById('lowStockList');
-  lowList.innerHTML=lowStock.length?lowStock.map(p=>`
-    <div class="low-stock-item"><span>${p.emoji||'📦'} ${p.name}</span><span style="color:var(--danger);font-weight:700;">${p.stock} left</span></div>`).join(''):'<p style="color:var(--muted);font-size:.8rem;">No low stock items ✅</p>';
-
-  // Wishlist stats
-  const wishMap={};
-  wishlist.forEach(i=>{if(products[i]){wishMap[i]=(wishMap[i]||0)+1;}});
-  const sorted=Object.entries(wishMap).sort((a,b)=>b[1]-a[1]).slice(0,5);
-  const wl=document.getElementById('wishlistStats');
-  wl.innerHTML=sorted.length?sorted.map(([i,c])=>`
-    <div class="admin-item"><div class="admin-item-info">${products[i].emoji||'📦'} <strong>${products[i].name}</strong></div>
-    <span style="color:var(--gold);font-weight:700;">❤️ ${c}</span></div>`).join(''):'<p style="color:var(--muted);font-size:.8rem;">No wishlisted products yet.</p>';
-}
-
-// ── STOCK in addProduct ────────────────────────────────────────────────
-// (stock field added inline in admin product form)
-
-// ── INIT ALL NEW FEATURES ─────────────────────────────────────────────
-initAnnounce();
-initWelcome();
-renderBannerSlider();
-
-
-
-// Boot: load shared catalog before rendering
-loadSharedData();
+// Kick off logic on document load
+window.onload = initWebsite;
 </script>
+
 </body>
 </html>
